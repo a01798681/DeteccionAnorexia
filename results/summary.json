@@ -1,0 +1,10 @@
+{
+  "logistic_regression": {
+    "roc_auc": 0.9461101925912686,
+    "accuracy": 0.8566666666666667
+  },
+  "linear_svm": {
+    "roc_auc": 0.9440100093837973,
+    "accuracy": 0.8733333333333333
+  }
+}
