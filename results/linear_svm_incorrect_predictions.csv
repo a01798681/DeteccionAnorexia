@@ -1,0 +1,80 @@
+﻿user_id,tweet_id,tweet_text,class,clean_text,label,true_label_num,predicted_label_num,true_label,predicted_label,probability_anorexia,is_correct,prediction_type,text_length_chars,text_length_words
+user1298,61f78034335b,Busquen el hashtag  en Instagram y ya no va a ser necesario que vuelvan a ver pelÃ­culas de terror en su vida.,control,busquen el hashtag en instagram y ya no va a ser necesario que vuelvan a ver películas de terror en su vida,0,0,1,control,anorexia,0.7211561912191362,False,false_positive,110,22
+user0914,e542c0288b03,Yo tambiÃ©n quiero mostrar mi cuerpo  pero la seÃ±ora de las #quesadillas cada vez hace mÃ¡s sabrosa la #Salsa,control,yo también quiero mostrar mi cuerpo pero la señora de las #quesadillas cada vez hace más sabrosa la #salsa,0,0,1,control,anorexia,0.9374773358751385,False,false_positive,110,19
+user1062,70007a3001a5,"Lo mejor que puedes hacer es estar activo, darle movimiento a tu cuerpo, darle vida.
+â€¢
+â€¢
+â€¢
+â€¢
+â€¢
+â€¢
+#reto30dias #vidaactiva #vidasaludable #habitossaludables #comesano #estilodevidasaludable  #cambiodehabitos... https://www.facebook.com/jzh24/videos/1976277485726884/ â€¦",control,lo mejor que puedes hacer es estar activo darle movimiento a tu cuerpo darle vida â â â â â â #reto30dias #vidaactiva #vidasaludable #habitossaludables #comesano #estilodevidasaludable #cambiodehabitos â,0,0,1,control,anorexia,0.6779853033574225,False,false_positive,280,29
+user0585,7590e429578d,Para mÃ­ muriÃ³ todo donde quedo la comprensiÃ³n de una madre a su hija el amor a su hija ahora sÃ­ estoy sola solo con,anorexia,para mí murió todo donde quedo la comprensión de una madre a su hija el amor a su hija ahora sí estoy sola solo con,1,1,0,anorexia,control,0.43779795602594807,False,false_negative,119,25
+user0178,116c6e7f8364,"El amor, es como la comida, si no es real no sale bien 
+@nutri_rivers",control,el amor es como la comida si no es real no sale bien,0,0,1,control,anorexia,0.7537043484201822,False,false_positive,69,13
+user0927,6b3fa6b0a978,Esta canciÃ³n la compuse para la persona que amo y siempre estarÃ© contigo mi niÃ±a... Con MUCHO RESPETO ...,control,esta canción la compuse para la persona que amo y siempre estaré contigo mi niña con mucho respeto,0,0,1,control,anorexia,0.6235474543872895,False,false_positive,108,18
+user0883,3a1173e4c1c4,"Todos pertenecemos a grupos. Es inevitable y estÃ¡ bien que sea asÃ­. 
+Pero el arraigo que algunos experimentan hacia cierta clase de grupos (como lo que ocurre en el ) no me parece algo bueno.",control,todos pertenecemos a grupos es inevitable y está bien que sea así pero el arraigo que algunos experimentan hacia cierta clase de grupos como lo que ocurre en el no me parece algo bueno,0,0,1,control,anorexia,0.8967715930459619,False,false_positive,193,34
+user0393,17e7cfd6710e,"Â¿Se acuerdan de los tennis que cuando caminabas prendÃ­an?
+Pues los mÃ­os nunca prendieron porque yo no pesaba. 
+#thinspiration",anorexia,se acuerdan de los tennis que cuando caminabas prendían pues los míos nunca prendieron porque yo no pesaba #thinspiration,1,1,0,anorexia,control,0.22046423559939385,False,false_negative,128,19
+user0572,201d4fbb06a0,"Viendo esto hay que replantearse bien lo que uno come.  No, a la #comidaprocesada",control,viendo esto hay que replantearse bien lo que uno come no a la #comidaprocesada,0,0,1,control,anorexia,0.5963636258018484,False,false_positive,81,14
+user0397,766612d68655,"algÃºn consejo para um abdomen plano ? 
+#instachile #instalike  #deporte",anorexia,algún consejo para um abdomen plano #instachile #instalike #deporte,1,1,0,anorexia,control,0.1297322746959205,False,false_negative,72,9
+user0281,73531848edf1,"Ama cada parte de tu cuerpo, aprovecha todo el potencial que tienes, recuerda que eres magia y puedes lograrlo.
+No desees ningÃºn cuerpo, eres tu propio arquitecto, construye el tuyo, cuÃ­dalo, Ã¡malo, gÃ³zalo, disfrÃºtalo, pero sobre todo, nÃºtrelo. 
+ #healthy #wellness #happy",control,ama cada parte de tu cuerpo aprovecha todo el potencial que tienes recuerda que eres magia y puedes lograrlo no desees ningún cuerpo eres tu propio arquitecto construye el tuyo cuídalo ámalo gózalo disfrútalo pero sobre todo nútrelo #healthy #wellness #happy,0,0,1,control,anorexia,0.8129417386246154,False,false_positive,278,41
+user1310,04b6dccdae84,Alaaa hace tiempo que no vomitaba!,anorexia,alaaa hace tiempo que no vomitaba,1,1,0,anorexia,control,0.4593739467413112,False,false_negative,34,6
+user0800,bfb49eb58104,Chia con agua y limÃ³n. Lo dejan remojar por unas horas. Se toma en ayunas y media hora antes de cada comida. Ayuda adelgazar,anorexia,chia con agua y limón lo dejan remojar por unas horas se toma en ayunas y media hora antes de cada comida ayuda adelgazar,1,1,0,anorexia,control,0.23213220078682037,False,false_negative,125,24
+user1105,328d17912754,"#FundaciÃ³nAPE hace formaciÃ³n, divulgaciÃ³n y concienciaciÃ³n para prevenir los #TCA http://mtr.cool/kacekcs  #bulimia #anorexia #trastornosporatracÃ³n #trastornosalimentarios #stopTCA",control,#fundaciónape hace formación divulgación y concienciación para prevenir los #tca #bulimia #anorexia #trastornosporatracón #trastornosalimentarios #stoptca,0,0,1,control,anorexia,0.9358351310861123,False,false_positive,185,15
+user1296,11b072c95228,Todos conocemos a alguien  que nos quiere hacer lo mismo...,control,todos conocemos a alguien que nos quiere hacer lo mismo,0,0,1,control,anorexia,0.6799683972431491,False,false_positive,59,10
+user0576,07b66cc03aff,"#TCA
+#Bulimia: 9 sÃ­ntomas para reconocerla.
+http://abcblogs.abc.es/salud-enfermedad/2015/03/23/bulimia-9-sintomas-para-reconocerla/ â€¦
+
+#adolescentes  #StopTCA #Mia #padres",control,#tca #bulimia 9 sã ntomas para reconocerla â #adolescentes #stoptca #mia #padres,0,0,1,control,anorexia,0.671448536866843,False,false_positive,174,12
+user0512,03fdd00e0a29,"Â¿Ese papel te lo has hecho tÃº? Me gusta y creo que me harÃ© algo similar en mi nueva casa.
+Un truco que tengo yo es seguir cuentas de nutricionistas que se rigen por la  
+Me ayuda muchÃ­simo a seleccionar productos de calidad y desechar lo que es azuCACA",control,ese papel te lo has hecho tú me gusta y creo que me haré algo similar en mi nueva casa un truco que tengo yo es seguir cuentas de nutricionistas que se rigen por la me ayuda muchísimo a seleccionar productos de calidad y desechar lo que es azucaca,0,0,1,control,anorexia,0.5141962853320433,False,false_positive,256,49
+user0468,9d210e98c131,"Ustedes saben que? 
+
+Llevo 2 horas tratando d comer... la comida no va ni a mitad y ya estoy jarta...
+
+CuÃ¡ntas libras rebajÃ©? es pa saber si ya puedo usar los hashtags #fit  y todo eso",control,ustedes saben que llevo 2 horas tratando d comer la comida no va ni a mitad y ya estoy jarta cuántas libras rebajé es pa saber si ya puedo usar los hashtags #fit y todo eso,0,0,1,control,anorexia,0.8955977462972943,False,false_positive,186,36
+user0295,583a311d4842,"DespuÃ©s de casi un mes de comer en exceso, comida de la calle, exceso de alcohol, dormir a deshoras y malos hÃ¡bitos intentÃ³ regresar a mi vida normal  retomar los hÃ¡bitos es lo mÃ¡s difÃ­cil",control,después de casi un mes de comer en exceso comida de la calle exceso de alcohol dormir a deshoras y malos hábitos intentó regresar a mi vida normal retomar los hábitos es lo más difícil,0,0,1,control,anorexia,0.7295645453858353,False,false_positive,194,35
+user0518,cbbbbfec8181,Like todos los  que me siguen,control,like todos los que me siguen,0,0,1,control,anorexia,0.7477608796631674,False,false_positive,29,6
+user1029,8394ee21410b,Primer ensayo clÃ­nico aleatorizado donde se compara el efecto de una dieta de ultraprocesados vs una dieta de comida no procesada. Los participantes podÃ­an comer todo lo que quisieran. La dieta ultraprocesados causÃ³ ingesta excesiva de calorÃ­as y aumento de peso.,control,primer ensayo clínico aleatorizado donde se compara el efecto de una dieta de ultraprocesados vs una dieta de comida no procesada los participantes podían comer todo lo que quisieran la dieta ultraprocesados causó ingesta excesiva de calorías y aumento de peso,0,0,1,control,anorexia,0.6829003801285614,False,false_positive,267,41
+user1205,89b3d54ad570,"Sabemos que todo lo que te propongas lo puedes lograr, sÃ³lo necesitas motivaciÃ³n y con un conjunto de #GigiSport tendrÃ¡s las motivaciÃ³n suficiente para avanzar cada vez mÃ¡s.
+#Crossfit  #VidaFit #Zumba #Top #SanCristÃ³bal #Venezuela #CÃºcuta #Colombia #19Mar",control,sabemos que todo lo que te propongas lo puedes lograr sólo necesitas motivación y con un conjunto de #gigisport tendrás las motivación suficiente para avanzar cada vez más #crossfit #vidafit #zumba #top #sancristóbal #venezuela #cúcuta #colombia #19mar,0,0,1,control,anorexia,0.5508609306407688,False,false_positive,262,37
+user0066,54d286962cb7,Que delicia es esto   #SomosInmunes https://www.instagram.com/p/BiZl-Vuh8GK/?utm_source=twitter â€¦,control,que delicia es esto #somosinmunes â,0,0,1,control,anorexia,0.9848850008751311,False,false_positive,99,6
+user0683,55aae2f7bebf,de verdad estÃ¡is a gusto con unos brazos y piernas esquelÃ©ticos?? Eso es lo menos sexy que he visto en mi vida.,anorexia,de verdad estáis a gusto con unos brazos y piernas esqueléticos eso es lo menos sexy que he visto en mi vida,1,1,0,anorexia,control,0.3391691477963636,False,false_negative,113,22
+user0658,7676075c526d,Mi comida de hoy...,anorexia,mi comida de hoy,1,1,0,anorexia,control,0.10544896974323936,False,false_negative,19,4
+user1225,bd979a270320,"Ahora que comienza el calor y provoca algo refrescante, recordamos esta sesiÃ³n de #cervezas #artesanales!
+
+#LimongiFotografia #LimongiFood #photographer  #foodphotography #bcngourmet   #bcnfood #foodbcn #gastronomia #ig_gastronomic_cat #fotografiagastronomica",control,ahora que comienza el calor y provoca algo refrescante recordamos esta sesión de #cervezas #artesanales #limongifotografia #limongifood #photographer #foodphotography #bcngourmet #bcnfood #foodbcn #gastronomia #ig_gastronomic_cat #fotografiagastronomica,0,0,1,control,anorexia,0.744171876113247,False,false_positive,260,25
+user0888,1b8d1abfb873,"Y ya vemos por donde van los tiros: Te enseÃ±o continuamente aberraciones contra el paladar (y tu insulina) y luego te digo lo buenÃ­simo que es este tratamiento de belleza. OJO,  no tengo nada contra ninguna de las dos cosas, pero es que este caso... Â¡En fin!",control,y ya vemos por donde van los tiros te enseño continuamente aberraciones contra el paladar y tu insulina y luego te digo lo buenísimo que es este tratamiento de belleza ojo no tengo nada contra ninguna de las dos cosas pero es que este caso en fin,0,0,1,control,anorexia,0.6346917402531378,False,false_positive,261,47
+user0172,d741e9323930,"Gracias a la presiÃ³n social y el estÃ¡ndar de belleza de las personas volverÃ© a  . Se los agradezco profundamente,",anorexia,gracias a la presión social y el estándar de belleza de las personas volveré a se los agradezco profundamente,1,1,0,anorexia,control,0.033875261528456505,False,false_negative,116,19
+user0755,febc8496512d,Distintos tipos de abdominales para bajar la panza,anorexia,distintos tipos de abdominales para bajar la panza,1,1,0,anorexia,control,0.4293650918205441,False,false_negative,50,8
+user1064,33f43cb031cd,"No es solo deporte, es un estilo de vida. 
+#Salter #Salterfitness  #FelizSÃ¡bado #empiezahoy",control,no es solo deporte es un estilo de vida #salter #salterfitness #felizsábado #empiezahoy,0,0,1,control,anorexia,0.8605927863296958,False,false_positive,92,13
+user0958,0e1a826f71b0,"Ayer a la noche dejamos descongelando una raciÃ³n que tenÃ­amos congelada del #chickenPilBil que hice hace un par de semanas, he hecho un poco de arroz (y asÃ­ ya tenemos para alguna que otra cena de esta semana) y una ensalada sencilla y listo.
+.
+#Dinner",control,ayer a la noche dejamos descongelando una ración que teníamos congelada del #chickenpilbil que hice hace un par de semanas he hecho un poco de arroz y así ya tenemos para alguna que otra cena de esta semana y una ensalada sencilla y listo #dinner,0,0,1,control,anorexia,0.6062808999528536,False,false_positive,255,45
+user0777,0d3b09265e72,"cene UNA porcion de pizza
+#VolviendoALaAnorexia   #obesidad #hashtagspelotudos",anorexia,cene una porcion de pizza #volviendoalaanorexia #obesidad #hashtagspelotudos,1,1,0,anorexia,control,0.20904849868269298,False,false_negative,78,8
+user0264,90a1b869980f,"Sonrisas por fuera, batallas por dentro.",anorexia,sonrisas por fuera batallas por dentro,1,1,0,anorexia,control,0.3872995878069273,False,false_negative,40,6
+user1097,0edbbeab3435,"Cuando Internet nos ayuda a contar historias que ayudan a crear conciencia
+
+http://www.setcabarcelona.com/testimonios-tca-y-como-las-redes-sociales-ayudaron-a-contar-su-historia/ â€¦
+
+#anorexia",control,cuando internet nos ayuda a contar historias que ayudan a crear conciencia â #anorexia,0,0,1,control,anorexia,0.5729060398492363,False,false_positive,193,14
+user0908,e950670d1e85,Si ley mordaza pero no leyes para cerrar webs que inducen a la #anorexia? #proana #promia  http://ow.ly/I2RZ0,control,si ley mordaza pero no leyes para cerrar webs que inducen a la #anorexia #proana #promia,0,0,1,control,anorexia,0.5559089889695354,False,false_positive,109,16
+user0783,e52187170aff,"Cuida tu cuerpo. Es el Ãºnico lugar que tienes para vivir
+.
+.
+.
+#graciasdios #likeforlikes #cambiatumente #cambiatuvida  #motivacion #crecimiento #u2 #withorwithoutyou graciasâ€¦ https://www.instagram.com/p/BvRVm5iAVcn/?utm_source=ig_twitter_share&igshid=1m5glvdetcuhe â€¦",control,cuida tu cuerpo es el ãºnico lugar que tienes para vivir #graciasdios #likeforlikes #cambiatumente #cambiatuvida #motivacion #crecimiento #u2 #withorwithoutyou graciasâ â,0,0,1,control,anorexia,0.580449108937788,False,false_positive,272,21
+user0112,29ade1522dd1,3 DÃAS SIN COMER ULTRAPROCESADOS  ROASTING VEGGIES: http://youtu.be/9IGuIkuvDn0?a  vÃ­a @YouTube,control,3 días sin comer ultraprocesados roasting veggies vía,0,0,1,control,anorexia,0.5975159486233406,False,false_positive,97,8
+user0948,05289de94367,"Sin ejercicio??
+ 
+Yo llevo en esto cerca de un mes,intentando adelgazar con dietas extremas desde los 11 y tengo 14,este mes cumplo los 15...",anorexia,sin ejercicio yo llevo en esto cerca de un mes intentando adelgazar con dietas extremas desde los 11 y tengo 14 este mes cumplo los 15,1,1,0,anorexia,control,0.31872265713308984,False,false_negative,141,26

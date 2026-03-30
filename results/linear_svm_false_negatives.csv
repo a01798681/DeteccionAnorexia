@@ -1,0 +1,19 @@
+﻿user_id,tweet_id,tweet_text,class,clean_text,label,true_label_num,predicted_label_num,true_label,predicted_label,probability_anorexia,is_correct,prediction_type,text_length_chars,text_length_words
+user0585,7590e429578d,Para mÃ­ muriÃ³ todo donde quedo la comprensiÃ³n de una madre a su hija el amor a su hija ahora sÃ­ estoy sola solo con,anorexia,para mí murió todo donde quedo la comprensión de una madre a su hija el amor a su hija ahora sí estoy sola solo con,1,1,0,anorexia,control,0.43779795602594807,False,false_negative,119,25
+user0393,17e7cfd6710e,"Â¿Se acuerdan de los tennis que cuando caminabas prendÃ­an?
+Pues los mÃ­os nunca prendieron porque yo no pesaba. 
+#thinspiration",anorexia,se acuerdan de los tennis que cuando caminabas prendían pues los míos nunca prendieron porque yo no pesaba #thinspiration,1,1,0,anorexia,control,0.22046423559939385,False,false_negative,128,19
+user0397,766612d68655,"algÃºn consejo para um abdomen plano ? 
+#instachile #instalike  #deporte",anorexia,algún consejo para um abdomen plano #instachile #instalike #deporte,1,1,0,anorexia,control,0.1297322746959205,False,false_negative,72,9
+user1310,04b6dccdae84,Alaaa hace tiempo que no vomitaba!,anorexia,alaaa hace tiempo que no vomitaba,1,1,0,anorexia,control,0.4593739467413112,False,false_negative,34,6
+user0800,bfb49eb58104,Chia con agua y limÃ³n. Lo dejan remojar por unas horas. Se toma en ayunas y media hora antes de cada comida. Ayuda adelgazar,anorexia,chia con agua y limón lo dejan remojar por unas horas se toma en ayunas y media hora antes de cada comida ayuda adelgazar,1,1,0,anorexia,control,0.23213220078682037,False,false_negative,125,24
+user0683,55aae2f7bebf,de verdad estÃ¡is a gusto con unos brazos y piernas esquelÃ©ticos?? Eso es lo menos sexy que he visto en mi vida.,anorexia,de verdad estáis a gusto con unos brazos y piernas esqueléticos eso es lo menos sexy que he visto en mi vida,1,1,0,anorexia,control,0.3391691477963636,False,false_negative,113,22
+user0658,7676075c526d,Mi comida de hoy...,anorexia,mi comida de hoy,1,1,0,anorexia,control,0.10544896974323936,False,false_negative,19,4
+user0172,d741e9323930,"Gracias a la presiÃ³n social y el estÃ¡ndar de belleza de las personas volverÃ© a  . Se los agradezco profundamente,",anorexia,gracias a la presión social y el estándar de belleza de las personas volveré a se los agradezco profundamente,1,1,0,anorexia,control,0.033875261528456505,False,false_negative,116,19
+user0755,febc8496512d,Distintos tipos de abdominales para bajar la panza,anorexia,distintos tipos de abdominales para bajar la panza,1,1,0,anorexia,control,0.4293650918205441,False,false_negative,50,8
+user0777,0d3b09265e72,"cene UNA porcion de pizza
+#VolviendoALaAnorexia   #obesidad #hashtagspelotudos",anorexia,cene una porcion de pizza #volviendoalaanorexia #obesidad #hashtagspelotudos,1,1,0,anorexia,control,0.20904849868269298,False,false_negative,78,8
+user0264,90a1b869980f,"Sonrisas por fuera, batallas por dentro.",anorexia,sonrisas por fuera batallas por dentro,1,1,0,anorexia,control,0.3872995878069273,False,false_negative,40,6
+user0948,05289de94367,"Sin ejercicio??
+ 
+Yo llevo en esto cerca de un mes,intentando adelgazar con dietas extremas desde los 11 y tengo 14,este mes cumplo los 15...",anorexia,sin ejercicio yo llevo en esto cerca de un mes intentando adelgazar con dietas extremas desde los 11 y tengo 14 este mes cumplo los 15,1,1,0,anorexia,control,0.31872265713308984,False,false_negative,141,26
