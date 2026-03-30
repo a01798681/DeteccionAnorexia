@@ -11,7 +11,7 @@ sys.path.append(str(ROOT_DIR))
 from src.predict import load_model, predict_text, predict_dataframe
 
 
-MODEL_PATH = ROOT_DIR / "results" / "logistic_regression_hybrid.joblib"
+MODEL_PATH = ROOT_DIR / "results" / "logistic_regression_hybrid_v1.joblib"
 
 def load_uploaded_file(uploaded_file) -> pd.DataFrame:
     """
