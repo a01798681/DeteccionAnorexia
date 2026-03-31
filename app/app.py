@@ -116,13 +116,11 @@ with tab1:
             st.code(result["cleaned_text"])
 
             if result["predicted_label"] == "anorexia":
-                st.error("El modelo considera que este texto se parece más a la clase anorexia.")
+                st.error("Se detectan señales asociadas a anorexia en el texto.")
             elif result["predicted_label"] == "control":
-                st.success("El modelo considera que este texto se parece más a la clase control.")
+                st.success("No se detectan señales claras asociadas a anorexia en el texto.")
             elif result["predicted_label"] == "incierto":
-                st.warning("El modelo no tiene suficiente certeza. Se recomienda revisión manual.")
-            else:
-                st.info("El texto es demasiado corto o insuficiente para clasificarlo con confianza.")
+                st.warning("El resultado es incierto. Se recomienda revisión manual.")
 
 
 with tab2:

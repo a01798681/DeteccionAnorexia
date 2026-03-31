@@ -4,7 +4,7 @@
     "accuracy": 0.8666666666666667
   },
   "logistic_regression_hybrid": {
-    "roc_auc": 0.954600294919344,
+    "roc_auc": 0.9544215559229634,
     "accuracy": 0.89
   },
   "linear_svm": {
