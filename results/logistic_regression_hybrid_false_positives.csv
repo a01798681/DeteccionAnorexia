@@ -1,0 +1,48 @@
+﻿user_id,tweet_id,tweet_text,class,clean_text,label,true_label_num,predicted_label_num,true_label,predicted_label,probability_anorexia,is_correct,prediction_type,text_length_chars,text_length_words
+user1298,61f78034335b,Busquen el hashtag  en Instagram y ya no va a ser necesario que vuelvan a ver pelÃ­culas de terror en su vida.,control,busquen el hashtag en instagram y ya no va a ser necesario que vuelvan a ver películas de terror en su vida,0,0,1,control,anorexia,0.8467663526682401,False,false_positive,110,22
+user0914,e542c0288b03,Yo tambiÃ©n quiero mostrar mi cuerpo  pero la seÃ±ora de las #quesadillas cada vez hace mÃ¡s sabrosa la #Salsa,control,yo también quiero mostrar mi cuerpo pero la señora de las #quesadillas cada vez hace más sabrosa la #salsa,0,0,1,control,anorexia,0.9013437759439802,False,false_positive,110,19
+user0178,116c6e7f8364,"El amor, es como la comida, si no es real no sale bien 
+@nutri_rivers",control,el amor es como la comida si no es real no sale bien,0,0,1,control,anorexia,0.9505639916102199,False,false_positive,69,13
+user0850,c6ff8afc9dbd,"Muchos mÃ¡s sanos los donuts, donde va a parar",control,muchos más sanos los donuts donde va a parar,0,0,1,control,anorexia,0.7421533995663238,False,false_positive,46,9
+user0927,6b3fa6b0a978,Esta canciÃ³n la compuse para la persona que amo y siempre estarÃ© contigo mi niÃ±a... Con MUCHO RESPETO ...,control,esta canción la compuse para la persona que amo y siempre estaré contigo mi niña con mucho respeto,0,0,1,control,anorexia,0.7555694851177454,False,false_positive,108,18
+user0883,3a1173e4c1c4,"Todos pertenecemos a grupos. Es inevitable y estÃ¡ bien que sea asÃ­. 
+Pero el arraigo que algunos experimentan hacia cierta clase de grupos (como lo que ocurre en el ) no me parece algo bueno.",control,todos pertenecemos a grupos es inevitable y está bien que sea así pero el arraigo que algunos experimentan hacia cierta clase de grupos como lo que ocurre en el no me parece algo bueno,0,0,1,control,anorexia,0.9018238379275224,False,false_positive,193,34
+user0572,201d4fbb06a0,"Viendo esto hay que replantearse bien lo que uno come.  No, a la #comidaprocesada",control,viendo esto hay que replantearse bien lo que uno come no a la #comidaprocesada,0,0,1,control,anorexia,0.6144581732600413,False,false_positive,81,14
+user1235,733370885ea6,"DÃ­a 2:  
+Media MaÃ±ana:  y nueces.",control,día 2 media mañana y nueces,0,0,1,control,anorexia,0.7732664880664322,False,false_positive,35,6
+user1105,328d17912754,"#FundaciÃ³nAPE hace formaciÃ³n, divulgaciÃ³n y concienciaciÃ³n para prevenir los #TCA http://mtr.cool/kacekcs  #bulimia #anorexia #trastornosporatracÃ³n #trastornosalimentarios #stopTCA",control,#fundaciónape hace formación divulgación y concienciación para prevenir los #tca #bulimia #anorexia #trastornosporatracón #trastornosalimentarios #stoptca,0,0,1,control,anorexia,0.8770514560009858,False,false_positive,185,15
+user1296,11b072c95228,Todos conocemos a alguien  que nos quiere hacer lo mismo...,control,todos conocemos a alguien que nos quiere hacer lo mismo,0,0,1,control,anorexia,0.9241378147562946,False,false_positive,59,10
+user0576,07b66cc03aff,"#TCA
+#Bulimia: 9 sÃ­ntomas para reconocerla.
+http://abcblogs.abc.es/salud-enfermedad/2015/03/23/bulimia-9-sintomas-para-reconocerla/ â€¦
+
+#adolescentes  #StopTCA #Mia #padres",control,#tca #bulimia 9 sã ntomas para reconocerla â #adolescentes #stoptca #mia #padres,0,0,1,control,anorexia,0.7822278617879606,False,false_positive,174,12
+user0468,9d210e98c131,"Ustedes saben que? 
+
+Llevo 2 horas tratando d comer... la comida no va ni a mitad y ya estoy jarta...
+
+CuÃ¡ntas libras rebajÃ©? es pa saber si ya puedo usar los hashtags #fit  y todo eso",control,ustedes saben que llevo 2 horas tratando d comer la comida no va ni a mitad y ya estoy jarta cuántas libras rebajé es pa saber si ya puedo usar los hashtags #fit y todo eso,0,0,1,control,anorexia,0.6165784464681211,False,false_positive,186,36
+user0295,583a311d4842,"DespuÃ©s de casi un mes de comer en exceso, comida de la calle, exceso de alcohol, dormir a deshoras y malos hÃ¡bitos intentÃ³ regresar a mi vida normal  retomar los hÃ¡bitos es lo mÃ¡s difÃ­cil",control,después de casi un mes de comer en exceso comida de la calle exceso de alcohol dormir a deshoras y malos hábitos intentó regresar a mi vida normal retomar los hábitos es lo más difícil,0,0,1,control,anorexia,0.5509506234064032,False,false_positive,194,35
+user0518,cbbbbfec8181,Like todos los  que me siguen,control,like todos los que me siguen,0,0,1,control,anorexia,0.9468664994711198,False,false_positive,29,6
+user0382,f342fa819791,Cuando aparece un #realfooder en la Sexta y no quiere comerse una croqueta ultraprocesada.,control,cuando aparece un #realfooder en la sexta y no quiere comerse una croqueta ultraprocesada,0,0,1,control,anorexia,0.5203300919751019,False,false_positive,90,14
+user0066,54d286962cb7,Que delicia es esto   #SomosInmunes https://www.instagram.com/p/BiZl-Vuh8GK/?utm_source=twitter â€¦,control,que delicia es esto #somosinmunes â,0,0,1,control,anorexia,0.9746879260568921,False,false_positive,99,6
+user0787,defac326c40e,"La vida es como el ejercicio cuanto mÃ¡s duro es  mÃ¡s fuerte te vuelves.
+-
+-
+-
+24coach #superacion #perderpeso  https://www.instagram.com/p/BvXiMaLpUDv/?utm_source=ig_twitter_share&igshid=ttkwrb4uay7c â€¦",control,la vida es como el ejercicio cuanto mã s duro es mã s fuerte te vuelves 24coach #superacion #perderpeso â,0,0,1,control,anorexia,0.6494534276047653,False,false_positive,205,20
+user0719,ad2c01640c9d,#Gym A todo ritmo! Km.16  #LL,control,#gym a todo ritmo km 16 #ll,0,0,1,control,anorexia,0.6704746811706429,False,false_positive,29,7
+user0681,de88c6bf13b3,"dedicado a los/as ""no tengo tiempo para comer bien"", con un no quiero, no me apetece o un simple paso...
+
+#menjarsaludable  #vegan",control,dedicado a los as no tengo tiempo para comer bien con un no quiero no me apetece o un simple paso #menjarsaludable #vegan,0,0,1,control,anorexia,0.5574119843201724,False,false_positive,130,23
+user1064,33f43cb031cd,"No es solo deporte, es un estilo de vida. 
+#Salter #Salterfitness  #FelizSÃ¡bado #empiezahoy",control,no es solo deporte es un estilo de vida #salter #salterfitness #felizsábado #empiezahoy,0,0,1,control,anorexia,0.6159518344985633,False,false_positive,92,13
+user0573,c85e3c8f7f37,Eso te pasa por comer ultraprocesados!,control,eso te pasa por comer ultraprocesados,0,0,1,control,anorexia,0.7370687247642507,False,false_positive,38,6
+user0642,66aa050a7657,Un dÃ­a eres joven y al dÃ­a siguiente estÃ¡s comprando moldes para hacerte tu propia  y todo por culpa de @nutri_rivers,control,un día eres joven y al día siguiente estás comprando moldes para hacerte tu propia y todo por culpa de,0,0,1,control,anorexia,0.7250306452516138,False,false_positive,120,20
+user1097,0edbbeab3435,"Cuando Internet nos ayuda a contar historias que ayudan a crear conciencia
+
+http://www.setcabarcelona.com/testimonios-tca-y-como-las-redes-sociales-ayudaron-a-contar-su-historia/ â€¦
+
+#anorexia",control,cuando internet nos ayuda a contar historias que ayudan a crear conciencia â #anorexia,0,0,1,control,anorexia,0.5872554634124159,False,false_positive,193,14
+user0908,e950670d1e85,Si ley mordaza pero no leyes para cerrar webs que inducen a la #anorexia? #proana #promia  http://ow.ly/I2RZ0,control,si ley mordaza pero no leyes para cerrar webs que inducen a la #anorexia #proana #promia,0,0,1,control,anorexia,0.7102571402720977,False,false_positive,109,16
+user0112,29ade1522dd1,3 DÃAS SIN COMER ULTRAPROCESADOS  ROASTING VEGGIES: http://youtu.be/9IGuIkuvDn0?a  vÃ­a @YouTube,control,3 días sin comer ultraprocesados roasting veggies vía,0,0,1,control,anorexia,0.892279765215375,False,false_positive,97,8

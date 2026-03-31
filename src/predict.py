@@ -15,6 +15,18 @@ def load_model(model_path: str):
     return joblib.load(model_path)
 
 
+def _build_model_input(model, cleaned_text: str):
+    """
+    Construye la entrada correcta para el modelo.
+    - Modelos simples TF-IDF: lista de textos
+    - Modelo híbrido con ColumnTransformer: DataFrame con columna clean_text
+    """
+    if hasattr(model, "named_steps") and "features" in model.named_steps:
+        return pd.DataFrame({"clean_text": [cleaned_text]})
+
+    return [cleaned_text]
+
+
 def predict_text(
     model,
     text: str,
@@ -24,25 +36,16 @@ def predict_text(
 ) -> Dict[str, Any]:
     cleaned = clean_text(text if isinstance(text, str) else "")
     words = cleaned.split()
+    word_count = len(words)
 
-    if len(words) < min_words:
-        return {
-            "input_text": text,
-            "cleaned_text": cleaned,
-            "predicted_label": "insuficiente",
-            "predicted_numeric_label": None,
-            "probability_anorexia": None,
-            "confidence": "baja",
-            "message": "El texto es demasiado corto para una clasificación confiable.",
-            "observations": "texto corto"
-        }
+    model_input = _build_model_input(model, cleaned)
 
     prob = None
     if hasattr(model, "predict_proba"):
-        prob = float(model.predict_proba([cleaned])[0][1])
+        prob = float(model.predict_proba(model_input)[0][1])
 
     if prob is None:
-        pred = int(model.predict([cleaned])[0])
+        pred = int(model.predict(model_input)[0])
         label = LABEL_MAP[pred]
         confidence = "desconocida"
         message = "El modelo no proporciona probabilidad."
@@ -65,8 +68,8 @@ def predict_text(
         message = "Clasificación realizada con umbrales de decisión."
 
         observations_list = []
-        if len(words) < 6:
-            observations_list.append("texto breve")
+        if word_count < min_words:
+            observations_list.append("texto corto")
         if label == "incierto":
             observations_list.append("requiere revisión manual")
 
@@ -80,7 +83,8 @@ def predict_text(
         "probability_anorexia": prob,
         "confidence": confidence,
         "message": message,
-        "observations": observations
+        "observations": observations,
+        "word_count": word_count
     }
 
 
@@ -92,9 +96,6 @@ def predict_dataframe(
     control_threshold: float = 0.30,
     min_words: int = 4
 ) -> pd.DataFrame:
-    """
-    Clasifica todos los textos de un DataFrame y devuelve uno nuevo con columnas extra.
-    """
     if text_column not in df.columns:
         raise ValueError(f"La columna '{text_column}' no existe en el archivo.")
 
@@ -116,5 +117,6 @@ def predict_dataframe(
     result_df["confidence"] = predictions.apply(lambda x: x["confidence"])
     result_df["message"] = predictions.apply(lambda x: x["message"])
     result_df["observations"] = predictions.apply(lambda x: x["observations"])
+    result_df["word_count"] = predictions.apply(lambda x: x["word_count"])
 
     return result_df
