@@ -10,21 +10,80 @@ LABEL_MAP = {
     1: "anorexia"
 }
 
+GENERIC_SAFE_PHRASES = [
+    "hola",
+    "que tal",
+    "qué tal",
+    "como estas",
+    "cómo estás",
+    "todo bien",
+    "buenos dias",
+    "buenos días",
+    "buenas tardes",
+    "buenas noches",
+    "gracias",
+    "saludos",
+    "me siento bien",
+    "estoy bien",
+    "todo tranquilo",
+    "con mis amigos",
+    "con mi familia"
+]
+
+RISK_TERMS = [
+    "vomit", "vomitar", "vomitando", "purga", "purging",
+    "adelgazar", "bajar de peso", "peso", "gorda", "flaca",
+    "abdomen", "cuerpo", "grasa", "ayuno", "ayunas",
+    "thinspo", "thinspiration", "proana", "#thinspo", "#thinspiration",
+    "#proana", "#ana", "#mia", "dejar de comer", "no quiero comer",
+    "quiero ser flaca", "me siento gorda", "anorexia", "bulimia"
+]
+
 
 def load_model(model_path: str):
     return joblib.load(model_path)
 
 
 def _build_model_input(model, cleaned_text: str):
-    """
-    Construye la entrada correcta para el modelo.
-    - Modelos simples TF-IDF: lista de textos
-    - Modelo híbrido con ColumnTransformer: DataFrame con columna clean_text
-    """
     if hasattr(model, "named_steps") and "features" in model.named_steps:
         return pd.DataFrame({"clean_text": [cleaned_text]})
-
     return [cleaned_text]
+
+
+def _contains_any(text: str, terms) -> bool:
+    text = text.lower()
+    return any(term in text for term in terms)
+
+
+def _get_tfidf_vocabulary(model):
+    if not hasattr(model, "named_steps"):
+        return set()
+
+    # Modelo híbrido
+    if "features" in model.named_steps:
+        preprocessor = model.named_steps["features"]
+        try:
+            tfidf = preprocessor.named_transformers_["tfidf"]
+            return set(tfidf.vocabulary_.keys())
+        except Exception:
+            return set()
+
+    # Modelo simple
+    if "tfidf" in model.named_steps:
+        try:
+            return set(model.named_steps["tfidf"].vocabulary_.keys())
+        except Exception:
+            return set()
+
+    return set()
+
+
+def _estimate_vocab_coverage(cleaned_text: str, vocabulary: set) -> float:
+    tokens = cleaned_text.split()
+    if not tokens:
+        return 0.0
+    covered = sum(1 for token in tokens if token in vocabulary)
+    return covered / len(tokens)
 
 
 def predict_text(
@@ -37,6 +96,42 @@ def predict_text(
     cleaned = clean_text(text if isinstance(text, str) else "")
     words = cleaned.split()
     word_count = len(words)
+
+    has_risk_terms = _contains_any(cleaned, RISK_TERMS)
+    has_generic_safe_phrase = _contains_any(cleaned, GENERIC_SAFE_PHRASES)
+
+    vocabulary = _get_tfidf_vocabulary(model)
+    vocab_coverage = _estimate_vocab_coverage(cleaned, vocabulary)
+
+    # Regla 1: saludo / texto casual sin señales de riesgo
+    if has_generic_safe_phrase and not has_risk_terms:
+        return {
+            "input_text": text,
+            "cleaned_text": cleaned,
+            "predicted_label": "control",
+            "predicted_numeric_label": 0,
+            "probability_anorexia": 0.05,
+            "confidence": "media",
+            "message": "Texto general o casual sin señales claras de riesgo.",
+            "observations": "texto casual/general",
+            "word_count": word_count,
+            "vocab_coverage": vocab_coverage
+        }
+
+    # Regla 2: cobertura de vocabulario muy baja y sin riesgo
+    if vocab_coverage < 0.20 and not has_risk_terms:
+        return {
+            "input_text": text,
+            "cleaned_text": cleaned,
+            "predicted_label": "incierto",
+            "predicted_numeric_label": None,
+            "probability_anorexia": None,
+            "confidence": "baja",
+            "message": "El texto tiene muy poca cobertura del vocabulario del modelo.",
+            "observations": "fuera de distribución, requiere revisión manual",
+            "word_count": word_count,
+            "vocab_coverage": vocab_coverage
+        }
 
     model_input = _build_model_input(model, cleaned)
 
@@ -72,19 +167,24 @@ def predict_text(
             observations_list.append("texto corto")
         if label == "incierto":
             observations_list.append("requiere revisión manual")
+        if vocab_coverage < 0.40:
+            observations_list.append("cobertura baja del vocabulario")
 
         observations = ", ".join(observations_list) if observations_list else "sin observaciones"
+
+    predicted_numeric_label = None if label == "incierto" else (1 if label == "anorexia" else 0)
 
     return {
         "input_text": text,
         "cleaned_text": cleaned,
         "predicted_label": label,
-        "predicted_numeric_label": None,
+        "predicted_numeric_label": predicted_numeric_label,
         "probability_anorexia": prob,
         "confidence": confidence,
         "message": message,
         "observations": observations,
-        "word_count": word_count
+        "word_count": word_count,
+        "vocab_coverage": vocab_coverage
     }
 
 
@@ -118,5 +218,6 @@ def predict_dataframe(
     result_df["message"] = predictions.apply(lambda x: x["message"])
     result_df["observations"] = predictions.apply(lambda x: x["observations"])
     result_df["word_count"] = predictions.apply(lambda x: x["word_count"])
+    result_df["vocab_coverage"] = predictions.apply(lambda x: x["vocab_coverage"])
 
     return result_df
