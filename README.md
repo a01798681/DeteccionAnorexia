@@ -24,7 +24,6 @@ openpyxl
 joblib
 pytest
 Streamlit
-Instalación
 
 ## Instala las dependencias con:
 ```bash

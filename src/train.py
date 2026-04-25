@@ -191,18 +191,13 @@ def evaluate_and_save(model_name, model, X_val, y_val, df_val, output_path):
     return metrics
 
 
-def run_baseline_experiment(df: pd.DataFrame, output_dir: str = "results"):
-    df_prepared = prepare_dataframe(df)
-
-    train_df, val_df = train_test_split(
-        df_prepared,
-        test_size=0.2,
-        stratify=df_prepared["label"],
-        random_state=42
-    )
+def run_baseline_experiment(train_df: pd.DataFrame, val_df: pd.DataFrame, output_dir: str = "results"):
+    train_df = prepare_dataframe(train_df)
+    val_df = prepare_dataframe(val_df)
 
     X_train = train_df["clean_text"]
     y_train = train_df["label"]
+
     X_val = val_df["clean_text"]
     y_val = val_df["label"]
 
@@ -211,9 +206,10 @@ def run_baseline_experiment(df: pd.DataFrame, output_dir: str = "results"):
 
     all_results = {}
 
-    # Logistic Regression optimizada
+    # 1. Logistic Regression optimizada
     grid = optimize_logistic_regression(X_train, y_train)
     best_logreg_model = grid.best_estimator_
+
     logreg_metrics = evaluate_and_save(
         "logistic_regression_optimized",
         best_logreg_model,
@@ -222,18 +218,22 @@ def run_baseline_experiment(df: pd.DataFrame, output_dir: str = "results"):
         val_df,
         output_path
     )
+
     logreg_results = {
         **logreg_metrics,
         "best_params": grid.best_params_,
         "best_cv_score": grid.best_score_
     }
+
     all_results["logistic_regression_optimized"] = logreg_results
+
     joblib.dump(best_logreg_model, output_path / "logistic_regression_optimized.joblib")
     save_json(logreg_results, output_path / "logistic_regression_optimized_metrics.json")
 
-    # Logistic Regression híbrida
+    # 2. Logistic Regression híbrida
     hybrid_grid = optimize_hybrid_logistic_regression(train_df, y_train)
     best_hybrid_model = hybrid_grid.best_estimator_
+
     hybrid_metrics = evaluate_and_save(
         "logistic_regression_hybrid",
         best_hybrid_model,
@@ -242,18 +242,22 @@ def run_baseline_experiment(df: pd.DataFrame, output_dir: str = "results"):
         val_df,
         output_path
     )
+
     hybrid_results = {
         **hybrid_metrics,
         "best_params": hybrid_grid.best_params_,
         "best_cv_score": hybrid_grid.best_score_
     }
+
     all_results["logistic_regression_hybrid"] = hybrid_results
+
     joblib.dump(best_hybrid_model, output_path / "logistic_regression_hybrid.joblib")
     save_json(hybrid_results, output_path / "logistic_regression_hybrid_metrics.json")
 
-    # Linear SVM
+    # 3. Linear SVM
     svm_pipeline = build_svm_pipeline()
     svm_pipeline.fit(X_train, y_train)
+
     svm_metrics = evaluate_and_save(
         "linear_svm",
         svm_pipeline,
@@ -262,10 +266,13 @@ def run_baseline_experiment(df: pd.DataFrame, output_dir: str = "results"):
         val_df,
         output_path
     )
+
     all_results["linear_svm"] = svm_metrics
+
     joblib.dump(svm_pipeline, output_path / "linear_svm.joblib")
     save_json(svm_metrics, output_path / "linear_svm_metrics.json")
 
+    # 4. Resumen general
     summary = {
         model_name: {
             "roc_auc": metrics["roc_auc"],
@@ -273,6 +280,7 @@ def run_baseline_experiment(df: pd.DataFrame, output_dir: str = "results"):
         }
         for model_name, metrics in all_results.items()
     }
+
     save_json(summary, output_path / "summary.json")
 
     return all_results

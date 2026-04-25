@@ -1,14 +1,14 @@
 {
   "logistic_regression_optimized": {
-    "roc_auc": 0.9468698333258858,
-    "accuracy": 0.8666666666666667
+    "roc_auc": 0.9714017605791143,
+    "accuracy": 0.9033333333333333
   },
   "logistic_regression_hybrid": {
-    "roc_auc": 0.9544215559229634,
-    "accuracy": 0.89
+    "roc_auc": 0.9751105947540104,
+    "accuracy": 0.92
   },
   "linear_svm": {
-    "roc_auc": 0.9440100093837973,
-    "accuracy": 0.8733333333333333
+    "roc_auc": 0.9704186960990213,
+    "accuracy": 0.9033333333333333
   }
 }
