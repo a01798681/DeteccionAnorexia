@@ -21,3 +21,10 @@ def test_validate_dataset_missing_columns():
 
     with pytest.raises(ValueError):
         validate_dataset(df)
+
+
+def test_validate_dataset_empty():
+    df = pd.DataFrame(columns=["user_id", "tweet_id", "tweet_text", "class"])
+
+    with pytest.raises(ValueError):
+        validate_dataset(df)
