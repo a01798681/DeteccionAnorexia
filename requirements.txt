@@ -4,3 +4,6 @@ scikit-learn
 joblib
 pytest
 streamlit
+requests
+python-dotenv
+huggingface_hub
