@@ -6,19 +6,20 @@ from typing import Any, Dict
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
 
-from .llm_prompts import FEW_SHOT_PROMPT
+from .llm_prompts import build_dynamic_prompt
+from .llm_retrieval import retrieve_examples
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT_DIR / ".env")
 
 HF_API_TOKEN = os.getenv("HF_API_TOKEN", "")
 HF_MODEL_ID = os.getenv("HF_MODEL_ID", "meta-llama/Llama-3.3-70B-Instruct")
-HF_PROVIDER = os.getenv("HF_PROVIDER", "groq")
 HF_USE_MOCK = os.getenv("HF_USE_MOCK", "true").lower() == "true"
 
 
 def build_prompt(text: str) -> str:
-    return FEW_SHOT_PROMPT.format(text=text)
+    examples = retrieve_examples(text, k_per_class=2)
+    return build_dynamic_prompt(text, examples)
 
 
 def parse_llm_response(raw_text: str) -> Dict[str, Any]:
@@ -76,7 +77,7 @@ def classify_text_with_hf(text: str) -> Dict[str, Any]:
     prompt = build_prompt(text)
 
     client = InferenceClient(
-        provider=HF_PROVIDER,
+        provider="auto",
         api_key=HF_API_TOKEN,
     )
 

@@ -1,15 +1,15 @@
 {
   "n_samples": 300,
-  "accuracy": 0.91,
-  "roc_auc": 0.9443228026274632,
+  "accuracy": 0.9166666666666666,
+  "roc_auc": 0.9518074981008982,
   "confusion_matrix": [
     [
-      130,
-      9
+      128,
+      11
     ],
     [
-      18,
-      143
+      14,
+      147
     ]
   ],
   "model_id": "meta-llama/Llama-3.3-70B-Instruct"

@@ -1,4 +1,5 @@
-FEW_SHOT_PROMPT = """
+def build_dynamic_prompt(text: str, examples: list[dict]) -> str:
+    intro = """
 Eres un clasificador de textos para detectar señales asociadas a anorexia en publicaciones de redes sociales.
 
 Clasifica cada texto en una de estas dos clases:
@@ -6,32 +7,30 @@ Clasifica cada texto en una de estas dos clases:
 - "control": si no contiene señales claras asociadas a anorexia.
 
 Responde únicamente en formato JSON con esta estructura:
-{{
+{
   "label": "anorexia" o "control",
   "risk_score": número entre 0 y 1,
   "reason": "explicación breve"
-}}
+}
 
-Ejemplos:
+Ejemplos de referencia:
+""".strip()
 
-Texto: "quiero dejar de comer hasta ser flaca"
-Respuesta:
-{{"label":"anorexia","risk_score":0.97,"reason":"El texto expresa restricción alimentaria y deseo extremo de delgadez."}}
+    blocks = []
+    for ex in examples:
+        risk_score = "0.95" if ex["label"] == "anorexia" else "0.05"
+        reason = (
+            "Ejemplo con señales claras de riesgo."
+            if ex["label"] == "anorexia"
+            else "Ejemplo sin señales claras de anorexia."
+        )
 
-Texto: "me siento bien y salí a comer con mis amigos"
-Respuesta:
-{{"label":"control","risk_score":0.06,"reason":"No hay señales claras de anorexia y el contexto es cotidiano."}}
+        blocks.append(
+            f'Texto: "{ex["text"]}"\n'
+            f'Respuesta:\n'
+            f'{{"label":"{ex["label"]}","risk_score":{risk_score},"reason":"{reason}"}}'
+        )
 
-Texto: "hoy no quiero comer nada porque me siento gorda"
-Respuesta:
-{{"label":"anorexia","risk_score":0.95,"reason":"El texto relaciona rechazo a la comida con preocupación corporal."}}
+    ending = f'\n\nAhora clasifica el siguiente texto.\n\nTexto: "{text}"\nRespuesta:'
 
-Texto: "hola, que tal todo?"
-Respuesta:
-{{"label":"control","risk_score":0.03,"reason":"Es un texto casual sin contenido de riesgo."}}
-
-Ahora clasifica el siguiente texto.
-
-Texto: "{text}"
-Respuesta:
-"""
+    return intro + "\n\n" + "\n\n".join(blocks) + ending
