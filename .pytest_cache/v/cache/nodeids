@@ -1,0 +1,13 @@
+[
+  "tests/test_data_loader.py::test_validate_dataset_empty",
+  "tests/test_data_loader.py::test_validate_dataset_missing_columns",
+  "tests/test_data_loader.py::test_validate_dataset_ok",
+  "tests/test_features.py::test_manual_feature_extractor_detects_risk_terms",
+  "tests/test_features.py::test_manual_feature_extractor_expected_columns",
+  "tests/test_features.py::test_manual_feature_extractor_returns_dataframe",
+  "tests/test_pipeline.py::test_logreg_pipeline_trains_and_predicts",
+  "tests/test_preprocessing.py::test_clean_text_keeps_hashtags",
+  "tests/test_preprocessing.py::test_clean_text_removes_mentions",
+  "tests/test_preprocessing.py::test_clean_text_removes_url",
+  "tests/test_preprocessing.py::test_fix_mojibake"
+]
