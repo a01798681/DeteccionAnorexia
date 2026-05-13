@@ -18,7 +18,7 @@ HF_USE_MOCK = os.getenv("HF_USE_MOCK", "true").lower() == "true"
 
 
 def build_prompt(text: str) -> str:
-    examples = retrieve_examples(text, k_per_class=2)
+    examples = retrieve_examples(text, k_per_class=3, max_chars=180)
     return build_dynamic_prompt(text, examples)
 
 

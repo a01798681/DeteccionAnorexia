@@ -29,7 +29,7 @@ def load_retrieval_index():
     return df, vectorizer, X
 
 
-def retrieve_examples(query_text: str, k_per_class: int = 2, max_chars: int = 280):
+def retrieve_examples(query_text: str, k_per_class: int = 3, max_chars: int = 180):
     df, vectorizer, X = load_retrieval_index()
 
     query_clean = clean_text(query_text)

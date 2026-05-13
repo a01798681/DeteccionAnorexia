@@ -20,9 +20,9 @@ Ejemplos de referencia:
     for ex in examples:
         risk_score = "0.95" if ex["label"] == "anorexia" else "0.05"
         reason = (
-            "Ejemplo con señales claras de riesgo."
+            "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo."
             if ex["label"] == "anorexia"
-            else "Ejemplo sin señales claras de anorexia."
+            else "El texto no muestra señales claras asociadas a anorexia."
         )
 
         blocks.append(
