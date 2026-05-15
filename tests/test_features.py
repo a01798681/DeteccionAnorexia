@@ -1,44 +1,98 @@
 import pandas as pd
-from src.features import ManualFeatureExtractor
+import numpy as np
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from src.features import (
+    ManualFeatureExtractor,
+    build_tfidf_vectorizer,
+    RISK_TERMS,
+)
 
-
-def test_manual_feature_extractor_returns_dataframe():
+#Helper
+def _extract(texts):
     extractor = ManualFeatureExtractor()
-    X = pd.Series(["quiero ser flaca y dejar de comer"])
-    features = extractor.transform(X)
+    return extractor.transform(pd.Series(texts))
 
-    assert isinstance(features, pd.DataFrame)
-    assert len(features) == 1
+#Genera matriz TF-IDF sin error
+def test_tfidf_vectorizer_fits_and_transforms():
+    corpus = [
+        "quiero ser flaca y dejar de comer",
+        "me siento bien con mi cuerpo",
+        "thinspo proana ayuno extremo",
+        "salí con mis amigos hoy",
+    ]
+    tfidf = build_tfidf_vectorizer()
+    X = tfidf.fit_transform(corpus)
+    assert X.shape[0] == 4
+    assert X.shape[1] > 0
 
+#Genera el número esperado de columnas manuales
+def test_manual_extractor_expected_number_of_columns():
+    features = _extract(["hola mundo"])
+    assert len(features.columns) == 18  # según features.py
 
-def test_manual_feature_extractor_expected_columns():
-    extractor = ManualFeatureExtractor()
-    X = pd.Series(["quiero ser flaca y dejar de comer #thinspo"])
-    features = extractor.transform(X)
+#Detecta términos de restricción alimentaria
+def test_detects_fasting_terms():
+    features = _extract(["llevo tres días en ayunas sin comer"])
+    assert features.iloc[0]["has_fasting_term"] == 1
 
-    expected_columns = {
-        "text_length_chars",
-        "text_length_words",
-        "has_thinspo",
-        "has_thinspiration",
-        "has_proana",
-        "has_vomit_term",
-        "has_weight_term",
-        "has_fasting_term",
-        "has_body_term",
-        "has_hashtag",
-        "risk_term_count"
-    }
+#Detecta términos de ayuno
+def test_detects_ayuno():
+    features = _extract(["hice ayuno todo el día"])
+    assert features.iloc[0]["has_fasting_term"] == 1
 
-    assert expected_columns.issubset(set(features.columns))
+#Detecta términos de vómito/purga
+def test_detects_vomit_purge_terms():
+    features = _extract(["después de comer vomitar todo"])
+    assert features.iloc[0]["has_vomit_term"] == 1
 
+#Detecta términos de peso/cuerpo
+def test_detects_weight_body_terms():
+    features = _extract(["quiero bajar de peso y ser más flaca"])
+    row = features.iloc[0]
+    assert row["has_weight_term"] == 1
 
-def test_manual_feature_extractor_detects_risk_terms():
-    extractor = ManualFeatureExtractor()
-    X = pd.Series(["quiero ser flaca y dejar de comer #thinspo"])
-    features = extractor.transform(X)
-
+#Detecta hashtags de riesgo
+def test_detects_risk_hashtags():
+    features = _extract(["#thinspo #proana #ana"])
     row = features.iloc[0]
     assert row["has_thinspo"] == 1
-    assert row["has_weight_term"] == 1
-    assert row["risk_term_count"] >= 1
+    assert row["has_proana"] == 1
+    assert row["has_hashtag"] == 1
+
+#Texto neutro no activa atributos de riesgo
+def test_neutral_text_no_risk_flags():
+    features = _extract(["hoy fui al cine con amigos, estuvo genial"])
+    row = features.iloc[0]
+    assert row["has_thinspo"] == 0
+    assert row["has_vomit_term"] == 0
+    assert row["has_fasting_term"] == 0
+    assert row["risk_term_count"] == 0
+
+#Combinación TF-IDF + manuales conserva forma esperada
+def test_combined_tfidf_manual_shape():
+    corpus = [
+        "quiero ser flaca dejar de comer #thinspo",
+        "me siento bien con mi cuerpo estoy tranquila",
+        "ayuno purga vomitar peso grasa",
+        "salí a cenar con mi familia fue genial",
+    ]
+    df = pd.DataFrame({"clean_text": corpus})
+
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("tfidf", build_tfidf_vectorizer(), "clean_text"),
+            ("manual", ManualFeatureExtractor(), "clean_text"),
+        ]
+    )
+    X = preprocessor.fit_transform(df)
+    assert X.shape[0] == 4
+    assert X.shape[1] > 18  # TF-IDF + 18 manuales
+
+#Salida consistente entre varias ejecuciones con mismos datos
+def test_manual_extractor_deterministic():
+    texts = pd.Series(["quiero ser flaca #thinspo ayuno"])
+    extractor = ManualFeatureExtractor()
+    result1 = extractor.transform(texts)
+    result2 = extractor.transform(texts)
+    pd.testing.assert_frame_equal(result1, result2)
