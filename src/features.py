@@ -2,49 +2,7 @@ import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-
-RISK_TERMS = [
-    "vomit", "vomitar", "vomitando", "purga", "purging",
-    "adelgazar", "bajar de peso", "peso", "gorda", "flaca",
-    "abdomen", "cuerpo", "grasa", "ayuno", "ayunas",
-    "thinspo", "thinspiration", "proana", "#thinspo", "#thinspiration",
-    "#proana", "#ana", "#mia", "dejar de comer", "no quiero comer",
-    "quiero ser flaca", "me siento gorda"
-]
-
-POSITIVE_SAFE_TERMS = [
-    "me siento bien",
-    "estoy bien",
-    "sin problema",
-    "tranquilo",
-    "tranquila",
-    "disfruté",
-    "disfrute",
-    "con mis amigos",
-    "con mi familia",
-    "me gusta comer",
-    "comí con mis amigos",
-    "comi con mis amigos",
-    "me siento bien conmigo",
-    "me siento bien conmigo mismo",
-    "me siento bien conmigo misma",
-    "me siento bien con mi cuerpo",
-    "no tengo problema",
-    "no tengo problema con mi cuerpo",
-    "disfruté mucho la comida",
-    "disfrute mucho la comida"
-]
-
-NEGATION_SAFE_TERMS = [
-    "no tengo problema",
-    "no tengo problema con mi cuerpo",
-    "no quiero dejar de comer",
-    "sí como",
-    "si como",
-    "como normal",
-    "comí normal",
-    "comi normal"
-]
+from .term_lexicon import get_term_sets
 
 
 def build_tfidf_vectorizer() -> TfidfVectorizer:
@@ -54,11 +12,6 @@ def build_tfidf_vectorizer() -> TfidfVectorizer:
         max_df=0.95,
         sublinear_tf=True
     )
-
-
-def contains_any(text: str, terms) -> int:
-    text = text.lower()
-    return int(any(term in text for term in terms))
 
 
 def count_any(text: str, terms) -> int:
@@ -71,6 +24,11 @@ class ManualFeatureExtractor(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
+        term_sets = get_term_sets()
+        risk_terms = term_sets["risk_terms"]
+        positive_safe_terms = term_sets["positive_safe_terms"]
+        negation_safe_terms = term_sets["negation_safe_terms"]
+
         features = []
 
         for text in X:
@@ -84,17 +42,16 @@ class ManualFeatureExtractor(BaseEstimator, TransformerMixin):
             has_vomit_term = int(any(term in text_lower for term in ["vomit", "vomitar", "vomitando", "purga", "purging"]))
             has_weight_term = int(any(term in text_lower for term in ["peso", "gorda", "flaca", "adelgazar", "bajar de peso", "grasa"]))
             has_fasting_term = int(any(term in text_lower for term in ["ayuno", "ayunas", "sin comer", "no comer", "dejar de comer"]))
-            has_body_term = int(any(term in text_lower for term in ["abdomen", "cuerpo"]))
+            has_body_term = int(any(term in text_lower for term in ["abdomen", "cuerpo", "bodycheck"]))
             has_hashtag = int("#" in text_lower)
 
-            risk_term_count = count_any(text_lower, RISK_TERMS)
-            positive_safe_count = count_any(text_lower, POSITIVE_SAFE_TERMS)
-            negation_safe_count = count_any(text_lower, NEGATION_SAFE_TERMS)
+            risk_term_count = count_any(text_lower, risk_terms)
+            positive_safe_count = count_any(text_lower, positive_safe_terms)
+            negation_safe_count = count_any(text_lower, negation_safe_terms)
 
             has_positive_safe = int(positive_safe_count > 0)
             has_negation_safe = int(negation_safe_count > 0)
 
-            # combinaciones útiles
             positive_without_risk = int(positive_safe_count > 0 and risk_term_count == 0)
             safe_context = int((positive_safe_count + negation_safe_count) > 0 and risk_term_count == 0)
             mixed_context = int((positive_safe_count + negation_safe_count) > 0 and risk_term_count > 0)

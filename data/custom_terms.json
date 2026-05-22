@@ -1,0 +1,9 @@
+{
+  "risk_terms_extra": [
+    "edtwt",
+    "bodycheck",
+    "meanspo"
+  ],
+  "positive_safe_terms_extra": [],
+  "negation_safe_terms_extra": []
+}

@@ -3,6 +3,7 @@ import joblib
 import pandas as pd
 
 from .preprocessing import clean_text
+from .term_lexicon import get_term_sets
 
 
 LABEL_MAP = {
@@ -30,15 +31,6 @@ GENERIC_SAFE_PHRASES = [
     "con mi familia"
 ]
 
-RISK_TERMS = [
-    "vomit", "vomitar", "vomitando", "purga", "purging",
-    "adelgazar", "bajar de peso", "peso", "gorda", "flaca",
-    "abdomen", "cuerpo", "grasa", "ayuno", "ayunas",
-    "thinspo", "thinspiration", "proana", "#thinspo", "#thinspiration",
-    "#proana", "#ana", "#mia", "dejar de comer", "no quiero comer",
-    "quiero ser flaca", "me siento gorda", "anorexia", "bulimia"
-]
-
 
 def load_model(model_path: str):
     return joblib.load(model_path)
@@ -59,7 +51,6 @@ def _get_tfidf_vocabulary(model):
     if not hasattr(model, "named_steps"):
         return set()
 
-    # Modelo híbrido
     if "features" in model.named_steps:
         preprocessor = model.named_steps["features"]
         try:
@@ -68,7 +59,6 @@ def _get_tfidf_vocabulary(model):
         except Exception:
             return set()
 
-    # Modelo simple
     if "tfidf" in model.named_steps:
         try:
             return set(model.named_steps["tfidf"].vocabulary_.keys())
@@ -82,6 +72,7 @@ def _estimate_vocab_coverage(cleaned_text: str, vocabulary: set) -> float:
     tokens = cleaned_text.split()
     if not tokens:
         return 0.0
+
     covered = sum(1 for token in tokens if token in vocabulary)
     return covered / len(tokens)
 
@@ -93,17 +84,21 @@ def predict_text(
     control_threshold: float = 0.30,
     min_words: int = 4
 ) -> Dict[str, Any]:
+    term_sets = get_term_sets()
+    risk_terms = term_sets["risk_terms"]
+    positive_safe_terms = term_sets["positive_safe_terms"]
+    negation_safe_terms = term_sets["negation_safe_terms"]
+
     cleaned = clean_text(text if isinstance(text, str) else "")
     words = cleaned.split()
     word_count = len(words)
 
-    has_risk_terms = _contains_any(cleaned, RISK_TERMS)
-    has_generic_safe_phrase = _contains_any(cleaned, GENERIC_SAFE_PHRASES)
+    has_risk_terms = _contains_any(cleaned, risk_terms)
+    has_generic_safe_phrase = _contains_any(cleaned, GENERIC_SAFE_PHRASES + positive_safe_terms + negation_safe_terms)
 
     vocabulary = _get_tfidf_vocabulary(model)
     vocab_coverage = _estimate_vocab_coverage(cleaned, vocabulary)
 
-    # Regla 1: saludo / texto casual sin señales de riesgo
     if has_generic_safe_phrase and not has_risk_terms:
         return {
             "input_text": text,
@@ -118,7 +113,6 @@ def predict_text(
             "vocab_coverage": vocab_coverage
         }
 
-    # Regla 2: cobertura de vocabulario muy baja y sin riesgo
     if vocab_coverage < 0.20 and not has_risk_terms:
         return {
             "input_text": text,
@@ -169,6 +163,8 @@ def predict_text(
             observations_list.append("requiere revisión manual")
         if vocab_coverage < 0.40:
             observations_list.append("cobertura baja del vocabulario")
+        if has_risk_terms:
+            observations_list.append("incluye términos de riesgo")
 
         observations = ", ".join(observations_list) if observations_list else "sin observaciones"
 
