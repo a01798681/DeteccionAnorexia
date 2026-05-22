@@ -1,0 +1,33 @@
+﻿user_id,tweet_id,tweet_text,class,clean_text,label,true_label_num,predicted_label_num,true_label,predicted_label,probability_anorexia,is_correct,prediction_type
+user0407,ab574f83739c,Comer no es bueno  #Princesas,anorexia,comer no es bueno #princesas,1,1,0,anorexia,control,0.3767317884879155,False,false_negative
+user0339,93ecaa9ae366,Me da asco esta sociedad en la que lo saludable es mal visto y donde las mujeres NORMALES siempre tienen que mentir sobre su peso.,anorexia,me da asco esta sociedad en la que lo saludable es mal visto y donde las mujeres normales siempre tienen que mentir sobre su peso,1,1,0,anorexia,control,0.4148200285098232,False,false_negative
+user0543,8f0b5c8a4091,Echando fuera un poquito de mala leche con mis amiguitas  #wednesday #gym  #fit girl #fitgirl #press #picoftheday #chest #chestpress #weightlifting  @iMisut enâ€¦ https://www.instagram.com/p/BvPXCSwDtlf/?utm_source=ig_twitter_share&igshid=y5ksgchb2pn4 â€¦,control,echando fuera un poquito de mala leche con mis amiguitas #wednesday #gym #fit girl #fitgirl #press #picoftheday #chest #chestpress #weightlifting enâ â,0,0,1,control,anorexia,0.5718968424032025,False,false_positive
+user1020,fd62adf8a472,"Wanna que se respeta
+-cree que Abzurdah es el mejor libro
+-Porta es un cantante preferido
+-Reza a ana y mia cada dia
+-Pone  en fotos",anorexia,wanna que se respeta cree que abzurdah es el mejor libro porta es un cantante preferido reza a ana y mia cada dia pone en fotos,1,1,0,anorexia,control,0.28528642088783185,False,false_negative
+user0589,abb770dbf4a5,"Al gran problema de  nadie le hace caso, esto es real y nos afecta a todos, porque todos tenemos algÃºn/na menor susceptible de ser influenciado para ello. AdemÃ¡s no sÃ³lo estÃ¡ el problema del #TCA sino tambiÃ©n el peligro del #suicidio https://goo.gl/WCQ3DV  via: @xataka",anorexia,al gran problema de nadie le hace caso esto es real y nos afecta a todos porque todos tenemos algún na menor susceptible de ser influenciado para ello además no sólo está el problema del #tca sino también el peligro del #suicidio via,1,1,0,anorexia,control,0.26900746063599584,False,false_negative
+user0699,6c60a060efdd,"IronÃ­a: Saber hornear & Cocinar pero no pueder comer una sola rebanada o cucharada sin querer usar a MÃ­a.
+ #Thinspo #Ironico",anorexia,ironía saber hornear cocinar pero no pueder comer una sola rebanada o cucharada sin querer usar a mía #thinspo #ironico,1,1,0,anorexia,control,0.4283228056790965,False,false_negative
+user0106,0d60a81ddab8,"asimismo, https://www.youtube.com/watch?v=paaI0y9A21A â€¦ es una enfermedad bastante difÃ­cil... nadie la entiende hasta que no la vive dentro de si o cuando tienes un familiar o ser querido con esta ""enfermedad mental"" .",anorexia,asimismo â es una enfermedad bastante difã cil nadie la entiende hasta que no la vive dentro de si o cuando tienes un familiar o ser querido con esta enfermedad mental,1,1,0,anorexia,control,0.33294582480914503,False,false_negative
+user1265,a5f21ee88cfb,"La comida es arte, y el arte se hizo para ver no para comer #HappyMoments  #love http://instagram.com/p/mZNfAUofAN/",anorexia,la comida es arte y el arte se hizo para ver no para comer #happymoments #love,1,1,0,anorexia,control,0.48548046183687804,False,false_negative
+user0110,ab49b1c869b0,"Peso de Junio: 39 kg.
+Peso de Julio: 33 kg.
+Peso actual   : 30'5 kg.
+
+Meta...20 kg 
+
+#Fat  #Princess #Don'teat #Cortes #Sangre",anorexia,peso de junio 39 kg peso de julio 33 kg peso actual 30 5 kg meta 20 kg #fat #princess #don teat #cortes #sangre,1,1,0,anorexia,control,0.41983344595284683,False,false_negative
+user0965,a250371aecb4,MaÃ±ana hablamos sobre la obsesiÃ³n con la imagen fÃ­sica y el peso #trastornosAlimenticios #Anorexia #Bulimia,control,mañana hablamos sobre la obsesión con la imagen física y el peso #trastornosalimenticios #anorexia #bulimia,0,0,1,control,anorexia,0.6197769143982059,False,false_positive
+user0029,790304dc259a,"#Tip 
+Esta lista es un resumen de la #verduras  y #legumbres que tienen pocas #calorias   #vegetarian",anorexia,#tip esta lista es un resumen de la #verduras y #legumbres que tienen pocas #calorias #vegetarian,1,1,0,anorexia,control,0.030203678982878072,False,false_negative
+user0197,488183b37f6c,Por supuesto que el cielo existe #LunesIntratable #taquitos,control,por supuesto que el cielo existe #lunesintratable #taquitos,0,0,1,control,anorexia,0.5365673797907048,False,false_positive
+user0263,52d316b5c1da,"Â¿Por quÃ© este empeÃ±o en promover unos cÃ¡nones corporales inalcanzables? 
+#A4Challenge
+ #anorexia #delgadez",control,por qué este empeño en promover unos cánones corporales inalcanzables #a4challenge #anorexia #delgadez,0,0,1,control,anorexia,0.6459280391158281,False,false_positive
+user0715,213b14852f80,â€œ@barby_aranda: Lo malo de llorar es que te arden muuucho los ojos   #ED #sue #cut #hateâ€ no mames  eres la mÃ¡s Â«anorÃ©xicaÂ» de tw,anorexia,â œ lo malo de llorar es que te arden muuucho los ojos #ed #sue #cut #hateâ no mames eres la mã s â anorã xicaâ de tw,1,1,0,anorexia,control,0.4323679399410829,False,false_negative
+user1212,ee2f99c1f0e3,Gordas que tienen cuentas en Instagram y suben solo fotos tomando agua con el hashtag .,anorexia,gordas que tienen cuentas en instagram y suben solo fotos tomando agua con el hashtag,1,1,0,anorexia,control,0.1887503925480902,False,false_negative
+user0642,66aa050a7657,Un dÃ­a eres joven y al dÃ­a siguiente estÃ¡s comprando moldes para hacerte tu propia  y todo por culpa de @nutri_rivers,control,un día eres joven y al día siguiente estás comprando moldes para hacerte tu propia y todo por culpa de,0,0,1,control,anorexia,0.7497407735387348,False,false_positive
+user0912,2d32c6343df8,Eso   gracias por enviar a los #deportistas  al inframundo asÃ­ se les baja un poco los humos,control,eso gracias por enviar a los #deportistas al inframundo así se les baja un poco los humos,0,0,1,control,anorexia,0.5945319447080588,False,false_positive
+user1138,904c36256b31,Estar comiendo tomates cherris y reÃ­rte es todo un peligro.,control,estar comiendo tomates cherris y reírte es todo un peligro,0,0,1,control,anorexia,0.6415718976339463,False,false_positive

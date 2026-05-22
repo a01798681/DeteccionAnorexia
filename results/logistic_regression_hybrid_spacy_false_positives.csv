@@ -1,0 +1,26 @@
+﻿user_id,tweet_id,tweet_text,class,clean_text,label,true_label_num,predicted_label_num,true_label,predicted_label,probability_anorexia,is_correct,prediction_type,text_length_chars,text_length_words
+user1222,2b6cdcd355af,El #hambre feroz es uno de los efectos secundarios al ver nuestros #platos...  #calamar #sano,control,el # hambre feroz ser uno de el efecto secundario al ver nuestro # plato # calamar # sano,0,0,1,control,anorexia,0.6453090535526329,False,false_positive,93,19
+user0741,ef1484dd4563,"Â¿Por quÃ© permitimos que estos mensajes circulen alegremente? 
+
+#proana #promia 
+
+ http://ow.ly/Dw9T5  http://ow.ly/i/7ogig",control,por qué permitir que este mensaje circular alegremente # proán # promia,0,0,1,control,anorexia,0.6483770211147847,False,false_positive,124,12
+user0976,a3f38b56d166,"Yo me lo guiso, yo me lo como.   #integral #casero #Bread",control,yo yo él guisar yo yo él como # integral # casero # bread,0,0,1,control,anorexia,0.6472802279794537,False,false_positive,57,14
+user0535,672e187017a3,Me alegro de que se tomen medidas contra algunos en Twitter pero a ver sÃ­ empiezan a tomarlas tambiÃ©n con,control,yo alegrar de que él tomar medida contra alguno en twitter pero a ver sí empezar a tomarla también con,0,0,1,control,anorexia,0.6224587456066397,False,false_positive,107,20
+user0787,defac326c40e,"La vida es como el ejercicio cuanto mÃ¡s duro es  mÃ¡s fuerte te vuelves.
+-
+-
+-
+24coach #superacion #perderpeso  https://www.instagram.com/p/BvXiMaLpUDv/?utm_source=ig_twitter_share&igshid=ttkwrb4uay7c â€¦",control,el vida ser como el ejercicio cuanto mã s duro ser mã s fuerte tú volver 24coach # superacion # perderpeso â,0,0,1,control,anorexia,0.5637804925040476,False,false_positive,205,22
+user0233,c64c9553041a,@GobiernoDeEspan @PPopular @PSOE tenemos entre todos q luchar contra las pÃ¡ginas web  q promueven la anorexia y la bulimia.,control,tener entre todo q luchar contra el página web q promover el anorexia y el bulimia,0,0,1,control,anorexia,0.7825522223308157,False,false_positive,124,16
+user0764,ba98de07f3f2,"Es mejor sÃ³lo comer comida real que si nos nutre y nos evitamos tantos problemas como los colorantes artificiales.
+â€”",control,ser mejor sã³lo comer comida real que si yo nutrar y yo evitar tanto problema como el colorant artificial â,0,0,1,control,anorexia,0.5414054883692594,False,false_positive,119,20
+user0965,a250371aecb4,MaÃ±ana hablamos sobre la obsesiÃ³n con la imagen fÃ­sica y el peso #trastornosAlimenticios #Anorexia #Bulimia,control,mañana hablar sobre el obsesión con el imagen físico y el peso # trastornosalimenticios # anorexia # bulimia,0,0,1,control,anorexia,0.908309537569062,False,false_positive,110,18
+user0637,85e28a3cba31,4 #ejercicios abdominales y algunos consejos para tonificar tu abdomen http://bit.ly/2IoExjK  #Salud,control,4 # ejercicio abdominal y alguno consejo para tonificar tu abdomen # salud,0,0,1,control,anorexia,0.6006107462149166,False,false_positive,100,13
+user0112,29ade1522dd1,3 DÃAS SIN COMER ULTRAPROCESADOS  ROASTING VEGGIES: http://youtu.be/9IGuIkuvDn0?a  vÃ­a @YouTube,control,3 día sin comer ultraprocesado roasting veggi vía,0,0,1,control,anorexia,0.770344088074641,False,false_positive,97,8
+user1302,84aead18b6bd,Esta #ensalada tiene unas 100 o125 #kcals mas por los porotos (no se ven creo)#vegetarian #crudo  #calorias,control,este # ensalado tener uno 100 o125 # kcals mas por el poroto no él ver creer # vegetarian # crudo # caloria,0,0,1,control,anorexia,0.6063269418840229,False,false_positive,107,23
+user1105,328d17912754,"#FundaciÃ³nAPE hace formaciÃ³n, divulgaciÃ³n y concienciaciÃ³n para prevenir los #TCA http://mtr.cool/kacekcs  #bulimia #anorexia #trastornosporatracÃ³n #trastornosalimentarios #stopTCA",control,# fundaciónape hacer formación divulgación y concienciación para prevenir el # tca # bulimia # anorexia # trastornosporatracón # trastornosalimentario # stoptca,0,0,1,control,anorexia,0.8177566821234669,False,false_positive,185,22
+user0642,66aa050a7657,Un dÃ­a eres joven y al dÃ­a siguiente estÃ¡s comprando moldes para hacerte tu propia  y todo por culpa de @nutri_rivers,control,uno día ser joven y al día siguiente estar comprar mold para hacerte tu propio y todo por culpa de,0,0,1,control,anorexia,0.9261697044558396,False,false_positive,120,20
+user1180,b6d03924ba0b,"Cuando estas bien hidratado, tu cuerpo es mÃ¡s eficiente para quemar calorÃ­as.  #nutricion  #perderpeso #adelgazar",control,cuando este bien hidratado tu cuerpo ser más eficiente para quemar caloría # nutricion # perderpeso # adelgazar,0,0,1,control,anorexia,0.5074068753848266,False,false_positive,115,18
+user0912,2d32c6343df8,Eso   gracias por enviar a los #deportistas  al inframundo asÃ­ se les baja un poco los humos,control,ese gracias por enviar a el # deportista al inframundo así él él bajar uno poco el humo,0,0,1,control,anorexia,0.8056119117301248,False,false_positive,93,18
+user1138,904c36256b31,Estar comiendo tomates cherris y reÃ­rte es todo un peligro.,control,estar comer tomate cherris y reírte ser todo uno peligro,0,0,1,control,anorexia,0.9644139429153662,False,false_positive,60,10

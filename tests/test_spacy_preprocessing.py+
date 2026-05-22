@@ -1,0 +1,57 @@
+import pandas as pd
+
+import src.spacy_preprocessing as sp
+
+
+class FakeToken:
+    def __init__(self, text, lemma=None, is_space=False, is_punct=False):
+        self.text = text
+        self.lemma_ = lemma if lemma is not None else text
+        self.is_space = is_space
+        self.is_punct = is_punct
+
+
+class FakeDoc(list):
+    pass
+
+
+class FakeNLP:
+    def __call__(self, text):
+        tokens = [
+            FakeToken("quiero", "querer"),
+            FakeToken("comiendo", "comer"),
+            FakeToken("#thinspo", "#thinspo"),
+            FakeToken(".", ".", is_punct=True),
+        ]
+        return FakeDoc(tokens)
+
+    def pipe(self, texts, batch_size=64):
+        for _ in texts:
+            yield FakeDoc([
+                FakeToken("vomitando", "vomitar"),
+                FakeToken("#ana", "#ana"),
+                FakeToken(".", ".", is_punct=True),
+            ])
+
+
+def test_normalize_spacy_text_uses_lemmas_and_keeps_hashtag(monkeypatch):
+    monkeypatch.setattr(sp, "get_spacy_nlp", lambda *args, **kwargs: FakeNLP())
+    result = sp.normalize_spacy_text("Quiero comiendo #thinspo.")
+    assert "querer" in result
+    assert "comer" in result
+    assert "#thinspo" in result
+    assert "." not in result
+
+
+def test_normalize_texts_spacy_returns_expected_length(monkeypatch):
+    monkeypatch.setattr(sp, "get_spacy_nlp", lambda *args, **kwargs: FakeNLP())
+    result = sp.normalize_texts_spacy(["uno", "dos", "tres"])
+    assert isinstance(result, pd.Series)
+    assert len(result) == 3
+
+
+def test_normalize_texts_spacy_empty_input(monkeypatch):
+    monkeypatch.setattr(sp, "get_spacy_nlp", lambda *args, **kwargs: FakeNLP())
+    result = sp.normalize_texts_spacy([])
+    assert isinstance(result, pd.Series)
+    assert len(result) == 0

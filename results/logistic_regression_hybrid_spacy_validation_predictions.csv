@@ -1,0 +1,702 @@
+﻿user_id,tweet_id,tweet_text,class,clean_text,label,true_label_num,predicted_label_num,true_label,predicted_label,probability_anorexia,is_correct,prediction_type,text_length_chars,text_length_words
+user0406,bcc6c6fda581,Has vivido alguna vez esa sensacion d despertar en la manana y sentirte triste y cansada de saber q debes sobrevivir otro dia mas,anorexia,haber vivir alguno vez ese sensacion d despertar en el manana y sentirte triste y cansado de saber q deber sobrevivir otro dia mas,1,1,1,anorexia,anorexia,0.8430612720015229,True,true_positive,129,24
+user1222,2b6cdcd355af,El #hambre feroz es uno de los efectos secundarios al ver nuestros #platos...  #calamar #sano,control,el # hambre feroz ser uno de el efecto secundario al ver nuestro # plato # calamar # sano,0,0,1,control,anorexia,0.6453090535526329,False,false_positive,93,19
+user0741,ef1484dd4563,"Â¿Por quÃ© permitimos que estos mensajes circulen alegremente? 
+
+#proana #promia 
+
+ http://ow.ly/Dw9T5  http://ow.ly/i/7ogig",control,por qué permitir que este mensaje circular alegremente # proán # promia,0,0,1,control,anorexia,0.6483770211147847,False,false_positive,124,12
+user0751,ab3c2cff9fac,No he podido hacer los ejercicios... me han llamado para ir a casa de mi abuela... puta familia...,anorexia,no haber poder hacer el ejercicio yo haber llamar para ir a casa de mi abuela puta familia,1,1,1,anorexia,anorexia,0.7698043874932159,True,true_positive,98,18
+user1124,5da200b2d52a,"MÃ­ estÃ³mago estÃ¡ hinchado de tanto vomitar, me duele la cabeza y la garganta me arde cada vez que trago saliva. Todo por romper una simple regla. #dejardecomer  #vomitar #NoPainNoGain",anorexia,yo estómaguir estar hinchado de tanto vomitar yo doler el cabeza y el garganta yo arder cada vez que trago salivo todo por romper uno simple regla # dejardecomer # vomitar # nopainnogain,1,1,1,anorexia,anorexia,0.9995909355146645,True,true_positive,186,33
+user1044,710c6a10d231,"DÃ­a nueve de mi ayuno casi llega a su fin, que orgullo es lo mÃ¡s lejos que he llegado hasta ahora..
+#RexyBill",anorexia,día nueve de mi ayuno casi llegar a su fin que orgullo ser él más lejos que haber llegar hasta ahora # rexybill,1,1,1,anorexia,anorexia,0.9283027366352825,True,true_positive,111,23
+user0566,9db1428d3f7b,"el tupper para comer hoy en el curro: lasaÃ±a de cerdo agridulce 
+
+#menjarsaludable  #vegan",control,el tupper para comer hoy en el curro lasaño de cerdo agridulce # menjarsaludable # vegan,0,0,0,control,control,0.15861064557388865,True,true_negative,91,16
+user0089,ec457687706a,"Las nueces destacan por la gran cantidad de nutrientes y beneficios que tienen para nuestra salud y hoy lo explicamos todo detalladamente 
+ #nutricion ing #FelizMiÃ©rcoles #nueces #healthy #frutossecos  #saludable",control,el nuez destacar por el gran cantidad de nutrient y beneficio que tener para nuestro salud y hoy él explicar todo detalladamente # nutricion ing # felizmiércoles # nueces # healthy # frutosseco # saludable,0,0,0,control,control,0.002030605194311582,True,true_negative,213,35
+user0473,bca2bc701a4c,"CONCLUSIÃ“N
+Si el objetivo es la #salud:
+ lo mÃ¡s cercano al 100%
+
+Si es aumento constante de #hipertrofia:
+Contar calorÃ­as e introducir,estratÃ©gicamente, ultraprocesados https://www.youtube.com/watch?v=jt1DBSbxHiM â€¦
+Discrepo que la 1Âª solo cree cuerpo #fofisano
+#Gimnasio #EnForma @angel7real",control,conclusiã n si el objetivo ser el # salud él mã s cercano al 100 si ser aumento constante de # hipertrofiar contar calorã as e introducir estratã gicamente ultraprocesado â discrepar que el 1âª solo creer cuerpo # fofisano # gimnasio # enformar,0,0,0,control,control,0.01939643010179581,True,true_negative,298,44
+user0360,3219725fb528,Una princesa que rÃ­e quema mÃ¡s calorÃ­as.,anorexia,uno princesa que riar quema más caloría,1,1,1,anorexia,anorexia,0.9765161422572123,True,true_positive,43,7
+user1084,c8e120657bde,"Todo tiene un proceso, lucha por el",anorexia,todo tener uno proceso luchar por el,1,1,1,anorexia,anorexia,0.9121040420244556,True,true_positive,35,7
+user1160,dc2b7fe19ba0,"Y esta noche Â¿quÃ©?...Â¿carne, pescado, verduras?...
+Si no quieres caer en la misma rutina, prepara una guarniciÃ³n alternativa: #patatas a la mantequilla.FÃ¡cil, fÃ¡cil y Â¡rico, rico!  Â¡Haz la prueba! Te dejamos la receta https://www.directoalpaladar.com/recetas-de-salsas-y-guarniciones/receta-de-patatas-a-la-mantequilla â€¦
+#LasRecetasDeHijolusa",control,y este noche â quã â carne pescado verdura si no querer caer en el mismo rutina preparar uno guarniciã³n alternativo # patata a el mantequilla fã cil fã cil y â rico rico â hacer el prueba tú dejar el receta â # lasrecetasdehijolús,0,0,0,control,control,0.013692852116313863,True,true_negative,352,45
+user1480,8a8929c5b239,"Me encanta hacer ejercicio a nivel del mar , me lleno de oxÃ­geno y cada poro de mi cuerpo libera toxinas. 
+
+Â¡Se los recomiendo mucho !
+.
+.
+.
+#desintoxicaciÃ³n #nutricionista #fit #ï¬tnessâ€¦ https://www.instagram.com/p/BvPjTNdF1k2/?utm_source=ig_twitter_share&igshid=1wza9wdbuqrjg â€¦",control,yo encantar hacer ejercicio a nivel del mar yo lleno de oxã geno y cada poro de mi cuerpo libera toxina â él él recomeir mucho # desintoxicaciã³n # nutricionista # fit # ï tnessâ â,0,0,0,control,control,0.14539123374802668,True,true_negative,287,36
+user1194,917c638a503b,Asi que solo tendre que matarme haciendo ejercicio ... por lo menos quiero pesar 53 kilos para diciembre #nomasgorda,anorexia,asi que solo tendre que matar yo hacer ejercicio por él menos querer pesar 53 kilo para diciembre # nomasgordo,1,1,1,anorexia,anorexia,0.8225997487700326,True,true_positive,116,20
+user0328,63f6f7fa3d94,"Â¿Disfrutar de la #comida sin pensar en las #calorÃ­as ? 
+Â¡@eatfine_es te propone sabrosos #menÃºs para que te cuides durante toda la semana !
+ConÃ³cenos y da un paso hacia la #vidasaludable 
+#Eatfine #Dieta  #nutriciÃ³n
+https://bit.ly/2rHWBdJ",control,disfrutar de el # comida sin pensar en el # caloría tú proponer sabroso # menú para que tú cuidser durante todo el semana conóceno y dar uno paso hacia el # vidasaludable # eatfine # dieta # nutrición,0,0,0,control,control,0.06148862044167546,True,true_negative,244,39
+user0278,0ad91d78a1d0,Como quisiera tener el estÃ³mago vacÃ­o siempre. #nomasgorda,anorexia,como querer tener el estómago vacío siempre # nomasgordo,1,1,1,anorexia,anorexia,0.827827109754107,True,true_positive,60,9
+user0407,ab574f83739c,Comer no es bueno  #Princesas,anorexia,comer no ser bueno # princesa,1,1,1,anorexia,anorexia,0.7189658694267543,True,true_positive,29,6
+user1286,ed5684de06f1,"ComÃ­ una taza grande de cereal con leche, quiero morir... #ana #mia  #anorexia #bulimia #proana #promia #ed",anorexia,comí uno taza grande de cereal con leche querer morir # ana # mia # anorexia # bulimia # proán # promia # ed,1,1,1,anorexia,anorexia,0.994552003793618,True,true_positive,108,24
+user0339,93ecaa9ae366,Me da asco esta sociedad en la que lo saludable es mal visto y donde las mujeres NORMALES siempre tienen que mentir sobre su peso.,anorexia,yo dar asco este sociedad en el que él saludable ser mal ver y donde el mujer normal siempre tener que mentir sobre su peso,1,1,1,anorexia,anorexia,0.882511287146398,True,true_positive,130,25
+user0531,5fe13f17a437,"AlimentaciÃ³n equilibrada es aquella que incluye una diversidad suficiente de alimentos en las cantidades adecuadas. 
+
+En parcela 70 encontrarÃ¡s las mejores ensaladas del valle. 
+
+ #ComidaGourmet #Restaurant #Restaurante #RestauranteMexicano #Comidas #Ensenada",control,alimentación equilibrado ser aquel que incluir uno diversidad suficiente de alimento en el cantidad adecuado en parcela 70 encontrarás el mejor ensalada del valle # comidagourmet # restaurant # restaurante # restaurantemexicano # comida # ensenado,0,0,0,control,control,0.001331279894689669,True,true_negative,261,36
+user0646,b0f720a45131,ComÃ­ ejotes aunque sÃ© que no engordan tanto aun asÃ­ los quiero vomitar. #TranstornosAlimenticios #Bulimia  #Vomito,anorexia,comí ejot aunque saber que no engordir tanto aun así él querer vomitar # transtornosalimenticio # bulimia # vomito,1,1,1,anorexia,anorexia,0.9999182695443392,True,true_positive,117,19
+user0987,42fe99a60f1f,"La cocina de autor es poner tu personalidad en lo que haces, y ese sentimiento la convierte en algo distinto 
+ #comida #foods #foodfacts #loveislove #friendzone #moments  @ El Punto Carteluo",control,el cocina de autor ser poner tu personalidad en él que hacer y ese sentimiento él convertir en algo distinto # comida # foods # foodfacts # loveislove # friendzonir # moment el punto carteluo,0,0,0,control,control,0.0648196599344479,True,true_negative,190,35
+user0300,b0ea77f110a0,Lo mas hermoso que vi en el aÃ±o $correr seguido 22m y quemar 200 kcals #ejercicio #BuenaSalud  #nomasgorda,anorexia,él mas hermoso que vi en el año correr seguido 22 m y quemar 200 kcals # ejercicio # buenasalud # nomasgordo,1,1,0,anorexia,control,0.416381014378919,False,false_negative,107,22
+user0005,4d81892f3217,Hace mucho tiempo no sentÃ­a mi cuerpo tan frÃ­o,anorexia,hacer mucho tiempo no sentir mi cuerpo tanto frío,1,1,1,anorexia,anorexia,0.8902122718810622,True,true_positive,48,9
+user0354,3793da8a1e92,"Me dais asco puro y duro los que enaltecÃ©is el movimiento , me vale que tengÃ¡is cosas, todos las tenemos. Pero un poco de por favor.",anorexia,yo dais asco puro y duro el que enaltecéis el movimiento yo valer que tener cosa todo él tener pero uno poco de por favor,1,1,1,anorexia,anorexia,0.6487938404457249,True,true_positive,134,25
+user0138,774910b9d0ce,"LevÃ¡ntate cada maÃ±ana con un sueÃ±o que cumplir,
+Y acuÃ©state cada noche con una historia que contar 
+.
+.
+.
+.
+#emprendedora #motivacionfitness #motivacion #nutricionista #nutricion  #perdidadegrasa #woman #mujer #instagood https://ift.tt/2udZFiW",control,levántatir cada mañana con uno sueño que cumplir y acuéstatir cada noche con uno historia que contar # emprendedora # motivacionfitness # motivacion # nutricionista # nutricion # perdidadegrasar # woman # mujer # instagood,0,0,0,control,control,0.018780723744421177,True,true_negative,247,35
+user1102,7502f42277c5,"ComÃ­ hasta no poder y que es lo seguÃ­a ... obvio,vomitar.   
+
+ESA ES LA #UNICA SOLUCIÃ“N. 
+
+ #thinspiration #thinspo #futuro",anorexia,comã hasta no poder y que ser él seguã a obvio vomitar ese ser el # unico soluciã n # thinspiration # thinspo # futuro,1,1,1,anorexia,anorexia,0.9999999976328411,True,true_positive,126,25
+user0016,95f0866200e2,"Norex Anfepromona un potente medicamento para dejar de comer en exceso
+ADELGAZA SIN HAMBRE
+#TusClÃ¡sicos #SabadoDeGanarSeguidores #EsPuenteYTodos #bellezasuperior
+#TwitterBestFandom
+#SoompiAwards
+#ConvoyVL19
+#20anosVL19 #Tampico #Dieta #Obesidad #Madero #Tamaulipas #Fit",control,norex anfepromonar uno potente medicamento para dejar de comer en exceso adelgazar sin hambre # tusclásicos # sabadodeganarseguidor # espuenteytodo # bellezasuperior # twitterbestfandom # soompiawards # convoyvl19 # 20anosvl19 # tampico # dietar # obesidad # madero # tamaulipas # fit,0,0,0,control,control,0.01974865826707876,True,true_negative,270,42
+user0195,c4b7ccf85e88,"Soy egoÃ­sta porque hago sufrir a la gente que me quiere, siendo el mas hijo e puta conmigo mismo #proana #promia #coldprince  #thin",anorexia,ser egoísta porque hacer sufrir a el gente que yo querer ser el mas hijo e puta conmigo mismo # proán # promia # coldprince # thin,1,1,1,anorexia,anorexia,0.895648810540516,True,true_positive,132,27
+user1319,94d86043b552,"No sabÃ©is que merendar?
+Por mayorÃ­a absoluta os dejo mi adaptaciÃ³n de la receta de @PlanetaHuerto de TORTITAS O PANCAKES DE TRIGO SARRACENO
+Como veis al mÃ¡s estilo americano pero sÃºper saludables 
+  #glutenfree #vegan #tortitas #pancakes #trigosarraceno",control,no sabéis que merendar por mayoría absoluto tú dejar mi adaptación de el receta de de tortita o pancakes de trigo sarraceno como veis al más estilo americano pero súper saludable # glutenfreir # vegar # tortita # pancakes # trigosarraceno,0,0,0,control,control,0.010082329836730412,True,true_negative,258,41
+user0509,996e00d45ddc,Tomen un litro de agua antes de cada comida y van a tener menos hambre para estar flaquitas #FrancisientaTips #Tiny,anorexia,tomar uno litro de agua antes de cada comida y ir a tener menos hambre para estar flaquita # francisientatips # tiny,1,1,1,anorexia,anorexia,0.757846909071977,True,true_positive,115,22
+user0910,ac59659dff92,"Calabaza, berenjena, cebolla, chirivÃ­a y pollo guisados en la olla rÃ¡pida.
+Con agua de mÃ¡s y asÃ­ hago caldo se pollo y verduras para otro dÃ­a.
+  er ing #planificacion https://ift.tt/2IxR2G6",control,calabaza berenjena cebollo chirivía y pollo guisado en el olla rápido con agua de más y así hacer caldo él pollo y verdura para otro día er ing # planificacion,0,0,0,control,control,0.03196851453335462,True,true_negative,194,30
+user1240,2a6b4cc1bb8a,"Necesito volver a ser lo que era, incluso mejor... Para ello debo deshacerme de todo lo que llevo dentro de mi, lo voy a sacar todo",anorexia,necesitar volver a ser él que ser incluso mejor para él deber deshacer yo de todo él que llevar dentro de mi él ir a sacar todo,1,1,1,anorexia,anorexia,0.8268466643342185,True,true_positive,131,27
+user1111,1261f334ea82,acelerar el metabolismo para adelgazar | Carla Diaz TV https://youtu.be/tnANM6YCKlI  #adelgazar  #remedioscaseros #remediosnaturales #salud #belleza #metabolismo #gym,control,acelerar el metabolismo para adelgazar car él diaz tv # adelgazar # remedioscaseros # remediosnatural # salud # belleza # metabolismo # gym,0,0,0,control,control,0.014765184682785782,True,true_negative,166,23
+user1024,940e25983f98,Aunque cientos de personas me digas si estas muy bien no entiendo porque no lo puedo ver,anorexia,aunque ciento de persona yo digar si este mucho bien no entender porque no él poder ver,1,1,1,anorexia,anorexia,0.7024565712230869,True,true_positive,88,17
+user0829,c016e9275cb5,MaÃ±ana lunes de ayuno,anorexia,mañana lunes de ayuno,1,1,1,anorexia,anorexia,0.977219328484264,True,true_positive,22,4
+user0543,8f0b5c8a4091,Echando fuera un poquito de mala leche con mis amiguitas  #wednesday #gym  #fit girl #fitgirl #press #picoftheday #chest #chestpress #weightlifting  @iMisut enâ€¦ https://www.instagram.com/p/BvPXCSwDtlf/?utm_source=ig_twitter_share&igshid=y5ksgchb2pn4 â€¦,control,echar fuera uno poquito de mala leche con mi amiguita # wednesday # gym # fit girl # fitgirl # press # picoftheday # chest # chestpress # weightlifting enâ â,0,0,0,control,control,0.04317805859754236,True,true_negative,255,31
+user0976,a3f38b56d166,"Yo me lo guiso, yo me lo como.   #integral #casero #Bread",control,yo yo él guisar yo yo él como # integral # casero # bread,0,0,1,control,anorexia,0.6472802279794537,False,false_positive,57,14
+user0007,a34963448596,"Si en un restaurante, la pretensiÃ³n es el ingrediente principal del plato que pediste, mejor comete el pan.  #cocinardeverdadesotracosa",control,si en uno restaurante el pretensión ser el ingrediente principal del plato que pediste mejor comete el pan # cocinardeverdadesotracós,0,0,0,control,control,0.12026854289590345,True,true_negative,136,20
+user0824,7490a40c5298,"Fortalecer tus piernas te ayuda a  fortalecer el torso y mejorar la estabilidad
+
+ girl #strong #legday #mtyfit en Monterrey, Nuevo Leon, Mexico https://www.instagram.com/p/BvP_6NKhV7t/?utm_source=ig_twitter_share&igshid=12sbnxqqhmzwb â€¦",control,fortalecer tu pierna tú ayudar a fortalecer el torso y mejorar el estabilidad girl # strong # legday # mtyfit en monterrey nuevo leon mexico â,0,0,0,control,control,0.021994137545498785,True,true_negative,237,26
+user0574,2f912637132d,"Resultado final del pan que hice ayer.
+Es sÃºper rÃ¡pido de hacer y estÃ¡ buenÃ­simo. Pasaros por IGTV allÃ­ tenÃ©is la receta completa. 
+Feliz lunes a todas mis chicas .
+.
+.
+.
+#lunes #pan #agucate #avocado #receta #food  #comidasana #saludable #heaâ€¦ http://bit.ly/2G67E8A",control,resultado final del pan que hacer ayer ser sãºper rã pedir de hacer y estã buenã simo pasaro por igtv allã tenã is el receta completo feliz lunes a todo mi chica # lunes # pan # agucate # avocado # receta # food # comidasana # saludable # heaâ,0,0,0,control,control,0.005523256604977534,True,true_negative,274,50
+user1381,d1641dff4e74,"Viernes y el cuerpo lo ignora.
+.
+.
+.
+
+.
+.
+.#health  #fit #TFLers model addict #fitspo #workout #bodybuilding #cardio #gym #train #trainingâ€¦ https://www.instagram.com/maccpainter/p/BvDP3XLhfPO/?utm_source=ig_twitter_share&igshid=1mj1wpoug0jbw â€¦",control,viernes y el cuerpo él ignorar # health # fit # tflers model addict # fitspo # workout # bodybuilding # cardio # gym # train # trainingâ â,0,0,0,control,control,0.033838528756175226,True,true_negative,247,29
+user0183,d28b4fa64e73,QuÃ© bonito serÃ­a despertar y tener el cuerpo que deseas...,anorexia,qué bonito ser despertar y tener el cuerpo que desea,1,1,1,anorexia,anorexia,0.9062417725838717,True,true_positive,60,10
+user1157,80fdda51a089,"Lomo Salteado #lowcarb
+
+en este plata sÃ³lo la cebolla es lo que es:
+
+- el lomo no es lomo
+- el arroz no es arroz (coliflor)
+- las papas fritas no son papas (zapallo italiano)
+
+tambiÃ©n puede llamarse
+ lomo salteado fake
+
+@MetodoGrez #keto #LCHF #paleo",control,lomo salteado # lowcarb en este plata sólo el cebolla ser él que ser el lomo no ser lomo el arroz no ser arroz coliflor el papa fritas no ser papas zapallo italiano también poder llamar él lomo salteado fake # keto # lchf # paleo,0,0,0,control,control,0.028056646089294666,True,true_negative,252,46
+user0879,7358387982b3,"SÃ­ ya se que no sirvo para vomitar, porque MIERDA SIGO TOMANDOLO CON OPCIÃ“N, SOY UNA COJUDA.",anorexia,sã ya él que no servir para vomitar porque mierda seguir tomandolo con opciã n ser uno cojudo,1,1,1,anorexia,anorexia,0.9998665440564949,True,true_positive,94,18
+user1026,9ef96992d934,"Desde hoy , tomarÃ© mÃ¡s agua que decisiones",anorexia,desde hoy tomar más agua que decisión,1,1,1,anorexia,anorexia,0.9427044200122269,True,true_positive,44,7
+user0732,aaf4d76072e8,Lo que necesitas para comenzar.  #MotivaciÃ³n pic.twitter.com/1DSGYI1zpK,control,él que necesita para comenzar # motivación pic twitter com 1dsgyi1zpk,0,0,0,control,control,0.2540282523737475,True,true_negative,72,11
+user0173,6c8e4191f87f,Realfood o comida real Â¿QuÃ© es?  ing,control,realfood o comida real qué ser ing,0,0,0,control,control,0.17129935346259054,True,true_negative,38,7
+user0080,2892c5b65c68,"ostras un dÃ­a mÃ¡s sin comer pollitos, y vivito y coleando estoy, y por cierto, ellos tambiÃ©n. Ãºltima raciÃ³n de las berenjenas rellenas de ragout de soja, canÃ³nigos y rÃºcula, zanahorias y restos de apio que circulaban por casa
+#menjarsaludable  #veggie",control,ostra uno día más sin comer pollito y vivito y colear estar y por cierto él también último ración de el berenjena relleno de ragout de soja canónigo y rúcular zanahorias y resto de apio que circular por casa # menjarsaludable # veggie,0,0,0,control,control,0.10083832185403259,True,true_negative,258,43
+user1020,fd62adf8a472,"Wanna que se respeta
+-cree que Abzurdah es el mejor libro
+-Porta es un cantante preferido
+-Reza a ana y mia cada dia
+-Pone  en fotos",anorexia,wanna que él respetar creer que abzurdah ser el mejor libro portar ser uno cantante preferido rezar a ana y miir cada dio poner en foto,1,1,1,anorexia,anorexia,0.8890613767742352,True,true_positive,132,26
+user0597,30cfa992902a,"#Merienda de hoy: 
+Higos, durazno y nuez.",control,# merienda de hoy higo durazno y nuez,0,0,0,control,control,0.046715551129762535,True,true_negative,41,8
+user1412,897d6cc90687,"Â¡Buenos dÃ­as!  Les dejo en mi Instagram la receta de este Green Smoothie que aporta vitaminas, minerales, fito nutrientes, enzimas vivas y que ayuda a alcalinizar el cuerpo y lucir una piel radiante.
+#detox #greensmoothie #smoothie #desayuno #salud #healthylife #vegan",control,buen día él dejar en mi instagram el receta de este green smoothie que aportar vitamina mineral fito nutrient enzima vivo y que ayudar a alcalinizar el cuerpo y lucir uno piel radiante # detox # greensmoothie # smoothie # desayuno # salud # healthylife # vegar,0,0,0,control,control,0.04052954031840755,True,true_negative,270,47
+user0010,18c237db6f53,"Cuando la ley no responde  nuestras elecciones hacen el cambio. Come local y sustentable, respetando la vida de los seres que serÃ¡n tu comida.  #somosloquecomemos #somosloqueelegimos",control,cuando el ley no responder nuestro elección hacer el cambio comar local y sustentable respetar el vida de el ser que ser tu comida # somosloquecomar # somosloqueelegimos,0,0,0,control,control,0.05788426030935472,True,true_negative,183,28
+user0069,da2f3f2dbef1,Haciendo lo q mas me destruye...,anorexia,hacer él q mas yo destruir,1,1,1,anorexia,anorexia,0.9124972313077759,True,true_positive,32,6
+user0425,19c429cd060d,"Quiero ser delgada, encantadora, etc ...
+#thinspo  #ana",anorexia,querer ser delgado encantador etc # thinspo # ana,1,1,1,anorexia,anorexia,0.997463223831894,True,true_positive,55,9
+user0939,92bdb1ddd871,"hoy ayunarÃ© porque se que la comida es para la gente desnutrida y yo estoy gorda. 
+#thinspo #thinspiration #proana  #anorexia #anorexic",anorexia,hoy ayunar porque él que el comida ser para el gente desnutrido y yo estar gordo # thinspo # thinspiration # proán # anorexia # anorexic,1,1,1,anorexia,anorexia,0.9999967586640672,True,true_positive,136,26
+user0821,73bed9165520,"No caigas!
+Tienes todo 1 mes para conseguir tu objetivo. Animo
+ 
+Solo si quieren verse super hermosas para comenzar diciembre",anorexia,no caiga tener todo 1 mes para conseguir tu objetivo animo solo si querer ver él super hermosa para comenzar diciembre,1,1,1,anorexia,anorexia,0.7260444561683821,True,true_positive,125,21
+user0696,73513f95d5d0,"Quieren que haga algo al respecto,  perfecto sufrirÃ¡n conmigo.  Total de algo me voy a morir y les voy a dar el gusto.",anorexia,querer que hacer algo al respecto perfecto sufrir conmigo total de algo yo ir a morir y él ir a dar el gusto,1,1,1,anorexia,anorexia,0.9120270514661433,True,true_positive,119,23
+user1392,0a54c25e2951,"Queda tan sÃ³lo una semana para el evento HEALTHFULFOOD: Tendencias, retos y protagonistas que tendrÃ¡ lugar en @ElHuertoDeLucas en Madrid. @CarrefourES @Foodinthebox @Midietacojea y @natureandmore estarÃ¡n con nosotros, Â¿y tÃº? 
+#sostenibilidad #Organico #readytocook",control,quedar tanto sólo uno semana para el evento healthfulfood tendencia reto y protagonista que tener lugar en en madrid y estar con yo y tú # sostenibilidad # organico # readytocook,0,0,0,control,control,0.03975348116783483,True,true_negative,269,31
+user0982,d9adcba21dae,"Diety
+Te Permite Perder El Exceso De Grasa En Una Forma Eficaz Y Saludable
+QuÃ­tate Peso De Encima
+#FelizLunes #Madero #Tampico #Dieta #Obesidad #Fit  girl #MondayMotivation #teamworld #Krauze #OnceUponATimeInHollywood #LadyTeMato #LunesDeGanarSeguidores #BuenLunes",control,diety tú permitir perder el exceso de grasa en uno forma eficaz y saludable quítatar peso de encima # felizlún # madero # tampico # dietar # obesidad # fit girl # mondaymotivation # teamworld # krauze # onceuponatimeinhollywood # ladytemato # lunesdeganarseguidor # buenlún,0,0,0,control,control,0.008272735435643384,True,true_negative,265,45
+user0129,b52142868f25,Si no existiera la dominaciÃ³n el canon de belleza no serÃ­a #thinspo o  pero socialmente las delgadas son las bellas.,anorexia,si no existierar el dominación el canon de belleza no ser # thinspo o pero socialmente el delgada ser el bello,1,1,1,anorexia,anorexia,0.9812014336832363,True,true_positive,118,21
+user0455,0f056b103eab,"las tallas de la ropa 
+g=gorda
+m=me mato de ambre por bajar  
+ch=chingada madre no me entra",anorexia,el talla de el ropa g gordo m yo matar de ambre por bajar ch chingada madre no yo entrar,1,1,1,anorexia,anorexia,0.9877440517612331,True,true_positive,91,20
+user0848,9c5a4a4e484a,Un dÃ­a casual de entrenamiento  #darkroomapp #ejercicio  #gym #salud #fit #deporte #n #entrenamiento #vidasana #motivacion #workout #saludable #nutricion #gimnasio #motivationâ€¦ https://www.instagram.com/p/BvIoTLhAV1b/?utm_source=ig_twitter_share&igshid=2kbchv4q8xp1 â€¦,control,uno dã a casual de entrenamiento # darkroomapp # ejercicio # gym # salud # fit # deporte # n # entrenamiento # vidasán # motivacion # workout # saludable # nutricion # gimnasio # motivationâ â,0,0,0,control,control,0.0006271343584622696,True,true_negative,272,37
+user1455,59b40638ed9b,"Es increÃ­ble que estando a tantos kilÃ³metros de distancia, en Chile pase algo muy similar
+
+#diabetes #lowcarb #nutriciÃ³n #sincarbos",control,ser increíble que estar a tanto kilómetro de distancia en chile pase algo mucho similar # diabetes # lowcarb # nutrición # sincarbo,0,0,0,control,control,0.19108708262652768,True,true_negative,134,23
+user0319,a0b86b1b0e19,fibra para adelgazar Â¿funciona? | Carla Diaz TV https://youtu.be/y1VZaE8S9fA  #adelgazar #bajardepeso #quemargrasa #remedioscaseros #remediosnaturales #gym  #ejercicio,control,fibra para adelgazar funcionar car él diaz tv # adelgazar # bajardepeso # quemargrasar # remedioscaseros # remediosnatural # gym # ejercicio,0,0,0,control,control,0.08761010976352558,True,true_negative,168,22
+user0185,1f9b35458c4d,Chavas : Â¡POR FAVOR NO TUITEEN SU ASQUEROSA VIDA LLENA DE LAXANTES Y DIETAS ESTUPIDAS PARA MORIR! De nada. #mueran,anorexia,chava por favor no tuitear su asqueroso vida lleno de laxant y dieta estupida para morir de nada # muser,1,1,0,anorexia,control,0.2619386524240384,False,false_negative,115,20
+user0535,672e187017a3,Me alegro de que se tomen medidas contra algunos en Twitter pero a ver sÃ­ empiezan a tomarlas tambiÃ©n con,control,yo alegrar de que él tomar medida contra alguno en twitter pero a ver sí empezar a tomarla también con,0,0,1,control,anorexia,0.6224587456066397,False,false_positive,107,20
+user0571,f2b417047de5,"Cortarme por cada vez que como es lo mejor, es darme cuenta de las veces que no tuve que a ver comido",anorexia,cortar yo por cada vez que como ser él mejor ser darme cuenta de el vez que no tener que a ver comido,1,1,1,anorexia,anorexia,0.925977051216428,True,true_positive,101,23
+user0919,1b9fa919fcaf,Un mÃºsculo fuerte es tu seguro de vida frente dolores de todo tipo. Si quieres cambiar tu cuerpo empieza por cambiar tu mente! #ponteenforma #estilodevida er  #lifestyle #salamanca,control,uno músculo fuerte ser tu seguro de vida frente dolor de todo tipo si querer cambiar tu cuerpo empezar por cambiar tu mente # ponteenforma # estilodevido er # lifestyle # salamanco,0,0,0,control,control,0.11553184255670088,True,true_negative,181,32
+user0492,97d65684a46d,"Que lindo saber que estas vacÃ­a por dentro, sin ninguna calorÃ­a de mÃ¡s. #Ana #Mia #Anorexica #Bulimica",anorexia,que lindo saber que este vacía por dentro sin ninguno caloría de más # ana # mia # anorexico # bulimico,1,1,1,anorexia,anorexia,0.9528928349199958,True,true_positive,105,21
+user1174,d33f6ca623c9,QuÃ© difÃ­cil es comer. Me quedarÃ© aquÃ­ a sobrevivir de lo que queda en este vaso de agua.  #TipsdeNutricion,anorexia,qué difícil ser comer yo quedar aquí a sobrevivir de él que quedar en este vaso de agua # tipsdenutricion,1,1,1,anorexia,anorexia,0.6908325114570989,True,true_positive,110,20
+user1187,74a0ce922ae9,"La â€œpastilla mÃ¡gicaâ€ se llama sudor y trabajo duro! 
+
+#imagenfit #estilodevidasaludable #elmejorcuerpodetuvida #lametaesparasiempre #fitisin #fitspiration â€¦ https://www.instagram.com/imagen_fit/p/BvRtw_8B5PY/?utm_source=ig_twitter_share&igshid=b7pjafln2hq4 â€¦",control,el â œpastilla mã gicaâ él llamar sudor y trabajo duro # imagenfit # estilodevidasaludable # elmejorcuerpodetuvida # lametaesparasiempre # fitisin # fitspiration â â,0,0,0,control,control,0.021957072274109694,True,true_negative,267,25
+user0239,6b7a4d66b08e,"@tililozano tÃº eras cerda xq no has llevado una vida sana. Las chicas q sufren de  no sigan su ejemplo, mas bien lleven vida sana @magalyperu",anorexia,tú era cerdar xq no haber llevar uno vida sano el chica q sufrir de no seguir su ejemplo mas bien llevar vida sano,1,1,1,anorexia,anorexia,0.5100511956943482,True,true_positive,142,24
+user0589,abb770dbf4a5,"Al gran problema de  nadie le hace caso, esto es real y nos afecta a todos, porque todos tenemos algÃºn/na menor susceptible de ser influenciado para ello. AdemÃ¡s no sÃ³lo estÃ¡ el problema del #TCA sino tambiÃ©n el peligro del #suicidio https://goo.gl/WCQ3DV  via: @xataka",anorexia,al gran problema de nadie él hacer caso este ser real y yo afectar a todo porque todo tener alguno na menor susceptible de ser influenciar para él además no sólo estar el problema del # tca sino también el peligro del # suicidio via,1,1,0,anorexia,control,0.29814286853182403,False,false_negative,274,45
+user1283,d3e7874313d9,Acabo de comerme dos Magnum con sÃºper extra calorias para que las niÃ±as  recapaciten su vida.,anorexia,acabar de comer yo dos magnum con súper extra caloria para que el niña recapacitar su vida,1,1,0,anorexia,control,0.3874865644283908,False,false_negative,95,17
+user0103,0217e2942a66,"Que mejor para un martes de #Entroido que un buen cocido
+.
+Y ademÃ¡s de que nos han invitado, nos han dado un par de tuppers que nos van a solucionar un par de cenas de la semana
+.
+.
+.
+.
+.
+.
+#entroido #cocido   #dietetian  #nutricionista  er #foodporn",control,que mejor para uno martes de # entroido que uno buen cocido y además de que yo haber invitar yo haber dar uno par de tupper que yo ir a solucionar uno par de cena de el semana # entroido # cocido # dietetiar # nutricionista er # foodporn,0,0,0,control,control,0.009650303746509445,True,true_negative,251,49
+user1204,f0d5094b0dc6,Hoy te voy a mostrar cuatro simples ejercicios para que sumes en tus entrenamientos en  casa Divertite! #mujeresfuertesnuncaflacas #gym #workoutvideo #funcional  #fitgirlsâ€¦ https://www.instagram.com/p/BvSZ8InH2Dt/?utm_source=ig_twitter_share&igshid=7ca35g9dliun â€¦,control,hoy tú ir a mostrar cuatro simple ejercicio para que sum en tu entrenamiento en casa divertite # mujeresfuertesnuncaflaca # gym # workoutvideo # funcional # fitgirlsâ â,0,0,0,control,control,0.0064481280876683145,True,true_negative,267,28
+user0068,88e09cf36566,"Peso actual: 66.7 
+Estatura: 1.73
+Peso meta: 48.0
+ 
+#RexyBill",anorexia,peso actual 66 7 estatura 1 73 peso meta 48 0 # rexybill,1,1,1,anorexia,anorexia,0.9322233667452922,True,true_positive,61,13
+user0095,05379e5a4e98,El tamaÃ±o de mi frÃ­o no se compara con el tamaÃ±o de mis piernas #thinspo  #thinspiration,anorexia,el tamaño de mi frío no él compar con el tamaño de mi pierna # thinspo # thinspiration,1,1,1,anorexia,anorexia,0.999977076821423,True,true_positive,91,18
+user1215,806a15536339,"DesearÃ­a nacer otra vez para hacer las cosas bien, bien con mÃ­ familia, bien con las personas, bien con mÃ­ peso, bien con todo #ana #mia  #anorexia #bulimia #proana #promia #ed",anorexia,desear nacer otro vez para hacer el cosa bien bien con yo familiar bien con el persona bien con yo pesar bien con todo # ana # mia # anorexia # bulimia # proán # promia # ed,1,1,1,anorexia,anorexia,0.9437732797899602,True,true_positive,179,38
+user1327,8142b35e447e,"PequeÃ±os gestos que marcan la diferencia.
+
+Little gestures that make the difference.
+
+#salud #dieta #healthy #healthymeal #health #nutrition #gym #nutricionista #fitmeal #diet #food #instahealthy #yummy #adelgazar #saludable #plantbased #healthylife #vidasana",control,pequeño gesto que marcar el diferencia little gestures that makir the difference # salud # dieta # healthy # healthymeal # health # nutrition # gym # nutricionista # fitmeal # diet # food # instahealthy # yummy # adelgazar # saludable # plantbased # healthylife # vidasán,0,0,0,control,control,0.0009217282952070509,True,true_negative,260,48
+user1358,a20ce02041ec,La cena de los campeones #cenasaludable  https://www.instagram.com/p/Bste-6KnT99/?utm_source=ig_twitter_share&igshid=f1tziaqacgyj â€¦,control,el cena de el campeón # cenasaludable â,0,0,0,control,control,0.09200142580249372,True,true_negative,133,8
+user1128,cba494b81ec3,Encuentra lo que mÃ¡s te apasiona y sigue adelante #modelling #model #fashion  #photography #modeling #modellife #models #style #follow #fashionmodel #photooftheday  #photographerâ€¦ https://www.instagram.com/p/BvQCBhShLbo/?utm_source=ig_twitter_share&igshid=havs2y2fpccu â€¦,control,encontrar él que mã s tú apasionar y seguir adelante # modelling # model # fashion # photography # modeling # modellife # models # style # follow # fashionmodel # photooftheday # photographerâ â,0,0,0,control,control,0.01253906007122822,True,true_negative,275,35
+user1441,2aa96335b6b9,"Cena 
+Ay que obsesiÃ³n con esto",anorexia,cena ay que obsesión con este,1,1,1,anorexia,anorexia,0.5249125994316161,True,true_positive,31,6
+user0290,fc0fcd99e303,Hoy me regalo tiempo para aprender que no necesito los patrones de los demÃ¡s para ser feliz http://ow.ly/kgrV305A7sg   #anorexia,anorexia,hoy yo regalar tiempo para aprender que no necesitar el patrón de el demá para ser feliz # anorexia,1,1,1,anorexia,anorexia,0.6762066395059368,True,true_positive,129,19
+user0604,3516b1ad6573,"Cuando la comida estÃ¡ supliendo una necesidad emocional, la periodizaciÃ³n adecuada expondrÃ¡ esta situaciÃ³n de manera mas saliente. Esto abre una ventana Ãºnica de oportunidades.
+
+#Ayunointermitente
+#cetosis
+#keto
+#LCHF
+#lowcarb
+
+#emociones
+#Mindfulness",control,cuando el comida estar suplir uno necesidad emocional el periodización adecuado exponer este situación de manera mas saliente este abrir uno ventana único de oportunidad # ayunointermitente # cetosis # keto # lchf # lowcarb # emoción # mindfulness,0,0,0,control,control,0.11583021808831215,True,true_negative,256,39
+user0877,7e46def88f9d,Que los huesos definan tu perfecciÃ³n,anorexia,que el hueso definar tu perfección,1,1,1,anorexia,anorexia,0.9365039507832476,True,true_positive,37,6
+user0540,a5bba08b2fcd,"Evita las comidas familiares, falta de apetito y rechaza las comidas calÃ³ricas... #anorexia #bulimia  http://ow.ly/JLwlb",anorexia,evitar el comida familiar faltar de apetito y rechazar el comida calórica # anorexia # bulimia,1,1,1,anorexia,anorexia,0.8112272806629935,True,true_positive,121,16
+user0047,90d86231ed6a,"El desayuno de mis compaÃ±eros ayer en XÃ bia! #vivesaludable #pesas #cuidatusalud  #soysaludable #fÃ¡cil #saludyvida
+
+#mujeresvalientes #mujeres #mujeremprendedoraâ€¦ https://www.instagram.com/p/BvaKkt4AR8P/?utm_source=ig_twitter_share&igshid=wsvxbjs5osil â€¦",control,el desayuno de mi compaã ero ayer en xã bia # vivesaludable # pesa # cuidatusalud # soysaludable # fã cil # saludyvido # mujeresvalientes # mujer # mujeremprendedoraâ â,0,0,0,control,control,0.08200665642933978,True,true_negative,260,30
+user0650,eb3344040960,"Que tenemos en la nevera?
+Un poco de aqui, un poco de allÃ¡... y para cenar ensalada de cuscus con tomate, salmon y anchoas 
+ #Cena",control,que tener en el nevera uno poco de aqui uno poco de allá y para cenar ensalado de cuscu con tomate salmon y anchoas # cena,0,0,0,control,control,0.05040840941984147,True,true_negative,131,26
+user0250,2e9d14405cf2,"Otro dÃ­a mÃ¡s, despuÃ©s de un largo dÃ­a en el centro de Barcelona , al coche y para casa... Y a demÃ¡s con cositas que os irÃ© enseÃ±ando... Jejeje
+â€¢
+â€¢
+â€¢
+â€¢
+â€¢
+#miercoles #Barcelona #wednesday #friends #recados  #compras  #Happy #changes #makâ€¦ https://ift.tt/2r0jwRe",control,otro dã a mã s despuã s de uno largo dã a en el centro de barcelona al coche y para casa y a demã s con cosita que tú irã enseã ar jejeje â â â â â # miercol # barcelona # wednesday # friends # recado # compra # happy # changes # makâ,0,0,0,control,control,0.05527555566334738,True,true_negative,278,57
+user1279,4cea2cf0f128,"Hoy domingo les propongo. Tacos dorados de huitlacoche  .
+Comenta â€œreceta â€ y te envÃ­o la receta .
+.
+.
+#huitlacoche #tacos #picodegallo #desayuno #domingo  https://ift.tt/2xYOaQV",control,hoy domingo él proponer taco dorado de huitlacoche comentar â œreceta â y tú envã o el receta # huitlacoche # taco # picodegallo # desayuno # domingo,0,0,0,control,control,0.11370280524435007,True,true_negative,183,28
+user1107,9198a62eebe3,"Desayuno power para un dÃ­a largo
+
+Pernil de Cerdo cocido con palta/aguacate, pimientos salteados en aceite de coco y mantequilla.
+
+Obviamente acompaÃ±a mayonesa casera hecha con aceite pepita de uva
+
+@MetodoGrez #LowCarbChile #lowcarb #keto #lchf",control,desayuno power para uno día largo pernil de cerdo cocido con palto aguacatar pimiento salteado en aceite de coco y mantequilla obviamente acompaña mayonesa caserar hecho con aceite pepito de uva # lowcarbchile # lowcarb # keto # lchf,0,0,0,control,control,0.004572464509693432,True,true_negative,247,39
+user0607,f8c5b2cf3e25,Espaguetis de calabacÃ­n â€œa la carbonaraâ€ Conoce la receta en nuestro facebook http://bit.ly/2CXMVPC   #recetas #Mujer  #Happy #Delicious #Beauty #Delicioso #Receta #Cocina #calabacin,control,espagueti de calabacã n â œa el carbonaraâ conocer el receta en nuestro facebook # receta # mujer # happy # delicious # beauty # delicioso # receta # cocina # calabacin,0,0,0,control,control,0.005962558737442008,True,true_negative,187,32
+user0787,defac326c40e,"La vida es como el ejercicio cuanto mÃ¡s duro es  mÃ¡s fuerte te vuelves.
+-
+-
+-
+24coach #superacion #perderpeso  https://www.instagram.com/p/BvXiMaLpUDv/?utm_source=ig_twitter_share&igshid=ttkwrb4uay7c â€¦",control,el vida ser como el ejercicio cuanto mã s duro ser mã s fuerte tú volver 24coach # superacion # perderpeso â,0,0,1,control,anorexia,0.5637804925040476,False,false_positive,205,22
+user0289,e209b127a7a1,Ese asqueroso momento en el que te enteras de lo que tienes de comer...  ayudadme a resistir la tentacion,anorexia,ese asqueroso momento en el que tú enterar de él que tener de comer ayudadme a resistir el tentacion,1,1,0,anorexia,control,0.41317713497721437,False,false_negative,105,19
+user1038,326eb1c3a47b,Â¿Por que diosito chulo me condenaste a tener este transtorno corporal sÃ­ tambiÃ©n me hiciste bien tragona? #KillMe,anorexia,por que diosito chulo yo condenastir a tener este transtorno corporal sí también yo hacer bien tragonar # killme,1,1,0,anorexia,control,0.3549684950919211,False,false_negative,116,19
+user0513,5694dd8a323f,"Muy de acuerdo contigo. Existe la creencia totalmente equivocada que todo lo que viene de la industria alimentaria no es sano o no es  y se opta por elaboraciones caseras menos seguras y muchas veces, menos saludables.",control,mucho de acuerdo contigo existir el creencia totalmente equivocado que todo él que venir de el industria alimentario no ser sano o no ser y él optar por elaboración casero menos seguro y mucho vez menos saludable,0,0,0,control,control,0.10430753832736915,True,true_negative,218,37
+user0826,a5dbf6b619ee,"Tan triste, tan sola, con miedo de todo.   #Anorexia #Bulimia",anorexia,tanto triste tanto solo con miedo de todo # anorexia # bulimia,1,1,1,anorexia,anorexia,0.9616273154504495,True,true_positive,61,12
+user1209,e87f77d1d0b2,: El Congreso pide luchar contra las web a favor de la #bulimia y la #anorexia. http://ow.ly/TF3Yd,control,el congreso pedir luchar contra el web a favor de el # bulimia y el # anorexia,0,0,0,control,control,0.29553402786175154,True,true_negative,98,17
+user0359,c948998caf6e,"69 ,68,67  peso actual  66  peso ideal : 55 #ana  #wanna #wannabe #mia http://instagram.com/p/tppdlkA1v7/",anorexia,69 68 67 peso actual 66 peso ideal 55 # ana # wanna # wannabe # mia,1,1,1,anorexia,anorexia,0.8800453382753239,True,true_positive,105,17
+user0233,c64c9553041a,@GobiernoDeEspan @PPopular @PSOE tenemos entre todos q luchar contra las pÃ¡ginas web  q promueven la anorexia y la bulimia.,control,tener entre todo q luchar contra el página web q promover el anorexia y el bulimia,0,0,1,control,anorexia,0.7825522223308157,False,false_positive,124,16
+user1408,b108ad8f8bc4,"El Entrenamiento Funcional de #GymJuiceYoga permite que cada ejercicio se adapte a las necesidades personales de los atletas para mejorar sus prÃ¡cticas.
+#Entrena #Fuerza #CDMX #GymJuiceYoga #Gym #Gimnasio  #Entrenamiento #TeamGymJuiceYoga",control,el entrenamiento funcional de # gymjuiceyoga permitir que cada ejercicio él adapte a el necesidad personal de el atleta para mejorar su práctica # entrena # fuerza # cdmx # gymjuiceyoga # gym # gimnasio # entrenamiento # teamgymjuiceyoga,0,0,0,control,control,0.0021196775819001886,True,true_negative,239,39
+user0011,02c4086ec8e3,Quisiera pasar todas las vacaciones asi   #thin #thinspiration  #thinsgap #thinspo #legs #perfect #outfit,anorexia,querer pasar todo el vacación asi # thin # thinspiration # thinsgap # thinspo # leg # perfect # outfit,1,1,1,anorexia,anorexia,0.9999762988466305,True,true_positive,105,20
+user0284,8b9e279de81e,"Adivinen quien no comerÃ¡ hoy hasta las 6 o mÃ¡s tarde, exacto yo! :3 u.u
+#proana #thinspo",anorexia,adivinir quien no comer hoy hasta el 6 o más tarde exacto yo 3 u u # proán # thinspo,1,1,1,anorexia,anorexia,0.9991073900715502,True,true_positive,90,20
+user0699,6c60a060efdd,"IronÃ­a: Saber hornear & Cocinar pero no pueder comer una sola rebanada o cucharada sin querer usar a MÃ­a.
+ #Thinspo #Ironico",anorexia,ironir saber hornear cocinar pero no pueder comer uno solo rebanada o cucharado sin querer usar a mía # thinspo # ironico,1,1,1,anorexia,anorexia,0.9983347968589371,True,true_positive,126,22
+user0148,21430b002e74,"Estamos pensando ponerle nombre a las llamadas #pegatinasrealfooder algo mÃ¡s propio sin tÃ©rmino en uso
+La idea es promover hÃ¡bitos saludables en niÃ±os (cole/casa) y no tan niÃ±os y dar un punto(+1) por cada dÃ­a que coman  
+Os dejo elegir 
+Â¡Gracias!",control,estar pensar poner él nombre a el llamado # pegatinasrealfooder algo más propio sin término en uso el idea ser promover hábito saludable en niño cole casa y no tanto niño y dar uno punto 1 por cada día que comer tú dejar elegir gracias,0,0,0,control,control,0.08413794674828909,True,true_negative,254,45
+user0734,2feafae44830,Comienza a cambiar tu #cuerpo en @impactogimnasio !! #cuerpodeimpacto #cuerposano #salud,control,comenzar a cambiar tu # cuerpo en # cuerpodeimpacto # cuerposano # salud,0,0,0,control,control,0.24053647082753574,True,true_negative,88,13
+user1170,5837253a47e1,Muero de hambre  pero no sedere,anorexia,muero de hambre pero no sederar,1,1,1,anorexia,anorexia,0.9642751935147141,True,true_positive,31,6
+user0986,1bd7b5f1788c,"Un rato en tu boca, para siempre en tus caderas.",anorexia,uno rato en tu boca para siempre en tu cadera,1,1,1,anorexia,anorexia,0.8142482859731606,True,true_positive,48,10
+user0246,a3cee4c61913,"""muy lejos de la perfecciÃ³n.  """,anorexia,mucho lejos de el perfección,1,1,1,anorexia,anorexia,0.8844008271821605,True,true_positive,32,5
+user0274,f206fe78b97b,"Algunos sueÃ±an con grandes logros, mientras que otros se quedan despiertos y actuan. @ElRinconDelPea1
+.
+.
+#emprendedores #liderazgo #positivo #podcast #motivaciÃ³n  #running #frasesâ€¦ https://www.instagram.com/p/BvOwoLRFwDP/?utm_source=ig_twitter_share&igshid=bjmaqqegfc9d â€¦",control,alguno sueã an con grande logro mientras que otro él quedar despierto y actuan # emprendedor # liderazgo # positivo # podcast # motivaciã³n # running # frasesâ â,0,0,0,control,control,0.10603101108889211,True,true_negative,278,29
+user0032,164d6705e9ba,"Cuando la gente me pregunta, puedo tomar Coca-Cola light? AquÃ­ tenÃ©is la respuesta. Insisto siempre en que desde que existen los alimentos â€œlightâ€ la obesidad en el mundo no ha hecho mÃ¡s que crecer.  only",control,cuando el gente yo preguntar poder tomar coca cola light aquã tenã is el respuesta insisto siempre en que desde que existir el alimento â œlightâ el obesidad en el mundo no haber hacer mã s que crecer only,0,0,0,control,control,0.08050938276130404,True,true_negative,211,39
+user1010,790bbc7699f6,"Subo y bajo de peso, sin embargo siempre me quedo ahÃ­ en 68,7 kilos...Â¿CuÃ¡ndo empezarÃ© a bajar a mis preciosos 60 kilogramos?",anorexia,subo y bajo de peso sin embargo siempre yo quedar ahí en 68 7 kilo cuándo empezar a bajar a mi precioso 60 kilogramo,1,1,1,anorexia,anorexia,0.9131249680493582,True,true_positive,129,24
+user1175,b73351cf2db0,"El placer de la vida, comer rico y no engordar.
+.
+Cuida tu salud, cuida tu mente y cuida la Ãºnica casa donde vives realmente.
+#comida #sana #variado #arroz #rico  #healthyfoodâ€¦ https://www.instagram.com/p/BqX2dBinZ2Q/?utm_source=ig_twitter_share&igshid=64kzo5slza07 â€¦",control,el placer de el vida comer rico y no engordar cuido tu salud cuidar tu mente y cuidar el ãºnico casa donde vivir realmente # comida # sano # variado # arroz # rico # healthyfoodâ â,0,0,0,control,control,0.08940313063756115,True,true_negative,272,37
+user1268,17df3c21c2e4,"No podÃ­a mÃ¡s con el hambre y en vez de tomar agua, comÃ­, pero bueno solo me queda hacer mucho ejercicio #ana #mia #anorexia #bulimia  #proana #promia #ed #tca",anorexia,no poder más con el hambre y en vez de tomar agua comí pero bueno solo yo quedar hacer mucho ejercicio # ana # mia # anorexia # bulimia # proán # promia # ed # tca,1,1,1,anorexia,anorexia,0.9883427713517002,True,true_positive,161,37
+user0892,116dbd3b7b7d,6 tips para no tirar la toalla con el ejercicio - Fabi Maravilla https://wp.me/p5LYMP-167  via @mamimaravilla #ejercicio  #adelgazar,control,6 tip para no tirar el toalla con el ejercicio fabi maravilla via # ejercicio # adelgazar,0,0,0,control,control,0.3017838986245141,True,true_negative,132,17
+user0764,ba98de07f3f2,"Es mejor sÃ³lo comer comida real que si nos nutre y nos evitamos tantos problemas como los colorantes artificiales.
+â€”",control,ser mejor sã³lo comer comida real que si yo nutrar y yo evitar tanto problema como el colorant artificial â,0,0,1,control,anorexia,0.5414054883692594,False,false_positive,119,20
+user0147,386b062ea7e9,"Hoy comÃ­ como Cerda,  ah verdad que soy una Cerda, no es algo repentino, solo lo soy y ya #fat #eatingdisorder #gorda #thinspo  #thinspiration #proana",anorexia,hoy comí como cerda ah verdad que ser uno cerda no ser algo repentino solo él ser y ya # fat # eatingdisorder # gorda # thinspo # thinspiration # proán,1,1,1,anorexia,anorexia,0.9999969343115034,True,true_positive,151,31
+user1345,26307b419ac0,"""@Thinspo0_: miren ese cuerpo, por dios #thinspo #ana #mia  #anorexic #bulimic #cat #selfharm https://twitter.com/herprincess99/status/461263182162452482/photo/1pic.twitter.com/rs4oVW6wB5 "" me e enamorado",anorexia,mirar ese cuerpo por dios # thinspo # ana # mia # anorexic # bulimic # cat # selfharm yo e enamorado,1,1,1,anorexia,anorexia,0.9983066757411627,True,true_positive,204,22
+user0106,0d60a81ddab8,"asimismo, https://www.youtube.com/watch?v=paaI0y9A21A â€¦ es una enfermedad bastante difÃ­cil... nadie la entiende hasta que no la vive dentro de si o cuando tienes un familiar o ser querido con esta ""enfermedad mental"" .",anorexia,asimismo â ser uno enfermedad bastante difã cil nadie él entender hasta que no él vivir dentro de si o cuando tener uno familiar o ser querer con este enfermedad mental,1,1,1,anorexia,anorexia,0.8126506650098198,True,true_positive,221,31
+user0341,0e7a8308435c,que tan solo te lleves mi vida q no vale nada y esta rejodida y deja en paz a quien realmente quiere vivir   hasta los huesos,anorexia,que tan solo tú llevser mi vida q no valer nada y este rejodida y dejar en paz a quien realmente querer vivir hasta el hueso,1,1,1,anorexia,anorexia,0.9691984914138511,True,true_positive,125,26
+user1310,04b6dccdae84,Alaaa hace tiempo que no vomitaba!,anorexia,alaaa hacer tiempo que no vomitar,1,1,1,anorexia,anorexia,0.9998589583472812,True,true_positive,34,6
+user1255,0ccf0043491e,"les doy un consejo prueben las pastillas FUCUS. son lo mejor q conozco,te sacan el hambre completamente!!  #anorexic #anorexia",anorexia,él dar uno consejo probar el pastilla fucu ser él mejor q conocer tú sacar el hambre completamente # anorexic # anorexia,1,1,1,anorexia,anorexia,0.6665774452881154,True,true_positive,126,22
+user0544,d8da721a1ab7,"Mas que poder es, es creer en lo que no es posible.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+#love #photooftheday #socialite #instagood #followforfollowback  #follow #foodâ€¦ https://www.instagram.com/p/BvIXDHVA6xD/?utm_source=ig_twitter_share&igshid=eqsqid9og2q3 â€¦",control,mas que poder ser ser creer en él que no ser posible # love # photooftheday # socialite # instagood # followforfollowback # follow # foodâ â,0,0,0,control,control,0.3122955549445138,True,true_negative,266,27
+user0163,d480dc8f08fa,Odio tanto mi cuerpo  #miaana,anorexia,odio tanto mi cuerpo # miaana,1,1,1,anorexia,anorexia,0.8137827506317431,True,true_positive,29,6
+user0371,2ebe05f4c8b0,La vida es como una droga y la unica manera de dejarla es suicidarse.  #Ihateme #yanopuedo,anorexia,el vida ser como uno droga y el unico manera de dejar él ser suicidar él # ihateme # yanopuedo,1,1,1,anorexia,anorexia,0.90347577799023,True,true_positive,90,20
+user1022,693c41c1c179,"Tengo hambre... Pero no comerÃ©, prefiero callar al monstruo del hambre que tener que silenciar al monstruo que me grita ""gorda""",anorexia,tener hambre pero no comeré preferir callar al monstruo del hambre que tener que silenciar al monstruo que yo gritar gordo,1,1,1,anorexia,anorexia,0.9798939396702725,True,true_positive,128,21
+user1393,6837a0fca9d3,No sÃ© si cenar un chicle o chuparme los dedos.,anorexia,no saber si cenar uno chicle o chupar yo el dedo,1,1,1,anorexia,anorexia,0.9507220856122214,True,true_positive,47,11
+user1037,6addbd4723d0,"Si cuando te pasas de comer , ya la vomitada es inevitable, no te olvides de masticar, masticar y masticar. #bulimia",anorexia,si cuando tú pasar de comer ya el vomitada ser inevitable no tú olvidser de masticar masticar y masticar # bulimia,1,1,1,anorexia,anorexia,0.9994698051898834,True,true_positive,116,21
+user0510,b331fd306af7,"Quema grasa con estos ejercicios de alta intensidad
+ #ejercicio",control,quema grasa con este ejercicio de alto intensidad # ejercicio,0,0,0,control,control,0.16281881245233734,True,true_negative,63,10
+user0870,6c9f2a6ab778,Momento en el que quieres mandar a la mierda todo y ves que nada de lo que haces sirve pero te pesas y te das cuenta de que has bajado 3 kg... 3 FUCKING kilos.  #ana #mia #proana #promia #TCA  #anorexia #bulimia,anorexia,momento en el que querer mandar a el mierda todo y ver que nada de él que haz servir pero tú pesa y tú dar cuenta de que haber bajar 3 kg 3 fucking kilo # ana # mia # proán # promia # tca # anorexia # bulimia,1,1,1,anorexia,anorexia,0.9754158322058288,True,true_positive,211,49
+user1006,a67795f4ef27,"todo lo que adelgace lo he recuperado estas navidades
+  #bulimia #bulimianervosa #bulimic #bulimicgirl #anorexia #anorexiaeetclub #anorexiarecovery #anorexic #tca #eatingdisorder #proana #promia",anorexia,todo él que adelgacir él haber recuperar este navidad # bulimia # bulimianervós # bulimic # bulimicgirl # anorexia # anorexiaeetclub # anorexiarecovery # anorexic # tca # eatingdisorder # proán # promia,1,1,1,anorexia,anorexia,0.8516481592261671,True,true_positive,194,33
+user1384,839b1887d1e1,"Ya No Quiero Comer, Solo Quiero Estar Delgada, Solo Eso.
+Â¿Por que nadie lo entiende?  #ProAna #ProMia",anorexia,ya no querer comer solo querer estar delgado solo ese por que nadie él entender # proán # promia,1,1,1,anorexia,anorexia,0.8998983449473785,True,true_positive,102,19
+user0692,a8e3641b8a9e,"Y me acostumbrÃ© a vivir asÃ­, dependiendo de todo menos de mÃ­.
+Testimonios #Anorexia  #TCA
+http://ow.ly/QpeL30aKKY2",anorexia,y yo acostumbré a vivir así depender de todo menos de yo testimonio # anorexia # tca,1,1,1,anorexia,anorexia,0.9465963113496454,True,true_positive,117,17
+user0317,26590aedc417,"Nuestros clientes ya nos piden de nuevo patÃ©s y nosotros que somos muy serviciales, se los damos de la mejor manera â€œartesanos de elaboraciÃ³n propiaâ€
+Embutidos Artesanos Casa Paredes 
+#telovasaperder ... https://www.facebook.com/211131925649985/posts/2074495465980279/ â€¦",control,nuestro cliente ya yo pedir de nuevo patã s y yo que ser mucho servicial él él dar de el mejor manera â œartesano de elaboraciã³n propiaâ embutido artesano casa pared # telovasaperder â,0,0,0,control,control,0.10239492254993868,True,true_negative,278,34
+user1497,c84e209a708f,"PerfecciÃ³n para este sÃ¡bado 
+
+Ana y MÃ­a nunca las abandona! 
+#Thinspo #Thinspiration  #Proana #skinny #SweetAnorexia",anorexia,perfección para este sábado án y mía nunca el abandona # thinspo # thinspiration # proán # skinny # sweetanorexia,1,1,1,anorexia,anorexia,0.9999934824390084,True,true_positive,119,20
+user0555,e952790e752a,"Esto lo he escrito para todas aquellas personas que necesiten ayuda. A quienes siempre habÃ©is estado ahÃ­, deciros que os quiero. El apoyo es importante cuando uno decide cambiar.  ing",control,este él haber escribir para todo aquel persona que necesitar ayuda a quien siempre habéis estar ahí deciro que tú querer el apoyo ser importante cuando uno decidir cambiar ing,0,0,0,control,control,0.3908304767537756,True,true_negative,185,30
+user0427,26bf6646a94a,4 dÃ­as y menos de 1000 calorÃ­as  diarias.,anorexia,4 día y menos de 1000 caloría diario,1,1,1,anorexia,anorexia,0.9176341391311046,True,true_positive,43,8
+user0711,39906bdd3b35,"A veces el placer de comer se encuentra en los contrastes de aromas y sabores en el mismo plato, tal es el caso de estos boquerones al ajillo con piparras. 
+Reservas al  856 13 63 10.
+.
+.
+.
+#restaurante 
+#gastronomia 
+
+#queso
+#comidasana
+#branding
+#jerez
+#cocina",control,a veces el placer de comer él encontrar en el contraste de aroma y sabor en el mismo plato tal ser el caso de este boquerón al ajillo con piparra reserva al 856 13 63 10 # restaurante # gastronomia # queso # comidasana # branding # jerez # cocina,0,0,0,control,control,0.05542789014800838,True,true_negative,262,50
+user0851,9f25ab127a76,"Vamos bien, sin comer y a agua, a ver si me dura cuando llegue a mÃ­ casa... #ana #mia  #anorexia #bulimia #proana #promia",anorexia,ir bien sin comer y a agua a ver si yo durar cuando llegar a yo casar # ana # mia # anorexia # bulimia # proán # promia,1,1,1,anorexia,anorexia,0.9961237389573269,True,true_positive,122,29
+user1077,e7edaf50fde6,"Somos 4 chicas estudiantes de marketing y publicidad, que hemos decidido crear esta idea ficticia de negocio, la cual organizarÃ¡ eventos .
+Siguenos y no te pierdas ninguna novedad!",control,ser 4 chica estudiant de marketing y publicidad que haber decidir crear este idea ficticia de negocio el cual organizar evento sigueno y no tú pierdar ninguno novedad,0,0,0,control,control,0.05508982072333514,True,true_negative,181,28
+user0601,4575f1117e15,Esa cintura T.T #thinspo  https://www.instagram.com/p/BKhKo3CBXZw/,anorexia,ese cintura t t # thinspo,1,1,1,anorexia,anorexia,0.9535817650929787,True,true_positive,66,6
+user1136,6b983781aff8,"Sustituir marcas por las calorÃ­as.   Buena acciÃ³n para concienciar, aunque la calorÃ­as solo sean un problema de todos los que encierran los #ultraprocesaos    https://www.instagram.com/p/Bs-WZkmh2_z/?utm_source=ig_share_sheet&igshid=i2mk1aygz41p â€¦",control,sustituir marca por el calorã as buen acciã³n para concienciar aunque el calorã as solo ser uno problema de todo el que encierran el # ultraprocesao â,0,0,0,control,control,0.10469708750254862,True,true_negative,252,27
+user0058,b40095d29b17,Me pregunto quÃ© pasarÃ­a con mis amigos  ? OjalÃ¡ nos reunirÃ­amos como antes extraÃ±o tener un peso aceptable por la sociedad !!,anorexia,yo preguntar qué pasar con mi amigo ojalá yo reuniríar como antes extraño tener uno peso aceptable por el sociedad,1,1,1,anorexia,anorexia,0.9134691581681871,True,true_positive,130,20
+user0683,55aae2f7bebf,de verdad estÃ¡is a gusto con unos brazos y piernas esquelÃ©ticos?? Eso es lo menos sexy que he visto en mi vida.,anorexia,de verdad estáis a gusto con uno brazo y pierna esquelético ese ser él menos sexy que haber ver en mi vida,1,1,1,anorexia,anorexia,0.5385930192892061,True,true_positive,113,22
+user0698,bec52c3b97a9,Jueves de lluvia. Noche de #Thinspo,anorexia,jueves de lluvia noche de # thinspo,1,1,1,anorexia,anorexia,0.9858476394959865,True,true_positive,35,7
+user0374,471f420b8afd,"Es un alivio poder despertar y ver que tu peso estÃ¡ mÃ¡s bajo que ayer pero no es suficiente nunca lo es.
+
+#analimia
+#gordabulimica",anorexia,ser uno alivio poder despertar y ver que tu peso estar más bajo que ayer pero no ser suficiente nunca él ser # analimia # gordabulimico,1,1,1,anorexia,anorexia,0.9740667994336658,True,true_positive,132,26
+user1471,7578532e9a3d,"Cerrando una semana mÃ¡s de preparaciÃ³n, se percibe la alegrÃ­a que te da saber que diste tu mÃ¡ximo esfuerzo.
+.
+.
+#semejorcadadia #pensamientopositivo #martialarts  #gohardorgohomeâ€¦ https://www.instagram.com/p/BvUxZx7AyPq/?utm_source=ig_twitter_share&igshid=1gau3p9kpy72d â€¦",control,cerrar uno semana mã s de preparaciã³n él percibir el alegrã a que tú dar saber que distar tu mã ximo esfuerzo # semejorcadadia # pensamientopositivo # martialarts # gohardorgohomeâ â,0,0,0,control,control,0.015802898691973773,True,true_negative,279,31
+user0723,6edf0558077b,"No dormÃ­ nada, pero me voy a poner a hacer ejercicio porque me doy asco. #ana #mia #anorexia #bulimia  #proana #promia #ed #tca",anorexia,no dormir nada pero yo ir a poner a hacer ejercicio porque yo dar asco # ana # mia # anorexia # bulimia # proán # promia # ed # tca,1,1,1,anorexia,anorexia,0.991063100021536,True,true_positive,128,31
+user1256,718ad2b8c651,"Antes de comer toma uno o dos vasos de agua, eso ayuda a sentirte mÃ¡s llena a la hora de comer.",anorexia,antes de comer tomar uno o dos vaso de agua ese ayudar a sentirte más lleno a el hora de comer,1,1,1,anorexia,anorexia,0.9283318399408074,True,true_positive,96,21
+user0968,67458c33c111,"Me gustan los #porquÃ©s , y si tienen que ver con  , mÃ¡s ""Â¿Por quÃ© los alimentos #procesados propician la diabetes y otras enfermedades?"" (Aunque yo creo que se refiere mÃ¡s a #ultraprocesados  https://www.xatakaciencia.com/salud/que-alimentos-procesados-propician-diabetes-otras-enfermedades â€¦  er",control,yo gustar el # porquã s y si tener que ver con mã s â por quã el alimento # procesado propiciar el diabetes y otro enfermedad aunque yo creer que él referir mã s a # ultraprocesado â er,0,0,0,control,control,0.025782561525188066,True,true_negative,303,40
+user0408,a186173a8f83,AmputÃ¡ndome una pierna para poder alcanzar mi peso ideal,anorexia,amputándome uno pierna para poder alcanzar mi peso ideal,1,1,1,anorexia,anorexia,0.7926040813326246,True,true_positive,57,9
+user0155,35b0f7bb4379,deberia dejar de ponerme en pedo porque siempre termino teniendo atracones la sobriedad es la solucion a la gordura ven #atracon,anorexia,deberio dejar de poner yo en pedo porque siempre termino tener atracón el sobriedad ser el solucion a el gordura ver # atracon,1,1,1,anorexia,anorexia,0.790256794752934,True,true_positive,128,23
+user0671,9f3666568b60,"Hoy solo me he mandado medio cafÃ©, no pienso comer nada #ayuno #anorexic #bulimic  #fat #gorda #proana #thinspo #thinspiration",anorexia,hoy solo yo haber mandar medio café no pensar comer nada # ayuno # anorexic # bulimic # fat # gordo # proán # thinspo # thinspiration,1,1,1,anorexia,anorexia,0.9999990742841064,True,true_positive,127,27
+user1353,f0eaa7634960,"Hoy comemos: espelta con calabacÃ­n y cebolla salteada, y los niÃ±os ademÃ¡s hamburguesas de pavo caseras 
+.
+.
+.
+#comerenfamilia #hoycomemos  #espelta #hamburguesacasera #burguer â€¦ https://www.instagram.com/p/BsfuIx_lO5P/?utm_source=ig_twitter_share&igshid=1ggv0doqvat1o â€¦",control,hoy comer espelta con calabacã n y cebollo salteado y el niã tú ademã s hamburguesa de pavo casera # comerenfamilia # hoycomer # espelta # hamburguesacasera # burguer â â,0,0,0,control,control,0.02441338236684019,True,true_negative,276,31
+user0859,9d7703421f73,"fue una semana de mierda, pero no me siento tan mal. ESTA VEZ NO VOY A CAER #PROANA #SKINNY",anorexia,ser uno semana de mierda pero no yo sentir tanto mal este vez no ir a caer # proán # skinny,1,1,1,anorexia,anorexia,0.9868868019193471,True,true_positive,91,21
+user1116,ca02327b6171,"Seguramente estareis pensando: ya estÃ¡ aquÃ­ el cansino con su  Â¿no?
+Â¿Pues la verdad es que yo solo quiero enseÃ±aros mis  #calcetines de los #Avengers que, por cierto, sÃ³n sÃºper 
+Y las zapatillas? TambiÃ©n 
+#socks #nuts #zapatillas",control,seguramente estareis pensar ya estar aquí el cansino con su no pues el verdad ser que yo solo querer enseñaro mi # calcetín de el # avengers que por cierto són súper y el zapatilla también # socks # nuts # zapatilla,0,0,0,control,control,0.13391543954195273,True,true_negative,237,42
+user1023,3ffe20798e4f,Vomitar equivale a 20 min. de cÃ¡rdio. #NoPierdasElTiempo  #ProAna #ProMia,anorexia,vomitar equivale a 20 minir de cárdio # nopierdaseltiempo # proán # promia,1,1,1,anorexia,anorexia,0.9998995980988067,True,true_positive,74,13
+user1265,a5f21ee88cfb,"La comida es arte, y el arte se hizo para ver no para comer #HappyMoments  #love http://instagram.com/p/mZNfAUofAN/",anorexia,el comida ser arte y el arte él hacer para ver no para comer # happymoments # love,1,1,1,anorexia,anorexia,0.8754580671081736,True,true_positive,115,18
+user0899,ed3932295d9d,Amigas hoy les traigo un nuevo descubrimiento  que consiste en tomar un tÃ© antes antes de dormir y neta amarÃ¡n el efecto laxante je,anorexia,amiga hoy él traer uno nuevo descubrimiento que consistir en tomar uno té antes antes de dormir y neta amar el efecto laxante je,1,1,1,anorexia,anorexia,0.8149392629698659,True,true_positive,133,24
+user0917,d4606b14e73f,Ayer en todo el dÃ­a lo Ãºnico que comÃ­ fue una sopa con fideos y hoy fideos con queso #princess  #absurdah ahre,anorexia,ayer en todo el día él único que comí ser uno sopa con fideo y hoy fideo con queso # princess # absurdah ahre,1,1,1,anorexia,anorexia,0.7357703887351159,True,true_positive,113,24
+user0588,96f9fe7bf6d3,"Meterte en la cuenta de #instagram de alguien cuyo perfil define como ""Realfood, ideas saludables"" y que TODAS las publicaciones sean esto  Flaco favor al",control,meterte en el cuenta de # instagram de alguien cuyo perfil definir como realfood idea saludable y que todo el publicación ser este flaco favor al,0,0,0,control,control,0.04138235728929569,True,true_negative,154,26
+user0873,1451543cdef8,"Una forma eficaz 100% de clasificar un alimento en saludable o no saludable, se lo da entre otras cosas, su nivel de procesamiento, que en la mayorÃ­a de ocasiones se ignora o se pasa por alto. Este tipo de alimentos, es al que llamamos",control,uno forma eficaz 100 de clasificar uno alimento en saludable o no saludable él él dar entre otro cosa su nivel de procesamiento que en el mayoría de ocasión él ignorar o él pasar por alto este tipo de alimento ser al que llamar,0,0,0,control,control,0.08815979901921182,True,true_negative,236,44
+user0229,263877d22d68,"DÃ­a 12 de mi ayuno y no me siento cansado, no sÃ© si alegrarme o decepcionarme no veo cambios 
+#RexyBill",anorexia,día 12 de mi ayuno y no yo sentir cansado no saber si alegrar yo o decepcionar yo no ver cambio # rexybill,1,1,1,anorexia,anorexia,0.9963630445323107,True,true_positive,105,23
+user0664,abb0bf0f38bb,"Buen dÃ­a.A comer! AsÃ­ de completo en nutrientes 
+
+#comidasaludable   #nutriciÃ³n #perdergrasa #perderpeso #healthy #healthyfood https://www.instagram.com/p/BpcSZk-glYC/?utm_source=ig_twitter_share&igshid=1y26ohdiwndan â€¦",control,buen dã a a comer asã de completo en nutrient # comidasaludable # nutriciã³n # perdergrasar # perderpeso # healthy # healthyfood â,0,0,0,control,control,0.07349907396611446,True,true_negative,223,23
+user1181,736feacb8529,"Yo en realidad no existo, solo soy un personaje creado por la sociedad, fabricado a base de verdades a medias, de mentiras bonitas, en busca de un sueÃ±o tan absurdo como inalcanzable. Y asÃ­ como yo no existo, tÃº tampoco, la autenticidad es un espejismo.
+#ana #mia  #ayuno",anorexia,yo en realidad no existo solo ser uno personaje creado por el sociedad fabricado a base de verdad a medias de mentira bonito en busca de uno sueño tanto absurdo como inalcanzable y así como yo no existir tú tampoco el autenticidad ser uno espejismo # ana # mia # ayuno,1,1,1,anorexia,anorexia,0.802048917173179,True,true_positive,274,51
+user0827,0fcb4391de3e,La gente juzga porque cuando se miran al espejo no ven lo mismo que nosotros #proana #promia,anorexia,el gente juzgar porque cuando él miran al espejo no ver él mismo que yo # proán # promia,1,1,1,anorexia,anorexia,0.8183492780551516,True,true_positive,92,19
+user0894,e6e538b8dea4,"Comenzamos la maÃ±ana Bailando
+
+#conamigos #conamigosesmejor #vamosportodo #vidaactiva #vidafit #sumatealdesafio #contagiafelicidad #mejorversiÃ³n #pesoideal  #FitMotivacionâ€¦ https://www.instagram.com/p/BvEv4gBgKQz/?utm_source=ig_twitter_share&igshid=1coki5u0q7npc â€¦",control,comenzar el maã ana bailar # conamigos # conamigosesmejor # vamosportodo # vidaactiva # vidafit # sumatealdesafio # contagiafelicidad # mejorversiã³n # pesoideal # fitmotivacionâ â,0,0,0,control,control,0.09177682965473166,True,true_negative,270,26
+user0253,e02c31078776,"#gorda #modelo #mivida
+
+""Si decido ayunar es mi problema.""
+""Me veo gorda."" 
+
+Si quieres, habla conmigo por priv y nos ayudamos ^^",anorexia,# gorda # modelo # mivido si decido ayunar ser mi problema yo ver gordo si quieres hablar conmigo por priv y yo ayudar,1,1,1,anorexia,anorexia,0.9534494208668947,True,true_positive,129,24
+user0636,8b45cf008b00,"Medios #Burpees seguros como entrenamiento #MetabÃ³lico #Funcional con Adriana en su sesiÃ³n de #EntrenamientoPersonal #sistemafitness 
+
+https://www.youtube.com/watch?v=DLoOPGTNqV0 â€¦
+
+#FatBurn #PerderGrasa",control,medio # burpees seguro como entrenamiento # metabã³lico # funcional con adrián en su sesiã³n de # entrenamientopersonal # sistemafitness â # fatburn # perdergrasar,0,0,0,control,control,0.010438272026781764,True,true_negative,207,25
+user1435,2c8ecb18787c,"Â¿Tienes idea cuÃ¡nto te podrÃ­as ahorrar si hicieras ejercicio en casa?
+
+http://www.coachdefitness.com/ahorro-ejercicio-casa/ â€¦
+
+ #ejercicio #EjercicioEnCasa #workout",control,â tener idea cuã nto tú podrã as ahorrar si hicierar ejercicio en casa â # ejercicio # ejercicioencasar # workout,0,0,0,control,control,0.045786834593405386,True,true_negative,169,21
+user0044,2dc5935fbd58,"Es placentero ver estas fotos, pero me resultarÃ­a mÃ¡s placer ser la de la foto. #Optimismo",anorexia,ser placentero ver este foto pero yo resultar más placer ser el de el foto # optimismo,1,1,1,anorexia,anorexia,0.7886920528705496,True,true_positive,92,17
+user0949,d33ebb0f4071,"Y alguien ah comido como maldita gorda..odio las vacaciones no estoy sola y no puedo vomitar...me obligan a comer ""bien""",anorexia,y alguien ah comer como maldita gordo odio el vacación no estar solo y no poder vomitar yo obligar a comer bien,1,1,1,anorexia,anorexia,0.9999864866800637,True,true_positive,120,22
+user1399,a63d6639a1ee,"""No me acuerdo muy bien cÃ³mo, pero empecÃ© a vomitar despuÃ©s de cada almuerzo"" Testimonio #bulimia http://ow.ly/Ar60R   #anorexia",anorexia,no yo acordar mucho bien cómo pero empezar a vomitar después de cada almuerzo testimonio # bulimia # anorexia,1,1,1,anorexia,anorexia,0.9999864354348897,True,true_positive,131,19
+user1426,37ae901c98e6,"Nada mejor que correr 5km  y haser unas series de sentadillas para quitar la gripe y la temperatura.
+#ejercicio #calisthenics  #noche #SIGUEMEYTESIGO",control,nada mejor que correr 5 km y haser uno serie de sentadilla para quitar el gripe y el temperatura # ejercicio # calisthenics # noche # siguemeytesigo,0,0,0,control,control,0.08799002237623904,True,true_negative,149,27
+user0817,96ffa476bf8d,Que asco que me doy!! #Asco  #QuieroSerFlaca,anorexia,que asco que yo dar # asco # quieroserflacar,1,1,1,anorexia,anorexia,0.8494600574832684,True,true_positive,44,9
+user1156,55d778be99c1,"En quÃ© consiste la dieta paleo https://buff.ly/2H2oqTG 
+
+#paleo #paleodiet #dieta #nutricion",control,en qué consistir el dieto paleo # paleo # paleodiet # dieta # nutricion,0,0,0,control,control,0.1309196290730731,True,true_negative,93,14
+user0690,0cbcf694ed90,"Hoy mi madre mientras yo desayunaba una tostada con tomate rallado por primera vez ha dicho ""es mejor eso que estÃ¡s guarrerÃ­as (cestita de ultraprocesados)""",control,hoy mi madre mientras yo desayunar uno tostada con tomate rallado por primero vez haber decir ser mejor ese que estás guarrería cestitar de ultraprocesado,0,0,0,control,control,0.21815510407349722,True,true_negative,158,25
+user0905,900015349940,âœžLa resignacion es el suicidio cotidianoâœž#anorexia  #bulimia,anorexia,âœžla resignacion ser el suicidio cotidianoâœž#anorexia # bulimia,1,1,1,anorexia,anorexia,0.9193986266706901,True,true_positive,64,8
+user0459,86d3eb6df4b4,"Me di un atracÃ³n con chipa y torta de ricota, por suerte mia me ayudÃ³ #ana #mia #anorexia #bulimia  #proana #promia #ed #tca",anorexia,yo dar uno atracón con chipa y torta de ricota por suerte mio yo ayudar # ana # mia # anorexia # bulimia # proán # promia # ed # tca,1,1,1,anorexia,anorexia,0.9913396232970385,True,true_positive,126,31
+user0079,7644a6f2659c,A retomar el buen camino.  #anorexia #bulimia #ortorexia #PRINCESS #rexybill #perfection #thinspo #perfectbody #fat #gordadescarada #ugly #feas,anorexia,a retomar el buen camino # anorexia # bulimia # ortorexia # princess # rexybill # perfection # thinspo # perfectbody # fat # gordadescarado # ugly # feo,1,1,1,anorexia,anorexia,0.999099395510772,True,true_positive,143,29
+user0550,dd9653b58271,"El bacalao sÃ­ que es un #superalimento y en nuestro #blog te apuntamos algunos datos y curiosidades sobre este #pescado , genuino #rey  del #mar  
+.
+.
+.
+#cadiz #pescado #bacalao #recetas #cocina  #foodie #gastronomia  #comidasana
+
+http://mtr.cool/gewlvcy",control,el bacalao sí que ser uno # superalimento y en nuestro # blog tú apuntar alguno dato y curiosidad sobre este # pescado genuino # rey del # mar # cadiz # pescado # bacalao # receta # cocina # foodie # gastronomia # comidasán,0,0,0,control,control,0.015869582216335946,True,true_negative,255,45
+user1439,2c343b4eb9e8,"Â¡Nuevo proyecto! 
+Comida sana para entrega en empresas, con posibilidad de encargar la cena. EnvÃ­o #gratis. La empresa puede co-pagar parte del menÃº cuando alguien lo solicite  #apps",control,nuevo proyecto comida sano para entrega en empresa con posibilidad de encargar el cena envío # gratis el empresa poder co pagar parte del menú cuando alguien él solicitar # apps,0,0,0,control,control,0.006440088756713546,True,true_negative,185,31
+user1257,cc4ed99d3085,No voy a llegar a 55kg hasta mi cumpleaÃ±os,anorexia,no ir a llegar a 55 kg hasta mi cumpleaños,1,1,1,anorexia,anorexia,0.8963345452356256,True,true_positive,43,10
+user0052,164592dc77bc,Hoy es el dÃ­a internacional del cafÃ©. Y desde DOCE Confituras queremos felicitar a tod@s l@s cafeter@s #diainternacionaldelcafe  #saludable #seamosdetallistas http://bit.ly/2y6KmKc,control,hoy ser el día internacional del café y desde doce confitura querer felicitar a tod l cafeter # diainternacionaldelcafe # saludable # seamosdetallista,0,0,0,control,control,0.20184699758034289,True,true_negative,182,23
+user0465,28beaa8d571e,"Cero comida, puro lÃ­quido",anorexia,cero comida puro líquido,1,1,1,anorexia,anorexia,0.6913440783834902,True,true_positive,26,4
+user1258,4b30b316235d,Un dÃ­a nos vimos en el espejo y nos despertamos-nos asustamos- nos convertimos en algo que nunca quisimos ver.  #denuevo,anorexia,uno día yo ver en el espejo y yo despertar yo asustar yo convertir en algo que nunca quisir ver # denuevo,1,1,1,anorexia,anorexia,0.8185399673118935,True,true_positive,121,22
+user0126,0e58db8af5f3,"Entrenamiento de puente lleno de energÃ­a positiva y buen jiujitsu.
+.
+.
+#jiujitsu #hunosjiujitsu #mma #jiujitsumexico #jiujitsugdl #hunosstyle #bjj #ufc #sport #martialarts â€¦ https://www.instagram.com/p/BvKsH9DgMr-/?utm_source=ig_twitter_share&igshid=1to22q9ku609l â€¦",control,entrenamiento de puente lleno de energã a positiva y buen jiujitsu # jiujitsu # hunosjiujitsu # mma # jiujitsumexico # jiujitsugdl # hunosstyle # bjj # ufc # sport # martialarts â â,0,0,0,control,control,0.011439088739117843,True,true_negative,270,33
+user1460,8966767e54b9,"Perfecta 
+
+Cada kilo perdido es un sueÃ±o logrado",anorexia,perfecto cada kilo perdido ser uno sueño logrado,1,1,1,anorexia,anorexia,0.960498836085551,True,true_positive,49,8
+user0814,f9f8d1b64aa8,@alainpin2 Te paso mis fotos de antes y despuÃ©s de vomitar para que veas la diferencia.,anorexia,tú pasar mi foto de antes y después de vomitar para que ver el diferencia,1,1,1,anorexia,anorexia,0.9999655243557832,True,true_positive,88,15
+user0738,99dfc5c0fc40,me siento mejor estando delgada porque pienso que asÃ­ gusto mÃ¡s a los demÃ¡s - Testimonio #anorexia #bulimia  http://ow.ly/AwUuq,anorexia,yo sentir mejor estar delgado porque pensar que así gusto más a el demá testimonio # anorexia # bulimia,1,1,1,anorexia,anorexia,0.991052357382829,True,true_positive,130,19
+user0110,ab49b1c869b0,"Peso de Junio: 39 kg.
+Peso de Julio: 33 kg.
+Peso actual   : 30'5 kg.
+
+Meta...20 kg 
+
+#Fat  #Princess #Don'teat #Cortes #Sangre",anorexia,peso de junio 39 kg peso de julio 33 kg peso actual 30 5 kg meta 20 kg # fat # princess # don teat # corte # sangre,1,1,1,anorexia,anorexia,0.8266244446959533,True,true_positive,126,29
+user0203,d952e878cff0,"Te dejarÃ¡ sin palabras... Â¿Lo has probado ya?
+Cerdo a la Miel 
+Haz tu pedido aquÃ­  https://goo.gl/2KadAz  
+
+#comida #comidacasera",control,tú dejar sin palabra él haber probar ya cerdo a el miel haz tu pedido aquí # comida # comidacasera,0,0,0,control,control,0.475082047176691,True,true_negative,132,20
+user0995,58f4f5b0188b,"Comida:
+
+-1 vaso grande de agua
+-500ml de crema de verduras= 223cal. Esta genial!! Te llena un montÃ³n!!
+
+ #ana #mia #dieta",anorexia,comida 1 vaso grande de agua 500ml de crema de verdura 223cal este genial tú llenar uno montón # ana # mia # dieto,1,1,1,anorexia,anorexia,0.6550173152763124,True,true_positive,123,24
+user0001,0d3ed29586ce,Cheesecake saludable sin azÃºcar y sin lactosa  con mermerlada casera de moras,control,cheesecakir saludable sin azúcar y sin lactosa con mermerlada casera de mora,0,0,0,control,control,0.3737513509554197,True,true_negative,78,12
+user0193,87dc11aba3e7,Miren el cuerpito que tiene quiero.  #Thispo,anorexia,mirar el cuerpito que tener quiero # thispo,1,1,0,anorexia,control,0.4984945503021643,False,false_negative,44,8
+user1287,14a64655c7c6,"Â¿por quÃ© tengo que recuperarme, hacer dieta, por los excesos del verano? #dietas #belleza #anorexia #bulimia  http://ow.ly/BdMv4",anorexia,por qué tener que recuperar yo hacer dieta por el exceso del verano # dieta # belleza # anorexia # bulimia,1,1,1,anorexia,anorexia,0.7909266757013668,True,true_positive,130,21
+user0244,eaf7da4be42c,"Los sÃ¡bados tienen un sabor especial 
+
+#omega3 #saludable #nutricion  #comerconciente #perdergrasa  ing #comidasana #salmon https://www.instagram.com/p/BsQk55IBvo4/?utm_source=ig_twitter_share&igshid=33ve8tvihraq â€¦",control,él sã bar tener uno sabor especial # omega3 # saludable # nutricion # comerconciente # perdergrasar ing # comidasana # salmon â,0,0,0,control,control,0.03556026537446137,True,true_negative,217,23
+user0332,0a14be49e150,"Ha sido difÃ­cil pero aquÃ­ estoy. 
+.
+.
+.
+.
+
+#dj 
+#music 
+#musica 
+#trap 
+#miami 
+#argentina 
+#reggaeton
+ #venezuela 
+ 
+#latinos 
+#colombia 
+#newmusic 
+#europa 
+#rd #radio #mexicoâ€¦ https://www.instagram.com/p/BvKF5j8nZbk/?utm_source=ig_twitter_share&igshid=1pbxt76pt5qbt â€¦",control,haber ser difã cil pero aquã estar # dj # music # musico # trap # miami # argentina # reggaeton # venezuela # latinos # colombia # newmusic # europa # rd # radio # mexicoâ â,0,0,0,control,control,0.08758185346193799,True,true_negative,276,38
+user0921,34592150630000000,"No soy rara, mi realidad es diferente",anorexia,no ser raro mi realidad ser diferente,1,1,1,anorexia,anorexia,0.9234777800197367,True,true_positive,37,7
+user0965,a250371aecb4,MaÃ±ana hablamos sobre la obsesiÃ³n con la imagen fÃ­sica y el peso #trastornosAlimenticios #Anorexia #Bulimia,control,mañana hablar sobre el obsesión con el imagen físico y el peso # trastornosalimenticios # anorexia # bulimia,0,0,1,control,anorexia,0.908309537569062,False,false_positive,110,18
+user0720,680694d298ac,"Comida real y fÃ¡cil.  
+
+Ingredientes:
+
+- 3 huevos  
+- Espinacas  
+- Rulo de cabra 
+- Aceite de oliva 
+
+Saltear las espinacas, mezclarlas con el huevo y aÃ±adir rulo de cabra.
+Tiempo: 5 minutos. 
+Dificultad: Muy fÃ¡cil",control,comida real y fácil ingrediente 3 huevo espinaca rulo de cabra aceite de oliva saltear el espinaca mezclarla con el huevo y añadir rulo de cabra tiempo 5 minuto dificultad mucho fácil,0,0,0,control,control,0.008030192859705404,True,true_negative,218,32
+user0241,20167831a3b6,"Toma un trago de agua por cada bocado que le des a tu comida, te ayudarÃ¡ a vomitar mÃ¡s mejor #Tips #EntreAmigas  #Princesitas.",anorexia,tomar uno trago de agua por cada bocado que él dser a tu comida tú ayudar a vomitar más mejor # tip # entreamiga # princesita,1,1,1,anorexia,anorexia,0.9998464500207682,True,true_positive,128,26
+user0012,194c855a0ff5,"Hoy en el #asaltablog hemos robado a Mel de @migasenlamesa estas fantÃ¡sticas Aloo Parathas Integrales.
+TÃ­picas d la cocina India las hemos convertido en el complemento perfecto de una cena sana, sabrosa y deliciosa
+ #recipes",control,hoy en el # asaltablog haber robar a mel de este fantástica aloo paratha integral típico d el cocina indio él haber convertir en el complemento perfecto de uno cena sano sabroso y deliciós # recipes,0,0,0,control,control,0.01533134797951491,True,true_negative,226,36
+user0952,27416899d386,ExÃ­gete mÃ¡s! Tus clases de #TRX en la sucursal de #ElDorado  #YoEntrenoEnPowerClub  #Gym  https://ift.tt/2Wp9RkJ,control,exígete más tu clase de # trx en el sucursal de # eldorado # yoentrenoenpowerclub # gym,0,0,0,control,control,0.08743953214895855,True,true_negative,114,17
+user0029,790304dc259a,"#Tip 
+Esta lista es un resumen de la #verduras  y #legumbres que tienen pocas #calorias   #vegetarian",anorexia,# tip este lista ser uno resumen de el # verdura y # legumbr que tener poco # caloria # vegetariar,1,1,0,anorexia,control,0.41738056398790413,False,false_negative,101,21
+user0117,523bc9711a9f,"Ya sabes que vas a comer este sabado con tus amigos? olvidate hace tu pedido en @ebisushiargentina y disfruta, #sushi #sushi #sushiargentina #sushitime #sushiroll #sushiman #sushimania #sushitime #comidasana #comida #comidasaludable  #comidafitness #comidajaponesa",control,ya saber que vas a comer este sabado con tu amigo olvidatar hacer tu pedido en y disfruta # sushi # sushi # sushiargentina # sushitime # sushiroll # sushimar # sushimania # sushitime # comidasana # comida # comidasaludable # comidafitness # comidajaponés,0,0,0,control,control,0.018391930513260667,True,true_negative,264,44
+user1489,97f5f9c54a33,"&& De nuevo VolvÃ­ a Caer en  ; Pero lo Ãºnico que yo Deseo Es Ser Delgada, Solo esto.
+-ImFat",anorexia,de nuevo volví a caer en pero él único que yo desear ser ser delgar solo este imfat,1,1,1,anorexia,anorexia,0.9800721655986349,True,true_positive,93,18
+user0175,b9713c1922d1,una subiÃ³ un foto de un capuccino con chocotorta y pone desayunoo  #anorexia #mia #bulimia #proana no puedo,anorexia,uno subir uno foto de uno capuccino con chocotorta y poner desayunoo # anorexia # mia # bulimia # proán no poder,1,1,1,anorexia,anorexia,0.9947776603789444,True,true_positive,108,22
+user1478,b8de504c17f4,"Quisiera verme al espejo y pensar que me veo bonita , pero no puedo... No puedo por mi estupidez",anorexia,querer ver yo al espejo y pensar que yo ver bonito pero no poder no poder por mi estupidez,1,1,1,anorexia,anorexia,0.9909095602418247,True,true_positive,96,19
+user1135,a838081e7345,mi secreto para vajar 15 kilos en un mes.ayunar 20 dias(no seguidos)tomar 8 litros diarios de te verde retwittea  #rexybill,anorexia,mi secreto para vajar 15 kilo en uno mes ayunar 20 dia no seguido tomar 8 litro diario de tú verde retwittea # rexybill,1,1,1,anorexia,anorexia,0.9082478571413869,True,true_positive,123,24
+user0637,85e28a3cba31,4 #ejercicios abdominales y algunos consejos para tonificar tu abdomen http://bit.ly/2IoExjK  #Salud,control,4 # ejercicio abdominal y alguno consejo para tonificar tu abdomen # salud,0,0,1,control,anorexia,0.6006107462149166,False,false_positive,100,13
+user0586,eb48d0d1e745,la perfeccion reflejada <3,anorexia,el perfeccion reflejado 3,1,1,1,anorexia,anorexia,0.9639881658542918,True,true_positive,26,4
+user0115,885428112b02,"Recuerdo cuando sufrÃ­a de EDs, era un palito, suerte que conocÃ­ a Demi Lovato y me ayudÃ³ a salir adelante :) #staystrong  #anorexic",anorexia,recordar cuando sufrir de eds ser uno palito suerte que conocí a demi lovato y yo ayudar a salir adelante # staystrong # anorexic,1,1,0,anorexia,control,0.39355874808928926,False,false_negative,134,24
+user1055,4883f870918c,"Buenos dÃ­as 
+.
+.declarando bendiciones para todos . .
+.
+Desayuno sÃºper  avena cocida  con frutas y huevos  revueltos mÃ¡s aguacate .
+.
+#desayunosaludable #nodieta  #comida #comolimpio #porunmexicosaludable #porunmundomejor #tasty #tastyfood #desayunoâ€¦",control,buen dã as declarar bendición para todo desayuno sãºper avena cocido con fruta y huevo revuelto mã s aguacatir # desayunosaludable # nodietar # comida # comolimpio # porunmexicosaludable # porunmundomejor # tasty # tastyfood # desayunoâ,0,0,0,control,control,0.003111479270657226,True,true_negative,255,37
+user1414,56f7ba0a01d4,"Buenos dÃ­as! 
+
+Terminando mi rutina maÃ±anera de ejercicios con un buen estiramiento. 
+.
+.
+.
+.
+.
+#stretching #stretch #stretches  #flex #flexibility #soul #trueselfâ€¦ https://www.instagram.com/p/BvJh5MQBKai/?utm_source=ig_twitter_share&igshid=x4wc48x1jb1f â€¦",control,buen dã as terminar mi rutina maã anera de ejercicio con uno buen estiramiento # stretching # stretch # stretch # flex # flexibility # soul # trueselfâ â,0,0,0,control,control,0.03625981811185476,True,true_negative,261,29
+user0314,939f21bb429b,"Parte del equipo #anmama desde Shanghai comiendo  
+Ensalada de kale, batata, queso feta, aguacate, salmÃ³n a la plancha y aliÃ±ado con frutos secos  ing  #vidasaludable ingredients #HealthyFood",control,parte del equipo # anmama desde shanghai comer ensalado de kale batatar queso fetir aguacatar salmón a el plancha y aliñado con fruto seco ing # vidasaludable ingredients # healthyfood,0,0,0,control,control,0.005750861027320377,True,true_negative,193,30
+user0105,491836014574,"Parece que se aproximan mayores tasas de obesidad, con los problemas asociados que ello conlleva, porque no enseÃ±amos a los niÃ±os a comer .
+Es una triste noticia social para nuestra futura salud social. https://www.facebook.com/1517942885113795/posts/2087549244819820/ â€¦",control,parecer que él aproximir mayor tasa de obesidad con el problema asociado que él conllevar porque no enseã ar a el niã tú a comer ser uno triste noticia social para nuestro futuro salud social â,0,0,0,control,control,0.4277964777691986,True,true_negative,274,36
+user0305,65fd213080ac,Me siento limpia gracias a los laxantes,anorexia,yo sentir limpio gracias a el laxant,1,1,1,anorexia,anorexia,0.9604363563214912,True,true_positive,39,7
+user0687,2bd43d94a0fe,"Aguacate, tomate, zanahoria... Vemos esta ensalada fresca y no nos podemos resistir. Si quieres probarla Â¡solo tienes que pasarte por #panaria de La Vital!
+.
+.
+
+#lavital #lavitalcc #panaria #comidasana #ensaladas
+#healthyfood #greenfood #centrocomercial  #lasafor #spring",control,aguacatar tomate zanahorio ver este ensalada fresco y no yo poder resistir si querer probar él solo tién que pasar tú por # panario de el vital # lavital # lavitalcc # panario # comidasana # ensalada # healthyfood # greenfood # centrocomercial # lasafor # spring,0,0,0,control,control,0.020413474753710168,True,true_negative,272,47
+user0188,83569c72609b,"Incluye en tu alimentaciÃ³n diaria mÃ¡s frutas y verduras y menos granos refinados, grasas y azÃºcares. #nutricion  #perderpeso #adelgazar",control,incluir en tu alimentación diario más fruta y verdura y menos grano refinado grasa y azúcar # nutricion # perderpeso # adelgazar,0,0,0,control,control,0.12136924954838506,True,true_negative,138,22
+user0197,488183b37f6c,Por supuesto que el cielo existe #LunesIntratable #taquitos,control,por supuesto que el cielo existir # lunesintratable # taquito,0,0,0,control,control,0.42937247783026744,True,true_negative,59,10
+user1369,61c99a923d29,Lo que necesitas para comenzar.  #MotivaciÃ³n,control,él que necesita para comenzar # motivación,0,0,0,control,control,0.3942296817623799,True,true_negative,45,7
+user0087,a089aafa7a84,"Tomo agua y tomo agua, pero no me lleno... Casi 2lts voy y tengo hambre #ana #mia  #anorexia #proana #promia",anorexia,tomo agua y tomo agua pero no yo llenar casi 2lts ir y tener hambre # ana # mia # anorexia # proán # promia,1,1,1,anorexia,anorexia,0.9921318910302894,True,true_positive,108,25
+user0263,52d316b5c1da,"Â¿Por quÃ© este empeÃ±o en promover unos cÃ¡nones corporales inalcanzables? 
+#A4Challenge
+ #anorexia #delgadez",control,por qué este empeño en promover uno canon corporal inalcanzable # a4challenge # anorexia # delgadez,0,0,0,control,control,0.2628157885386898,True,true_negative,110,16
+user1306,80807188988f,"Momento de escuchar mÃºsica para relajarme y olvidarme de la mierda de mundo en el que vivo.
+
+#coldprince  #proana #promia #anorexia #bulimia #depresion #grunge #depressed #suicideâ€¦ https://www.instagram.com/p/BmHH0-XBSzM/?utm_source=ig_twitter_share&igshid=1th57dj4xwjzq â€¦",anorexia,momento de escuchar mãºsico para relajarme y olvidar yo de el mierda de mundo en el que vivir # coldprince # proán # promia # anorexia # bulimia # depresion # grunge # depressed # suicideâ â,1,1,1,anorexia,anorexia,0.7442612271761215,True,true_positive,277,37
+user0765,19c2c63bb5a8,"#tip 003
+Una infusiÃ³n de tÃ© verde sin endulzante quema unas 100 calorÃ­as diarias.
+ #thinspiration #thin #motivation",anorexia,# tip 003 uno infusión de té verde sin endulzante quema uno 100 caloría diario # thinspiration # thin # motivation,1,1,1,anorexia,anorexia,0.9992282730736827,True,true_positive,118,21
+user0507,11b507efaa36,"Gran parte del secreto de nuestro Ã©xito se debe a un #equipo profesional, entregado y enamorado de su trabajo. Â¡Un #brindis por ellos!
+Reservas:   http://www.bacherestaurante.com  y   91 828 95 88
+.
+.
+.
+#bacheresta #madrid #chamberi #restaurante #chef",control,gran parte del secreto de nuestro éxito él deber a uno # equipo profesional entregado y enamorado de su trabajo uno # brindis por él reserva y 91 828 95 88 # bacheresta # madrid # chamberi # restaurante # chef,0,0,0,control,control,0.05190817304166658,True,true_negative,253,41
+user1182,63bd192a64ac,Ellas son tan hermosas   #Thinspo #Thinspiration,anorexia,él ser tanto hermoso # thinspo # thinspiration,1,1,1,anorexia,anorexia,0.9999951127672075,True,true_positive,48,8
+user1042,ae263c9ef86b,"#bajardepeso  Nunca es tarde para empezar a hacer ejercicio: aunque hayas comenzado despuÃ©s de los 40, tu salud tambiÃ©n se beneficia",control,# bajardepeso nunca ser tarde para empezar a hacer ejercicio aunque hayas comenzado después de el 40 tu salud también él beneficiar,0,0,0,control,control,0.13876369230348312,True,true_negative,134,22
+user0452,c86984e1aae1,"InspiraciÃ³n princesas, no abandonÃ©is :)  #ana #mia #thinspo #thinspiration Porque no puedo ser como ellas? en vez de ser una gorda",anorexia,inspiración princesa no abandonéis # ana # mia # thinspo # thinspiration porque no poder ser como él en vez de ser uno gordo,1,1,1,anorexia,anorexia,0.99999595764402,True,true_positive,132,24
+user0378,02fb54e9b280,"600 normalmente con lÃ­mite de 700 y 700 con limite de 1000 en ocasiones muy especiales si es menos de 500 mejor :)
+#proana  #thinspo",anorexia,600 normalmente con límite de 700 y 700 con limite de 1000 en ocasión mucho especial si ser menos de 500 mejor # proán # thinspo,1,1,1,anorexia,anorexia,0.9512357749220437,True,true_positive,133,26
+user1289,d60f1e890d93,"ImagÃ­nate vos en seis meses con mucho ejercicio y comiendo sano, podrÃ­as tener el cuerpo que deseas... Todo se puede con fuerza de voluntad #ana #mia  #anorexia #bulimia #proana #promia #ed",anorexia,imagínate vo en seis mes con mucho ejercicio y comer sano podría tener el cuerpo que desea todo él poder con fuerza de voluntad # ana # mia # anorexia # bulimia # proán # promia # ed,1,1,1,anorexia,anorexia,0.9585814998450969,True,true_positive,191,38
+user0336,7a761c7b8913,Estaria necesitando un cuerpo asi  #Thispo,anorexia,estario necesitar uno cuerpo asi # thispo,1,1,1,anorexia,anorexia,0.9500956293310033,True,true_positive,42,7
+user0286,7260c7a6601f,"Cuando el calor aprieta pocas cosas nos apetecen mÃ¡s que un Smoothie bien fresquito. 
+
+PrepÃ¡ralos en casa con nuestra batidora Smoothie mix & Go: http://ow.ly/hCXa30kOfB0  
+
+#smoothies #batidos #zumos #batidora  #comidasana #healthyfood",control,cuando el calor aprieto poco cosa yo apetecer más que uno smoothie bien fresquito prepáralo en casa con nuestro batidoro smoothie mix go # smoothies # batido # zumos # batidora # comidasana # healthyfood,0,0,0,control,control,0.012188970587475628,True,true_negative,238,35
+user0049,602a968fadba,Ya me gustÃ³ andar presumiendo brazo  no ese brazo! Mi brazo  bueno tambiÃ©n el otro  #Instagram #gymtime #gymlife  #food,control,ya yo gustar andar presumir brazo no ese brazo mi brazo bueno también el otro # instagram # gymtime # gymlife # food,0,0,0,control,control,0.25113200647107303,True,true_negative,121,23
+user0225,25abfcf32dd5,"DULCES 
+Para la merienda, para la comida, para el desayuno, para la cena... Â¡Come fruta cuando te apetezca!  Reeduca tu paladar y poco a poco irÃ¡s notando el sabor REAL de los alimentos de verdad. #nutricion #frutas",control,dulce para el merienda para el comida para el desayuno para el cena comar fruta cuando tú apetecer reeduca tu paladar y poco a poco irás notar el sabor real de el alimento de verdad # nutricion # fruta,0,0,0,control,control,0.008353963013823865,True,true_negative,217,39
+user0411,6213c340e0bb,"""En la piscina no me baÃ±aba ni me quitaba la ropa porque estaba muy insegura"" Testimonio #anorexia #bulimia  http://ow.ly/Ar4Wy",anorexia,en el piscina no yo bañar ni yo quitar el ropa porque estar mucho inseguro testimonio # anorexia # bulimia,1,1,1,anorexia,anorexia,0.9725598654343564,True,true_positive,128,20
+user0112,29ade1522dd1,3 DÃAS SIN COMER ULTRAPROCESADOS  ROASTING VEGGIES: http://youtu.be/9IGuIkuvDn0?a  vÃ­a @YouTube,control,3 día sin comer ultraprocesado roasting veggi vía,0,0,1,control,anorexia,0.770344088074641,False,false_positive,97,8
+user0189,d7fe3cc68c29,"Espero pronto estÃ© tan delgada que mis huesos sobresalten, y cuando lo logre estarÃ© mÃ¡s que feliz
+#thinspo",anorexia,esperar pronto estar tanto delgado que mi hueso sobresaltir y cuando él logre estar más que feliz # thinspo,1,1,1,anorexia,anorexia,0.9873898831781843,True,true_positive,109,19
+user1228,9eb5853df251,"-Problemas con el desarrollo de las â€œfibras clavÃ­cularesâ€ de pectoral mayor?
+-Trabajas pecho y te crecen los â€œdeltoidesâ€ y el pectoral no? 
+Inscripciones abiertas...
+#explotaelpoderdetusmusculos #biomv1anicaencorto #mv1 #ader  #fisico... https://www.facebook.com/story.php?story_fbid=1881753221928649&id=601478603289457 â€¦",control,problema con el desarrollo de el â œfibra clavã cularesâ de pectoral mayor trabaja pecho y tú crecer el â œdeltoidesâ y el pectoral no inscripción abierto # explotaelpoderdetusmusculo # biomv1anicaencorto # mv1 # ader # fisico â,0,0,0,control,control,0.013470660879876821,True,true_negative,332,38
+user1050,10d3d015f006,"La gloria del atletismo en la Ã©poca de los 90's. Hoy esta ""gacela negra"" nos contarÃ¡ su historia y hazaÃ±as en el atletismo. @ZOROBABELIAC 
+#atleta #running #TigoSports #correr #runner",control,el gloria del atletismo en el época de el 90 s hoy este gacela negro yo contar su historia y hazaña en el atletismo # atleta # running # tigosports # correr # runner,0,0,0,control,control,0.02091098754039583,True,true_negative,186,34
+user0596,5621a711557e,Que te digan que estas delgada pero al verte en el espejo y ver a esa gorda de mierda que siempre as sido  #anamia,anorexia,que tú decir que este delgado pero al verte en el espejo y ver a ese gorda de mierda que siempre as ser # anamia,1,1,1,anorexia,anorexia,0.9512573021897927,True,true_positive,114,25
+user1017,69f18bf5c9eb,Algo de #Thinspo para esta noche.,anorexia,algo de # thinspo para este noche,1,1,1,anorexia,anorexia,0.9840831405293345,True,true_positive,33,7
+user0715,213b14852f80,â€œ@barby_aranda: Lo malo de llorar es que te arden muuucho los ojos   #ED #sue #cut #hateâ€ no mames  eres la mÃ¡s Â«anorÃ©xicaÂ» de tw,anorexia,â œ él malo de llorar ser que tú arder muuucho el ojo # ed # sue # cut # hateâ no mames ser el mã s â anorã xicaâ de tw,1,1,1,anorexia,anorexia,0.6896050108767904,True,true_positive,137,32
+user1025,87e9bd5eb59c,"Una vez que entras al mundo de los TCA, ya no hay salida, no tenÃ©s forma de escapar.
+
+ #neverrecovery",anorexia,uno vez que entra al mundo de el tca ya no haber salida no tenés forma de escapar # neverrecovery,1,1,1,anorexia,anorexia,0.7855039099865256,True,true_positive,102,20
+user1466,a00fb204047d,EmpecÃ© esta acc el aÃ±o pasado y estaba medio gorda luego engordÃ© volvÃ­ a adelgazar y cierro 2018 como una puta vacaaa aaAA aaAa aA mÃ¡tenme,anorexia,empezar este acc el año pasado y estar medio gordo luego engordé volví a adelgazar y cierro 2018 como uno puta vacaaa aaaa aaaa aa mátenmar,1,1,1,anorexia,anorexia,0.7493507320569494,True,true_positive,143,26
+user0656,72a94ff52ac2,Debes dejar de comer si el cuerpo ideal quieres tener,anorexia,deber dejar de comer si el cuerpo ideal quieres tener,1,1,1,anorexia,anorexia,0.9871970571245465,True,true_positive,53,10
+user0395,daa6c40baa9e,"Dos dias rompÃ­ la dieta de manera hermosa y ahora me siento fatal, pero lo tragado quien me lo quita.  jajaja",anorexia,dos dia rompí el dieta de manera hermoso y ahora yo sentir fatal pero él tragar quien yo él quitar jajaja,1,1,1,anorexia,anorexia,0.9787497917250065,True,true_positive,110,21
+user1302,84aead18b6bd,Esta #ensalada tiene unas 100 o125 #kcals mas por los porotos (no se ven creo)#vegetarian #crudo  #calorias,control,este # ensalado tener uno 100 o125 # kcals mas por el poroto no él ver creer # vegetarian # crudo # caloria,0,0,1,control,anorexia,0.6063269418840229,False,false_positive,107,23
+user1061,3a76714c2f94,Beneficios de las almendras  http://bit.ly/2CXMVPC   #recetas #Mujer  #Happy #Delicious #Beauty #Delicioso #Almendras #beneficios,control,beneficio de el almendra # receta # mujer # happy # delicious # beauty # delicioso # almendra # beneficio,0,0,0,control,control,0.026610457423142768,True,true_negative,129,20
+user0072,56af843bb2e2,"Buen inicio de semana! Por aquÃ­ un lunes #veggie 
+
+#nutriciÃ³n #comelimpio #comidasaludable   #heatlhyfood #healthy #perdergrasa https://www.instagram.com/p/Bpzc-SYBHcV/?utm_source=ig_twitter_share&igshid=1q60pz3sfg19d â€¦",control,buen inicio de semana por aquã uno lunes # veggie # nutriciã³n # comelimpio # comidasaludable # heatlhyfood # healthy # perdergrasar â,0,0,0,control,control,0.027406746542562734,True,true_negative,223,23
+user0860,3397ab7d10cb,Estoy pesando menos que nunca #sohappy  ahre,anorexia,estar pesar menos que nunca # sohappy ahre,1,1,1,anorexia,anorexia,0.8479030542240137,True,true_positive,44,8
+user0045,2b50628fc9ed,A&M las necesito mas que nunca #gorda #asquerosa  #PrincesasA&M,anorexia,a m el necesitar mas que nunca # gordo # asqueroso # princesasar m,1,1,1,anorexia,anorexia,0.9442292075690213,True,true_positive,63,14
+user0880,83c50ca4e8b2,"Te imaginas despertarte un dÃ­a y tener autoestima, una linda cara y 20 kilos menos, porque yo me lo vivo imaginando #ana #mia  #anorexia #bulimia #proana #promia",anorexia,tú imaginar despertartir uno día y tener autoestima uno lindo cara y 20 kilo menos porque yo yo él vivir imaginar # ana # mia # anorexia # bulimia # proán # promia,1,1,1,anorexia,anorexia,0.9877881859431635,True,true_positive,162,33
+user0355,6319fe4f53ed,Hoy me he levantado con la boca seca. Es la primera noche que no como nada entre horas.  por fin me estan salvando.,anorexia,hoy yo haber levantar con el boca seco ser el primero noche que no como nada entre hora por fin yo estar salvar,1,1,1,anorexia,anorexia,0.9136055096529608,True,true_positive,115,23
+user0795,dcae48bb7bdf,"Nadadores en acciÃ³n, a tope para este verano! 
+Ready for the summer?
+#natacion #piscina #cdcubas #cubas #cubasdelasagra #agua #swim #nadar #sport #fit  #happy #instagram #polideportivo",control,nadador en acción a tope para este verano ready for the summer # natacion # piscina # cdcuba # cuba # cubasdelasagra # agua # swim # nadar # sport # fit # happy # instagram # polideportivo,0,0,0,control,control,0.017672712638229605,True,true_negative,185,38
+user1211,7940f3a00a5d,Pues ya tengo otra mÃ¡s en mi lista de la semana #healthy #ensaladas  #saludable #nutricion #blogaml #iamlsport,control,pues ya tener otro más en mi lista de el semana # healthy # ensalada # saludable # nutricion # blogaml # iamlsport,0,0,0,control,control,0.011808643692141602,True,true_negative,111,23
+user0532,46ff1fbea620,Por tener un Cuerpo Delgado&Perfecto Ya no comerÃ© & HarÃ© MÃ¡s Ejercicio Solo Tomare agua y masticare Chicles,anorexia,por tener uno cuerpo delgado perfecto ya no comeré hacer más ejercicio solo tomare agua y masticare chicl,1,1,1,anorexia,anorexia,0.954448437250824,True,true_positive,110,18
+user1127,9eaa3725ace1,"Me gustarÃ­a regresar a las andadas de  pero ademÃ¡s de que no tengo la fuerza de voluntad de esa Ã©poca hay muchas cosas que perdÃ­ que me han costado mucho recuperar, entre ellas mi cabello  Se me caÃ­a un chingo y ahora ya no regresan mis rizos",anorexia,yo gustar regresar a el andada de pero además de que no tener el fuerza de voluntad de ese época haber mucho cosa que perder que yo haber costar mucho recuperar entre él mi cabello él yo caer uno chingo y ahora ya no regresar mi rizo,1,1,0,anorexia,control,0.3135997220562369,False,false_negative,247,47
+user1305,eb644cd8174c,"Con 7,9 kilos de menos 
+Muy contenta 
+
+#sÃ­sepuede #disciplina #enfoque #determination #determinacao girl  #enforma #proz #iasotea #techui #resolution #espirulinaâ€¦ https://www.instagram.com/p/BvIYSXDHiEw/?utm_source=ig_twitter_share&igshid=17vrz964n1fds â€¦",control,con 7 9 kilo de menos mucho contentar # sã sepuedir # disciplina # enfoque # determination # determinacao girl # enformar # proz # iasotear # techui # resolution # espirulinaâ â,0,0,0,control,control,0.022579387700085527,True,true_negative,259,33
+user1212,ee2f99c1f0e3,Gordas que tienen cuentas en Instagram y suben solo fotos tomando agua con el hashtag .,anorexia,gorda que tener cuenta en instagram y subir solo foto tomar agua con el hashtag,1,1,1,anorexia,anorexia,0.8700192650028081,True,true_positive,87,15
+user0157,ccf230f9a6b7,"esa gente que por mÃ¡s que coma no engorda, no sabÃ©is la suerte que tenÃ©is, yo como un poco y parezco una vaca
+ #bulimicgirl #bulimia #bulimianervosa #anorexia #anorexic #TCA",anorexia,ese gente que por más que coma no engordar no sabéis el suerte que tenéis yo como uno poco y parecer uno vaca # bulimicgirl # bulimia # bulimianervós # anorexia # anorexic # tca,1,1,1,anorexia,anorexia,0.9814062114213236,True,true_positive,176,35
+user1105,328d17912754,"#FundaciÃ³nAPE hace formaciÃ³n, divulgaciÃ³n y concienciaciÃ³n para prevenir los #TCA http://mtr.cool/kacekcs  #bulimia #anorexia #trastornosporatracÃ³n #trastornosalimentarios #stopTCA",control,# fundaciónape hacer formación divulgación y concienciación para prevenir el # tca # bulimia # anorexia # trastornosporatracón # trastornosalimentario # stoptca,0,0,1,control,anorexia,0.8177566821234669,False,false_positive,185,22
+user0822,73fd6bb50419,"Fin de semana tomando sol, aprovechando este rico calor de la ciudad  #sun #weekend",control,fin de semana tomar sol aprovechar este rico calor de el ciudad # sun # weekend,0,0,0,control,control,0.1403985053347359,True,true_negative,83,16
+user0776,84991ffecbe3,Ya llevo 20 horas de ayuno #carreradekilos  #princesas #lifeisagun #lograndomismetas,anorexia,ya llevar 20 hora de ayuno # carreradekilos # princesa # lifeisagun # lograndomismeta,1,1,1,anorexia,anorexia,0.8552051183051396,True,true_positive,84,14
+user0858,14f8efdaa4bd,"Ya estoy cansada de escuchar esas voces de Ana y Mia, ellas nunca me dejaran en paz  #anamia #skinnyplease",anorexia,ya estar cansado de escuchar ese voz de ana y mia él nunca yo dejar en paz # anamia # skinnyplease,1,1,1,anorexia,anorexia,0.90884551190706,True,true_positive,106,21
+user0166,cac83ff1fffd,"Ser  es lo de hoy
+#Entrenamiento #pontefit #gym #bodybuilding #motivacion",control,ser ser él de hoy # entrenamiento # pontefit # gym # bodybuilding # motivacion,0,0,0,control,control,0.09770600410589433,True,true_negative,73,15
+user1179,220b11d13d2b,"Princesa que se respeta ayuna 8 horas diarias (se puede contar las horas en las que duermes) 
+#proAna  
+Pendejas",anorexia,princesa que él respetar ayunir 8 hora diario él poder contar el hora en el que duermes # proán pendeja,1,1,1,anorexia,anorexia,0.5706973329775188,True,true_positive,112,20
+user0423,7a088fcb499d,"Festivo: dÃ­a en el que puedes entrenar, irte a pasear e incluso de senderismo acompaÃ±ado a ser posible y con comida saludable.
+
+No excusas. Si oportunidades.
+
+#Sevillahoy #Salud #SaludyBienestar #saludable  #NutriciÃ³n #fitnessaddict #fitnesslife",control,festivo día en el que poder entrenar irte a pasear e incluso de senderismo acompañado a ser posible y con comida saludable no excusa si oportunidad # sevillahoy # salud # saludybienestar # saludable # nutrición # fitnessaddict # fitnesslife,0,0,0,control,control,0.005472664192319689,True,true_negative,248,40
+user1200,a8070037072e,"Â¿Quieres adelgazar? Aqui un truco. Deja las Idioteces, Haz puto ejercicio, come mas sano, menos mierda y dejad de lloriquear",control,quier adelgazar aqui uno truco dejar el idiotez haz puto ejercicio comar mas sano menos mierdo y dejad de lloriquear,0,0,0,control,control,0.24983929284071674,True,true_negative,125,20
+user1411,c90f94c115d4,"Lo mÃ¡s duro no era deshacerme de la comida, sino no comer. Vomitar se convirtiÃ³ en mi salvaciÃ³n. #anorexia",anorexia,él más duro no ser deshacer yo de el comida sino no comer vomitar él convertir en mi salvación # anorexia,1,1,1,anorexia,anorexia,0.9999678717160121,True,true_positive,109,21
+user0004,d18285d3c7ec,"Entre el cambio de hora y la bajada de las #temperaturas  estamos destemplados, por eso os recomendamos un buen plato de #fabada #casera  para entonar el cuerpo   #decasa #platoscuchara  #madridrio #gastro #arganzuela",control,entre el cambio de hora y el bajada de el # temperatura estar destemplado por ese tú recomendar uno buen plato de # fabado # caserar para entonar el cuerpo # decasar # platoscuchar # madridrio # gastro # arganzuela,0,0,0,control,control,0.03645972286773207,True,true_negative,217,40
+user0008,1ed5154df490,"Puaa increible, nose como permiten esas paginas de mierda que llenan la cabeza de bobadas  #diariode",control,puaa increible no él como permitir ese pagina de mierda que llenar el cabeza de bobada # diariodir,0,0,0,control,control,0.16697676636646602,True,true_negative,100,18
+user0545,4081e0f0f052,"Tengo mareos, me duele la cabeza, me Tiemblan los brazos y piernas, pero con todo eso seguirÃ© mi  ayuno, no me rendirÃ©.
+#RexyBill",anorexia,tener mareo yo doler el cabeza yo temblar el brazo y pierna pero con todo ese seguir mi ayuno no yo rendir # rexybill,1,1,1,anorexia,anorexia,0.9714740051382448,True,true_positive,131,24
+user1263,88c4c998686e,"Pernil de Cerdo cocido junto a repollo en salsa de queso.
+
+Instrucciones para la guarniciÃ³n:
+
+Repollo cortado en cuadritos y sofrito. Agregar crema de leche y reducir un poco. Agregar queso parmesano.
+
+@MetodoGrez #keto #lchf #lowcarb",control,pernil de cerdo cocido junto a repollo en salsa de queso instrucción para el guarnición repollo cortado en cuadrito y sofritir agregar crema de leche y reducir uno poco agregar queso parmesano # keto # lchf # lowcarb,0,0,0,control,control,0.006034207996345156,True,true_negative,235,38
+user1272,a5b8df765a77,"Canela, afrodisÃ­aca, saludable y adelgazante https://www.vivirbienesunplacer.com/todos/comida/canela-afrodisiaca-saludable-y-adelgazante/ â€¦ #salud #foodie #adelgazar #tips #post  #eatclean  #slim #diet",control,canela afrodisã aca saludable y adelgazante â # salud # foodie # adelgazar # tip # post # eatclear # slim # diet,0,0,0,control,control,0.10109786720380558,True,true_negative,204,23
+user0065,32d9d8c4a273,"Quiero estar asÃ­.
+Y no parare hasta lograrlo.
+#thinspo  #delgada",anorexia,querer estar así y no pararar hasta lograr él # thinspo # delgado,1,1,1,anorexia,anorexia,0.9979218239352449,True,true_positive,65,13
+user0672,7b08dde3e715,"Veo mi nueva camisa de Muse y sÃ³lo me dan ganas de ya no comer por el resto de mi vida, por que quiero verme bien.",anorexia,ver mi nuevo camisa de muse y sólo yo dar gana de ya no comer por el resto de mi vida por que querer ver yo bien,1,1,1,anorexia,anorexia,0.9831819145520123,True,true_positive,115,27
+user0642,66aa050a7657,Un dÃ­a eres joven y al dÃ­a siguiente estÃ¡s comprando moldes para hacerte tu propia  y todo por culpa de @nutri_rivers,control,uno día ser joven y al día siguiente estar comprar mold para hacerte tu propio y todo por culpa de,0,0,1,control,anorexia,0.9261697044558396,False,false_positive,120,20
+user0833,8bfc945f3dce,"CuÃ¡les son tus metas? 
+#gymmotivation #gymtime  #FitnessGoals #Motivacion #Motivation #Gimnasia #love #fit #gymnastics",control,cuál ser tu meta # gymmotivation # gymtime # fitnessgoals # motivacion # motivation # gimnasia # love # fit # gymnastics,0,0,0,control,control,0.09419730526856102,True,true_negative,119,22
+user1180,b6d03924ba0b,"Cuando estas bien hidratado, tu cuerpo es mÃ¡s eficiente para quemar calorÃ­as.  #nutricion  #perderpeso #adelgazar",control,cuando este bien hidratado tu cuerpo ser más eficiente para quemar caloría # nutricion # perderpeso # adelgazar,0,0,1,control,anorexia,0.5074068753848266,False,false_positive,115,18
+user1443,61552c759afd,"Â¿Idea para un desayuno sanote y sabroso para esta semana?  Tostada de pan de centeno con tomate fresco rallado y una cucharada de copos de avena. TÃ© verde como bebida y un caqui como piezaâ€¦
+  https://copytaste.es/recetas-vegetarianas/desayuno-sano-pan-de-centeno-tomate-avena/ â€¦
+#breakfast #Health  https://twitter.com/gastrocora/status/1086203180780847104/photo/1pic.twitter.com/jqorxBzyw5",control,â idea para uno desayuno sanote y sabroso para este semana tostado de pan de centeno con tomate fresco rallado y uno cucharada de copo de avena tã verde como bebida y uno caqui como piezaâ â # breakfast # health,0,0,0,control,control,0.059069863950958,True,true_negative,396,41
+user1260,d3d824d68827,Dicen que cortarse es estupido. estupido es lastimar tanto a alguien emocionalmente que llega a sentir que necesita lastimarse,anorexia,decir que cortar él ser estupir estupido ser lastimar tanto a alguien emocionalmente que llegar a sentir que necesitar lastimar él,1,1,1,anorexia,anorexia,0.8941237992346623,True,true_positive,126,21
+user1253,dbde7b501a7a,"Espero que las famosas magdalenas sean  como mÃ­nimo, nada de azucares, ni harinas refinadas. Y hasta aquÃ­ mi aportaciÃ³n al tema del fin de semana en la capital.",control,esperar que el famoso magdalena ser como mínimo nada de azucar ni harina refinado y hasta aquí mi aportación al tema del fin de semana en el capital,0,0,0,control,control,0.40949041661503616,True,true_negative,163,28
+user0912,2d32c6343df8,Eso   gracias por enviar a los #deportistas  al inframundo asÃ­ se les baja un poco los humos,control,ese gracias por enviar a el # deportista al inframundo así él él bajar uno poco el humo,0,0,1,control,anorexia,0.8056119117301248,False,false_positive,93,18
+user1121,44e3742fd692,"Yo ayunando y le cocino a mi hijo. Uds. No saben lo difÃ­cil que es esto.
+
+Palta/aguacate rellena con atÃºn y mayonesa casera sobre cama de berros y dientes de dragÃ³n
+
+@MetodoGrez #LowCarbChile #keto #lchf",control,yo ayunar y él cocinar a mi hijo uds no saber él difícil que ser este paltar aguacate relleno con atún y mayonesa casera sobre cama de berro y diente de dragón # lowcarbchile # keto # lchf,0,0,0,control,control,0.09405665169011725,True,true_negative,206,38
+user1343,988ca2b6d5d4,"Buen dÃ­a! Que comiencen una semana saludable 
+
+#comerconciente  #nutricion #saludable #healthy  ing #comidasana #perdergrasa https://www.instagram.com/p/Brfh6yThDet/?utm_source=ig_twitter_share&igshid=ofwj1j403j3z â€¦",control,buen dã a que comiencir uno semana saludable # comerconciente # nutricion # saludable # healthy ing # comidasana # perdergrasar â,0,0,0,control,control,0.011506078446034178,True,true_negative,218,22
+user0028,b3a231c48237,"Me to others: everybody should love their body and accept it in the way they are, all body types are beauty. 
+Me to me:
+ #anorexia #anorexic #ana #mia #skinny",anorexia,yo to other everybody should love their body and accept it in the way they are all body typ are beauty yo to yo # anorexia # anorexic # ana # mia # skinny,1,1,1,anorexia,anorexia,0.9225245327241499,True,true_positive,158,34
+user1138,904c36256b31,Estar comiendo tomates cherris y reÃ­rte es todo un peligro.,control,estar comer tomate cherris y reírte ser todo uno peligro,0,0,1,control,anorexia,0.9644139429153662,False,false_positive,60,10
+user1329,b8fb8b085c3e,"Quiero estar perfecta para cuando comiencen las clases 
+#goals  #adelgazar #perfect #thinspiration #skinny #thin #beauty",anorexia,querer estar perfecto para cuando comiencir el clase # goals # adelgazar # perfect # thinspiration # skinny # thin # beauty,1,1,1,anorexia,anorexia,0.9988896132130284,True,true_positive,120,22
+user0840,31406db19343,Â¡NO COMER ES MI PLACER!,anorexia,no comer ser mi placer,1,1,1,anorexia,anorexia,0.994145731713054,True,true_positive,24,5
+user1009,d0462869c539,Â¡Tu puedes mantener la boca cerrada!,anorexia,tu poder mantener el boca cerrado,1,1,1,anorexia,anorexia,0.9130033574631983,True,true_positive,37,6
+user0709,413cdfd5fcd4,mis mejores amigas ahora si estoy viendo resultados aunque coma por la maÃ±ana y por la tarde !! No se que aria sin vosotras,anorexia,mi mejor amiga ahora si estar ver resultado aunque coma por el mañana y por el tarde no él que ariar sin vosotra,1,1,1,anorexia,anorexia,0.9012224007911631,True,true_positive,124,23
+user0890,054897b633fe,Tengo mi pulserita de #Ana Esta algo grande pero me hace sentir bien  Ana es la Roja y Mia es la lilita,anorexia,tener mi pulserita de # ana este algo grande pero yo hacer sentir bien án ser el roja y mia ser el lilita,1,1,1,anorexia,anorexia,0.9648992701396356,True,true_positive,103,23
+user0169,d5ee039e3d22,"Estofado de Carne con Tomate riquÃ­simo para mojar pan, acompaÃ±ar con pasta, arroz o purÃ©. Entra a la #receta y ponte manos a la obra!!!  http://elrincondelaurag.com/estofado-de-carne-con-tomate/ â€¦  #estofado #carne #carnecontomate #salsa #cocina #comida  ing #comidacasera",control,estofado de carne con tomate riquã simo para mojar pan acompaã ar con pasta arroz o purã entrar a el # receta y ponte mano a el obra â # estofado # carne # carnecontomate # salso # cocina # comida ing # comidacasera,0,0,0,control,control,0.017305551466826215,True,true_negative,277,44
+user1312,380486eb8543,#Deporte Trabaja los trÃ­ceps con estos 5 ejercicios,control,# deporte trabajar el trícep con este 5 ejercicio,0,0,0,control,control,0.11641801906629164,True,true_negative,52,9
+user0475,ef7ac58013d0,Por favor omitan mis ojeras  addict #legday #fitgirl girl #fitlife #gym #gimnasio #pierna #abs https://www.instagram.com/p/BvE6KNIlwLN/?utm_source=ig_twitter_share&igshid=1fz1r2lsyrcxn â€¦,control,por favor omitar mi ojera addict # legday # fitgirl girl # fitlife # gym # gimnasio # pierna # abs â,0,0,0,control,control,0.04561946330905901,True,true_negative,188,22
+user1374,7dae78561057,"Hoy para comer ensalada de garbanzos con aguacate . Me hubiera encantado aÃ±adirle tomate . Pero en principio hasta dentro de un mes serÃ¡ uno de mis alimentos prohibidos 
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+#buenastardes #comidasana   #healthâ€¦ https://ift.tt/2KOdvTF",control,hoy para comer ensalado de garbanzo con aguacate yo haber encantar aã adir él tomate pero en principio hasta dentro de uno mes serã uno de mi alimento prohibido # buenastard # comidasana # healthâ,0,0,0,control,control,0.06678027745756059,True,true_negative,255,35

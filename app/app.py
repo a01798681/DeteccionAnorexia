@@ -8,11 +8,14 @@ import streamlit as st
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
-from src.predict import load_model, predict_text, predict_dataframe
+from src.model_registry import get_available_models
+from src.model_runtime import (
+    load_runtime_bundle,
+    predict_single_with_runtime,
+    predict_dataframe_with_runtime,
+)
 from src.term_lexicon import load_custom_terms, save_custom_terms, get_term_sets
 
-
-MODEL_PATH = ROOT_DIR / "results" / "logistic_regression_hybrid_v1.joblib"
 
 DEFAULT_ANOREXIA_THRESHOLD = 0.70
 DEFAULT_CONTROL_THRESHOLD = 0.35
@@ -22,6 +25,114 @@ TEXT_COLUMN_HINTS = [
     "tweet_text", "text", "texto", "contenido", "post",
     "mensaje", "comentario", "body", "caption"
 ]
+
+
+def inject_custom_css():
+    st.markdown(
+        """
+        <style>
+        .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            max-width: 1300px;
+        }
+
+        .hero-box {
+            padding: 1.2rem 1.4rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(21,128,61,0.16), rgba(8,47,73,0.16));
+            border: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.90;
+        }
+
+        .soft-chip {
+            display: inline-block;
+            padding: 0.30rem 0.60rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.04);
+            font-size: 0.82rem;
+            margin-right: 0.35rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .model-card {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            min-height: 330px;
+        }
+
+        .model-card-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+        }
+
+        .model-card-subtitle {
+            font-size: 0.82rem;
+            opacity: 0.75;
+            margin-bottom: 0.75rem;
+        }
+
+        .prediction-pill {
+            display: inline-block;
+            padding: 0.45rem 0.75rem;
+            border-radius: 12px;
+            font-weight: 700;
+            margin-bottom: 0.90rem;
+        }
+
+        .pred-anorexia {
+            background: rgba(127,29,29,0.45);
+            color: #fecaca;
+            border: 1px solid rgba(248,113,113,0.25);
+        }
+
+        .pred-control {
+            background: rgba(20,83,45,0.50);
+            color: #bbf7d0;
+            border: 1px solid rgba(74,222,128,0.25);
+        }
+
+        .pred-incierto {
+            background: rgba(133,77,14,0.40);
+            color: #fde68a;
+            border: 1px solid rgba(250,204,21,0.25);
+        }
+
+        .mini-note {
+            font-size: 0.88rem;
+            opacity: 0.92;
+            margin-top: 0.45rem;
+        }
+
+        .section-caption {
+            font-size: 0.92rem;
+            opacity: 0.82;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-separator {
+            margin: 1rem 0;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def dataframe_to_csv_download(df: pd.DataFrame) -> bytes:
@@ -101,8 +212,75 @@ def sanitize_uploaded_dataframe(df: pd.DataFrame, text_column: str) -> tuple[pd.
 
 
 @st.cache_resource
-def load_cached_model(model_path: str):
-    return load_model(model_path)
+def load_cached_runtime_bundle(model_key: str):
+    return load_runtime_bundle(model_key)
+
+
+def prediction_css_class(label: str) -> str:
+    if label == "anorexia":
+        return "pred-anorexia"
+    if label == "control":
+        return "pred-control"
+    return "pred-incierto"
+
+
+def render_result_card(result: dict, compact: bool = False):
+    css_class = prediction_css_class(result["predicted_label"])
+
+    st.markdown(
+        f"<div class='prediction-pill {css_class}'>Predicción: {result['predicted_label']}</div>",
+        unsafe_allow_html=True
+    )
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("Confianza", result["confidence"])
+    with col2:
+        prob = result["probability_anorexia"]
+        st.metric("Prob. anorexia", "N/A" if prob is None else f"{prob:.4f}")
+
+    info_cols = st.columns(2)
+    with info_cols[0]:
+        st.metric("Palabras", result["word_count"])
+    with info_cols[1]:
+        coverage = result["vocab_coverage"]
+        st.metric("Cobertura", "N/A" if coverage is None else f"{coverage:.2f}")
+
+    st.markdown(f"**Mensaje:** {result['message']}")
+    st.markdown(f"**Observaciones:** {result['observations']}")
+
+    if compact:
+        with st.expander("Texto procesado"):
+            st.code(result["cleaned_text"])
+    else:
+        st.subheader("Texto procesado")
+        st.code(result["cleaned_text"])
+
+
+def render_summary_table(compare_results: list[dict]):
+    summary_df = pd.DataFrame([
+        {
+            "modelo": r["model_label"],
+            "predicción": r["predicted_label"],
+            "probabilidad_anorexia": r["probability_anorexia"],
+            "confianza": r["confidence"],
+            "palabras": r["word_count"],
+            "observaciones": r["observations"]
+        }
+        for r in compare_results
+    ])
+
+    display_df = summary_df.copy()
+    if "probabilidad_anorexia" in display_df.columns:
+        display_df["probabilidad_anorexia"] = display_df["probabilidad_anorexia"].apply(
+            lambda x: None if x is None else round(float(x), 4)
+        )
+
+    st.dataframe(display_df, use_container_width=True)
+
+    chart_df = summary_df.copy()
+    chart_df["probabilidad_anorexia"] = chart_df["probabilidad_anorexia"].fillna(0.0)
+    st.bar_chart(chart_df.set_index("modelo")["probabilidad_anorexia"])
 
 
 st.set_page_config(
@@ -111,21 +289,13 @@ st.set_page_config(
     layout="wide"
 )
 
+inject_custom_css()
+
 st.title("Detector de desórdenes alimenticios")
 st.write(
-    "Esta herramienta permite clasificar un solo texto o un archivo completo "
-    "para estimar si se detectan señales asociadas a anorexia o si no se detectan señales claras."
+    "Esta herramienta permite clasificar textos individuales o archivos completos "
+    "para estimar si se detectan señales asociadas a anorexia."
 )
-
-if not MODEL_PATH.exists():
-    st.error(
-        f"No se encontró el modelo en: {MODEL_PATH}\n\n"
-        "Primero ejecuta `python main.py` y asegúrate de tener guardado "
-        "`logistic_regression_hybrid_v1.joblib` en la carpeta `results/`."
-    )
-    st.stop()
-
-model = load_cached_model(str(MODEL_PATH))
 
 if "manual_mode" not in st.session_state:
     st.session_state.manual_mode = False
@@ -139,9 +309,28 @@ if "control_threshold" not in st.session_state:
 if "min_words" not in st.session_state:
     st.session_state.min_words = DEFAULT_MIN_WORDS
 
+available_models = get_available_models()
+available_now = [m for m in available_models if m["exists"]]
+
+if not available_now:
+    st.error(
+        "No se encontró ningún modelo disponible en la carpeta `results/`.\n\n"
+        "Entrena primero alguno de estos modelos:\n"
+        "- python main.py\n"
+        "- python -m src.beto_train"
+    )
+    st.stop()
 
 with st.sidebar:
     st.header("Configuración")
+
+    model_labels = [m["label"] for m in available_now]
+    selected_label = st.selectbox("Modelo activo", options=model_labels)
+    selected_model_config = next(m for m in available_now if m["label"] == selected_label)
+
+    st.caption(f"**Tipo:** {selected_model_config['type']}")
+    st.caption(f"**Familia:** {selected_model_config['family']}")
+    st.caption(selected_model_config["description"])
 
     current_terms = load_custom_terms()
 
@@ -202,23 +391,22 @@ with st.sidebar:
     risk_terms_text = st.text_area(
         "Términos de riesgo extra (uno por línea)",
         value="\n".join(current_terms["risk_terms_extra"]),
-        height=180
+        height=140
     )
 
     positive_safe_text = st.text_area(
         "Términos seguros extra (uno por línea)",
         value="\n".join(current_terms["positive_safe_terms_extra"]),
-        height=120
+        height=100
     )
 
     negation_safe_text = st.text_area(
         "Términos de negación segura extra (uno por línea)",
         value="\n".join(current_terms["negation_safe_terms_extra"]),
-        height=120
+        height=100
     )
 
     col_save, col_reload = st.columns(2)
-
     with col_save:
         if st.button("Guardar términos"):
             save_custom_terms(
@@ -240,10 +428,34 @@ with st.sidebar:
         f"negación segura={len(merged_terms['negation_safe_terms'])}"
     )
 
-tab1, tab2 = st.tabs(["Clasificación individual", "Clasificación por archivo"])
+active_runtime = load_cached_runtime_bundle(selected_model_config["key"])
+
+st.markdown(
+    f"""
+    <div class="hero-box">
+        <div class="hero-title">Modelo cargado: {selected_model_config['label']}</div>
+        <div class="hero-subtitle">
+            Puedes clasificar textos individuales, archivos y comparar el mismo texto entre todos los modelos disponibles.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+chips_html = "".join(
+    [f"<span class='soft-chip'>{m['short_label']} · {m['family']}</span>" for m in available_now]
+)
+st.markdown(chips_html, unsafe_allow_html=True)
+
+tab1, tab2, tab3 = st.tabs([
+    "Clasificación individual",
+    "Clasificación por archivo",
+    "Comparación entre modelos"
+])
 
 with tab1:
     st.subheader("Clasificación individual")
+    st.markdown("<div class='section-caption'>Evalúa un texto con el modelo actualmente seleccionado.</div>", unsafe_allow_html=True)
 
     user_text = st.text_area(
         "Escribe el texto a evaluar",
@@ -255,8 +467,8 @@ with tab1:
         if not user_text.strip():
             st.warning("Por favor escribe un texto antes de clasificar.")
         else:
-            result = predict_text(
-                model=model,
+            result = predict_single_with_runtime(
+                runtime_bundle=active_runtime,
                 text=user_text,
                 anorexia_threshold=anorexia_threshold,
                 control_threshold=control_threshold,
@@ -264,34 +476,12 @@ with tab1:
             )
 
             st.subheader("Resultado")
-
-            metric_col1, metric_col2, metric_col3 = st.columns(3)
-            with metric_col1:
-                st.metric("Confianza", result["confidence"])
-            with metric_col2:
-                st.metric("Cantidad de palabras", result["word_count"])
-            with metric_col3:
-                st.metric("Cobertura del vocabulario", f"{result['vocab_coverage']:.2f}")
-
-            if result["probability_anorexia"] is not None:
-                st.write(f"**Probabilidad de anorexia:** {result['probability_anorexia']:.4f}")
-
-            st.write(f"**Mensaje:** {result['message']}")
-            st.write(f"**Observaciones:** {result['observations']}")
-
-            st.subheader("Texto procesado")
-            st.code(result["cleaned_text"])
-
-            if result["predicted_label"] == "anorexia":
-                st.error("Se detectan señales asociadas a anorexia en el texto.")
-            elif result["predicted_label"] == "control":
-                st.success("No se detectan señales claras asociadas a anorexia en el texto.")
-            elif result["predicted_label"] == "incierto":
-                st.warning("El resultado es incierto. Se recomienda revisión manual.")
+            st.write(f"**Modelo usado:** {result['model_label']}")
+            render_result_card(result, compact=False)
 
 with tab2:
     st.subheader("Clasificación por archivo")
-    st.write("La clasificación del archivo usa la misma configuración actualmente activa.")
+    st.markdown("<div class='section-caption'>Sube un CSV o Excel y clasifícalo usando el modelo activo.</div>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader(
         "Sube un archivo CSV o Excel",
@@ -359,8 +549,8 @@ with tab2:
                 if valid_rows == 0:
                     st.error("No se puede clasificar porque no hay texto válido en la columna seleccionada.")
                 else:
-                    result_df = predict_dataframe(
-                        model=model,
+                    result_df = predict_dataframe_with_runtime(
+                        runtime_bundle=active_runtime,
                         df=df_ready,
                         text_column=text_column,
                         anorexia_threshold=anorexia_threshold,
@@ -386,9 +576,60 @@ with tab2:
                     st.download_button(
                         label="Descargar resultados en CSV",
                         data=csv_data,
-                        file_name="resultados_clasificacion.csv",
+                        file_name=f"resultados_{selected_model_config['key']}.csv",
                         mime="text/csv"
                     )
 
         except Exception as e:
             st.error(f"Ocurrió un error al procesar el archivo: {e}")
+
+with tab3:
+    st.subheader("Comparación entre modelos")
+    st.markdown(
+        "<div class='section-caption'>Evalúa el mismo texto con todos los modelos disponibles para comparar probabilidad, confianza y etiqueta final.</div>",
+        unsafe_allow_html=True
+    )
+
+    compare_text = st.text_area(
+        "Texto para comparar entre modelos",
+        height=150,
+        placeholder="Ejemplo: llevo dos días ayunando porque me siento enorme..."
+    )
+
+    if st.button("Comparar modelos"):
+        if not compare_text.strip():
+            st.warning("Escribe un texto para comparar.")
+        else:
+            compare_results = []
+
+            for model_config in available_now:
+                runtime = load_cached_runtime_bundle(model_config["key"])
+                result = predict_single_with_runtime(
+                    runtime_bundle=runtime,
+                    text=compare_text,
+                    anorexia_threshold=anorexia_threshold,
+                    control_threshold=control_threshold,
+                    min_words=min_words
+                )
+                result["short_label"] = model_config["short_label"]
+                result["family"] = model_config["family"]
+                compare_results.append(result)
+
+            cols = st.columns(len(compare_results))
+
+            for col, result in zip(cols, compare_results):
+                with col:
+                    st.markdown("<div class='model-card'>", unsafe_allow_html=True)
+                    st.markdown(
+                        f"<div class='model-card-title'>{result['short_label']}</div>",
+                        unsafe_allow_html=True
+                    )
+                    st.markdown(
+                        f"<div class='model-card-subtitle'>{result['model_label']} · {result['family']}</div>",
+                        unsafe_allow_html=True
+                    )
+                    render_result_card(result, compact=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
+
+            st.write("### Resumen comparativo")
+            render_summary_table(compare_results)
