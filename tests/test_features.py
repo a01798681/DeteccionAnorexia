@@ -5,7 +5,6 @@ from sklearn.compose import ColumnTransformer
 from src.features import (
     ManualFeatureExtractor,
     build_tfidf_vectorizer,
-    RISK_TERMS,
 )
 
 #Helper

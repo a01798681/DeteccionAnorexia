@@ -3,13 +3,15 @@ import json
 import joblib
 import pandas as pd
 
-from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
+from sklearn.model_selection import GridSearchCV, StratifiedKFold
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import TruncatedSVD
+from sklearn.ensemble import RandomForestClassifier
 
 from .preprocessing import clean_text
 from .features import build_tfidf_vectorizer, ManualFeatureExtractor
@@ -81,6 +83,31 @@ def build_svm_pipeline() -> Pipeline:
     ])
 
 
+def build_random_forest_pipeline() -> Pipeline:
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("tfidf_svd", Pipeline([
+                ("tfidf", build_tfidf_vectorizer()),
+                ("svd", TruncatedSVD(n_components=10, random_state=42))
+            ]), "clean_text"),
+            ("manual", Pipeline([
+                ("extract", ManualFeatureExtractor()),
+                ("scale", StandardScaler())
+            ]), "clean_text")
+        ]
+    )
+
+    return Pipeline([
+        ("features", preprocessor),
+        ("clf", RandomForestClassifier(
+            n_estimators=200,
+            random_state=42,
+            n_jobs=-1,
+            class_weight="balanced"
+        ))
+    ])
+
+
 def optimize_logistic_regression(X_train, y_train):
     pipeline = build_logreg_pipeline()
 
@@ -114,6 +141,31 @@ def optimize_hybrid_logistic_regression(train_df, y_train):
     param_grid = {
         "clf__C": [0.1, 1.0, 5.0, 10.0],
         "clf__class_weight": [None, "balanced"]
+    }
+
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+    grid = GridSearchCV(
+        estimator=pipeline,
+        param_grid=param_grid,
+        scoring="roc_auc",
+        cv=cv,
+        n_jobs=-1,
+        verbose=1
+    )
+
+    grid.fit(train_df[["clean_text"]], y_train)
+    return grid
+
+
+def optimize_random_forest(train_df, y_train):
+    pipeline = build_random_forest_pipeline()
+
+    param_grid = {
+        "features__tfidf_svd__svd__n_components": [5, 10],
+        "clf__n_estimators": [200, 300],
+        "clf__max_depth": [None, 10],
+        "clf__min_samples_leaf": [1, 2]
     }
 
     cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
@@ -272,15 +324,40 @@ def run_baseline_experiment(train_df: pd.DataFrame, val_df: pd.DataFrame, output
     joblib.dump(svm_pipeline, output_path / "linear_svm.joblib")
     save_json(svm_metrics, output_path / "linear_svm_metrics.json")
 
-    # 4. Resumen general
+    # 4. Random Forest + SVD + manual features
+    rf_grid = optimize_random_forest(train_df, y_train)
+    best_rf_model = rf_grid.best_estimator_
+
+    rf_metrics = evaluate_and_save(
+        "random_forest_svd",
+        best_rf_model,
+        val_df[["clean_text"]],
+        y_val,
+        val_df,
+        output_path
+    )
+
+    rf_results = {
+        **rf_metrics,
+        "best_params": rf_grid.best_params_,
+        "best_cv_score": rf_grid.best_score_
+    }
+
+    all_results["random_forest_svd"] = rf_results
+
+    joblib.dump(best_rf_model, output_path / "random_forest_svd.joblib")
+    save_json(rf_results, output_path / "random_forest_svd_metrics.json")
+
     summary = {
         model_name: {
             "roc_auc": metrics["roc_auc"],
-            "accuracy": metrics["accuracy"]
+            "accuracy": metrics["accuracy"],
+            "precision": metrics["precision"],
+            "recall": metrics["recall"],
+            "f1": metrics["f1"]
         }
         for model_name, metrics in all_results.items()
     }
 
     save_json(summary, output_path / "summary.json")
-
     return all_results

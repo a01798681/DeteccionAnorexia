@@ -58,5 +58,10 @@
   "tests/test_preprocessing.py::test_clean_text_removes_noise_characters",
   "tests/test_preprocessing.py::test_clean_text_removes_url",
   "tests/test_preprocessing.py::test_clean_text_very_short_text",
-  "tests/test_preprocessing.py::test_fix_mojibake"
+  "tests/test_preprocessing.py::test_fix_mojibake",
+  "tests/test_random_forest.py::test_random_forest_handles_new_text",
+  "tests/test_random_forest.py::test_random_forest_output_length_matches_input",
+  "tests/test_random_forest.py::test_random_forest_pipeline_trains",
+  "tests/test_random_forest.py::test_random_forest_predict_proba_range",
+  "tests/test_random_forest.py::test_random_forest_predicts_valid_classes"
 ]
