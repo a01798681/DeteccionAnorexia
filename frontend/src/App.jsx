@@ -40,6 +40,12 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileTextColumn, setFileTextColumn] = useState("");
+  const [fileResultUrl, setFileResultUrl] = useState("");
+  const [fileResultName, setFileResultName] = useState("");
+  const [fileResults, setFileResults] = useState(null);
+
   useEffect(() => {
     fetchModels();
   }, []);
@@ -169,6 +175,69 @@ function App() {
     if (label === "anorexia") return "pill danger";
     if (label === "control") return "pill success";
     return "pill warning";
+  };
+
+  const classifyFile = async () => {
+    setError("");
+    setFileResultUrl("");
+    setFileResultName("");
+
+    if (!selectedFile) {
+      setError("Selecciona un archivo CSV o Excel.");
+      return;
+    }
+
+    if (!selectedModel) {
+      setError("Selecciona un modelo antes de clasificar.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+      formData.append("model_key", selectedModel);
+
+      if (fileTextColumn.trim()) {
+        formData.append("text_column", fileTextColumn.trim());
+      }
+
+      const config = getConfig();
+      formData.append("anorexia_threshold", config.anorexia_threshold);
+      formData.append("control_threshold", config.control_threshold);
+      formData.append("min_words", config.min_words);
+
+      const res = await fetch(`${API_URL}/predict-file`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        setError(JSON.stringify(data));
+        return;
+      }
+
+      const data = await res.json();
+
+      if (data.error) {
+        setError(data.error);
+        return;
+      }
+
+      setFileResults(data);
+
+      const blob = new Blob([data.csv], { type: "text/csv;charset=utf-8;" });
+      const url = window.URL.createObjectURL(blob);
+
+      setFileResultUrl(url);
+      setFileResultName(data.filename);
+    } catch (err) {
+      setError("Error al clasificar el archivo.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -346,15 +415,116 @@ function App() {
           <section className="card">
             <h2>Clasificación por archivo</h2>
             <p className="caption">
-              Para esta pestaña necesitas crear un endpoint en FastAPI que reciba
-              archivos CSV o Excel.
+              Sube un archivo CSV o Excel y clasifícalo usando el modelo activo.
             </p>
 
-            <input type="file" accept=".csv,.xlsx" />
+            <label>Archivo CSV o Excel</label>
+            <input
+              type="file"
+              accept=".csv,.xlsx"
+              onChange={(e) => {
+                setSelectedFile(e.target.files[0]);
+                setFileResultUrl("");
+              }}
+            />
 
-            <div className="info-box">
-              Endpoint sugerido: <b>POST /predict-file</b>
-            </div>
+            <label>Columna de texto</label>
+            <input
+              type="text"
+              value={fileTextColumn}
+              onChange={(e) => setFileTextColumn(e.target.value)}
+              placeholder="Ejemplo: text, texto, tweet_text, comentario..."
+            />
+
+            <p className="caption">
+              Si lo dejas vacío, el backend intentará detectar la columna automáticamente.
+            </p>
+
+            <button className="primary-button" onClick={classifyFile}>
+              {loading ? "Clasificando archivo..." : "Clasificar archivo"}
+            </button>
+
+            {fileResults && (
+              <>
+                <h3>Resumen general</h3>
+
+                <div className="metrics-grid">
+                  <Metric label="Filas totales" value={fileResults.total_rows} />
+                  <Metric label="Filas válidas" value={fileResults.valid_rows} />
+                  <Metric label="Filas descartadas" value={fileResults.dropped_rows} />
+                  <Metric label="Columna texto" value={fileResults.text_column} />
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Clase predicha</th>
+                      <th>Cantidad</th>
+                      <th>Porcentaje</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {fileResults.summary.map((row, index) => (
+                      <tr key={index}>
+                        <td>{row.clase_predicha}</td>
+                        <td>{row.cantidad}</td>
+                        <td>{row.porcentaje}%</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+
+                <h3>Gráfica de resultados</h3>
+
+                <div className="chart-card">
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={fileResults.summary}>
+                      <XAxis dataKey="clase_predicha" />
+                      <YAxis />
+                      <Tooltip />
+                      <Bar dataKey="cantidad" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <h3>Resultados detallados</h3>
+
+                <div className="table-scroll">
+                  <table>
+                    <thead>
+                      <tr>
+                        {Object.keys(fileResults.results[0] || {}).map((col) => (
+                          <th key={col}>{col}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {fileResults.results.slice(0, 30).map((row, index) => (
+                        <tr key={index}>
+                          {Object.values(row).map((value, i) => (
+                            <td key={i}>{String(value)}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <p className="caption">
+                  Mostrando las primeras 30 filas. Puedes descargar el CSV completo.
+                </p>
+              </>
+            )}
+
+            {fileResultUrl && (
+              <div className="download-box">
+                <p>Archivo clasificado correctamente.</p>
+
+                <a href={fileResultUrl} download={fileResultName}>
+                  Descargar resultados CSV
+                </a>
+              </div>
+            )}
           </section>
         )}
 

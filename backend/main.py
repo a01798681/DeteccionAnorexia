@@ -205,12 +205,24 @@ async def predict_file(
         min_words=min_words,
     )
 
-    csv_data = dataframe_to_csv_download(result_df)
+    summary = result_df["predicted_label"].value_counts(dropna=False).reset_index()
+    summary.columns = ["clase_predicha", "cantidad"]
+    summary["porcentaje"] = (
+        summary["cantidad"] / summary["cantidad"].sum() * 100
+    ).round(2)
 
-    return StreamingResponse(
-        BytesIO(csv_data),
-        media_type="text/csv",
-        headers={
-            "Content-Disposition": f"attachment; filename=resultados_{model_key}.csv"
-        },
-    )
+    import numpy as np
+    result_df = result_df.replace({np.nan: None})
+
+    csv_data = result_df.to_csv(index=False).encode("utf-8-sig").decode("utf-8-sig")
+
+    return {
+        "text_column": text_column,
+        "total_rows": len(df),
+        "valid_rows": len(df_ready),
+        "dropped_rows": dropped_rows,
+        "summary": summary.to_dict(orient="records"),
+        "results": result_df.to_dict(orient="records"),
+        "csv": csv_data,
+        "filename": f"resultados_{model_key}.csv",
+    }

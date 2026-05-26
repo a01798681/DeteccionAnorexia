@@ -45,6 +45,19 @@ Para abrir la interfaz web en Streamlit:
 ```bash
 streamlit run app/app.py
 ```
+
+Para correr el backend en la terminal:
+```bash
+uvicorn backend.main:app --reload
+```
+
+Para correr el frontend en la terminal:
+```bash
+cd frontend
+npm run dev
+```
+
+
 ## Pruebas
 
 Para ejecutar las pruebas unitarias:

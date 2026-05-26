@@ -338,4 +338,38 @@ th {
   padding: 20px;
   margin-top: 18px;
   }
+
+  input[type="text"] {
+  width: 100%;
+  border: 1px solid #ccd4e3;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 15px;
+  background: white;
+}
+
+.download-box {
+  margin-top: 20px;
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.download-box a {
+  display: inline-block;
+  margin-top: 8px;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  }
+
+  .table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 12px;
+  }
 }
