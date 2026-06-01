@@ -14,7 +14,7 @@ from pydantic import BaseModel
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
-from src.model_registry import get_available_models
+from src.model_registry import get_available_models, get_default_model_key
 from src.model_runtime import (
     load_runtime_bundle,
     predict_single_with_runtime,
@@ -58,6 +58,11 @@ class CompareModelsRequest(BaseModel):
     anorexia_threshold: float = DEFAULT_ANOREXIA_THRESHOLD
     control_threshold: float = DEFAULT_CONTROL_THRESHOLD
     min_words: int = DEFAULT_MIN_WORDS
+
+class CustomTermsRequest(BaseModel):
+    risk_terms_extra: list[str] = []
+    positive_safe_terms_extra: list[str] = []
+    negation_safe_terms_extra: list[str] = []
 
 
 @lru_cache
@@ -117,8 +122,48 @@ def home():
 
 @app.get("/models")
 def get_models():
-    return [m for m in get_available_models() if m["exists"]]
+    models = [m for m in get_available_models() if m["exists"]]
 
+    return {
+        "default_model_key": get_default_model_key(),
+        "models": models,
+    }
+
+@app.get("/custom-terms")
+def get_custom_terms():
+    custom = load_custom_terms()
+    merged = get_term_sets()
+
+    return {
+        "custom_terms": custom,
+        "active_counts": {
+            "risk_terms": len(merged["risk_terms"]),
+            "positive_safe_terms": len(merged["positive_safe_terms"]),
+            "negation_safe_terms": len(merged["negation_safe_terms"]),
+        },
+    }
+
+
+@app.post("/custom-terms")
+def update_custom_terms(request: CustomTermsRequest):
+    save_custom_terms(
+        risk_terms_extra=request.risk_terms_extra,
+        positive_safe_terms_extra=request.positive_safe_terms_extra,
+        negation_safe_terms_extra=request.negation_safe_terms_extra,
+    )
+
+    custom = load_custom_terms()
+    merged = get_term_sets()
+
+    return {
+        "message": "Términos guardados correctamente.",
+        "custom_terms": custom,
+        "active_counts": {
+            "risk_terms": len(merged["risk_terms"]),
+            "positive_safe_terms": len(merged["positive_safe_terms"]),
+            "negation_safe_terms": len(merged["negation_safe_terms"]),
+        },
+    }
 
 @app.post("/predict-text")
 def predict_text(request: PredictTextRequest):
@@ -131,7 +176,6 @@ def predict_text(request: PredictTextRequest):
         control_threshold=request.control_threshold,
         min_words=request.min_words,
     )
-
 
 @app.post("/compare-models")
 def compare_models(request: CompareModelsRequest):

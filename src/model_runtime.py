@@ -1,14 +1,74 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
-from typing import Dict, Any, Tuple
+from typing import Dict, Any
 
 import joblib
+import pandas as pd
 
 from .beto_embeddings import BETOEmbedder
+from .beto_llm_methods import (
+    predict_text_beto_llm_cascade,
+    predict_text_beto_llm_ensemble,
+)
+from .llm_classifier import classify_text
 from .model_registry import get_model_config
 from .predict import predict_text, predict_dataframe
 from .predict_beto import predict_text_beto, predict_dataframe_beto
+
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+RESULTS_DIR = ROOT_DIR / "results"
+LLM_CACHE_PATH = RESULTS_DIR / "llm_cache.json"
+
+
+def load_llm_cache(cache_path: Path):
+    if cache_path.exists():
+        try:
+            return json.loads(cache_path.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def save_llm_cache(cache: dict, cache_path: Path):
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def build_cached_llm_callback(cache_path: Path = LLM_CACHE_PATH):
+    cache = load_llm_cache(cache_path)
+
+    def callback(text: str):
+        key = str(text).strip()
+        if key not in cache:
+            cache[key] = classify_text(key)
+            save_llm_cache(cache, cache_path)
+        return cache[key]
+
+    return callback
+
+
+def _normalize_combo_result(raw: Dict[str, Any], config: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "input_text": raw.get("input_text"),
+        "cleaned_text": raw.get("cleaned_text"),
+        "predicted_label": raw.get("final_label"),
+        "predicted_numeric_label": raw.get("predicted_numeric_label"),
+        "probability_anorexia": raw.get("final_score"),
+        "confidence": raw.get("confidence", "mixta"),
+        "message": raw.get("message", ""),
+        "observations": raw.get("observations", ""),
+        "word_count": raw.get("word_count", 0),
+        "vocab_coverage": None,
+        "model_backend": config["type"],
+        "decision_source": raw.get("decision_source"),
+        "beto_probability": raw.get("beto_probability"),
+        "llm_risk_score": raw.get("llm_risk_score"),
+        "llm_label": raw.get("llm_label"),
+        "method": raw.get("method"),
+    }
 
 
 def load_runtime_bundle(model_key: str):
@@ -22,7 +82,8 @@ def load_runtime_bundle(model_key: str):
         return {
             "config": config,
             "model": model,
-            "embedder": None
+            "embedder": None,
+            "llm_callback": None,
         }
 
     if config["type"] == "beto":
@@ -31,7 +92,19 @@ def load_runtime_bundle(model_key: str):
         return {
             "config": config,
             "model": classifier,
-            "embedder": embedder
+            "embedder": embedder,
+            "llm_callback": None,
+        }
+
+    if config["type"] in {"beto_llm_ensemble", "beto_llm_cascade"}:
+        classifier = joblib.load(config["path"])
+        embedder = BETOEmbedder()
+        llm_callback = build_cached_llm_callback()
+        return {
+            "config": config,
+            "model": classifier,
+            "embedder": embedder,
+            "llm_callback": llm_callback,
         }
 
     raise ValueError(f"Tipo de modelo no soportado: {config['type']}")
@@ -63,6 +136,28 @@ def predict_single_with_runtime(
             control_threshold=control_threshold,
             min_words=min_words
         )
+    elif config["type"] == "beto_llm_ensemble":
+        raw = predict_text_beto_llm_ensemble(
+            classifier=runtime_bundle["model"],
+            embedder=runtime_bundle["embedder"],
+            text=text,
+            anorexia_threshold=anorexia_threshold,
+            control_threshold=control_threshold,
+            min_words=min_words,
+            llm_callback=runtime_bundle["llm_callback"],
+        )
+        result = _normalize_combo_result(raw, config)
+    elif config["type"] == "beto_llm_cascade":
+        raw = predict_text_beto_llm_cascade(
+            classifier=runtime_bundle["model"],
+            embedder=runtime_bundle["embedder"],
+            text=text,
+            anorexia_threshold=anorexia_threshold,
+            control_threshold=control_threshold,
+            min_words=min_words,
+            llm_callback=runtime_bundle["llm_callback"],
+        )
+        result = _normalize_combo_result(raw, config)
     else:
         raise ValueError(f"Tipo de modelo no soportado: {config['type']}")
 
@@ -100,6 +195,35 @@ def predict_dataframe_with_runtime(
             control_threshold=control_threshold,
             min_words=min_words
         )
+    elif config["type"] in {"beto_llm_ensemble", "beto_llm_cascade"}:
+        if text_column not in df.columns:
+            raise ValueError(f"La columna '{text_column}' no existe en el archivo.")
+
+        result_df = df.copy()
+
+        predictions = result_df[text_column].apply(
+            lambda x: predict_single_with_runtime(
+                runtime_bundle=runtime_bundle,
+                text=x,
+                anorexia_threshold=anorexia_threshold,
+                control_threshold=control_threshold,
+                min_words=min_words
+            )
+        )
+
+        result_df["cleaned_text"] = predictions.apply(lambda x: x["cleaned_text"])
+        result_df["predicted_label"] = predictions.apply(lambda x: x["predicted_label"])
+        result_df["probability_anorexia"] = predictions.apply(lambda x: x["probability_anorexia"])
+        result_df["confidence"] = predictions.apply(lambda x: x["confidence"])
+        result_df["message"] = predictions.apply(lambda x: x["message"])
+        result_df["observations"] = predictions.apply(lambda x: x["observations"])
+        result_df["word_count"] = predictions.apply(lambda x: x["word_count"])
+        result_df["vocab_coverage"] = predictions.apply(lambda x: x["vocab_coverage"])
+        result_df["decision_source"] = predictions.apply(lambda x: x.get("decision_source"))
+        result_df["beto_probability"] = predictions.apply(lambda x: x.get("beto_probability"))
+        result_df["llm_risk_score"] = predictions.apply(lambda x: x.get("llm_risk_score"))
+        result_df["llm_label"] = predictions.apply(lambda x: x.get("llm_label"))
+        result_df["method"] = predictions.apply(lambda x: x.get("method"))
     else:
         raise ValueError(f"Tipo de modelo no soportado: {config['type']}")
 

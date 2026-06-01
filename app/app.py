@@ -8,7 +8,7 @@ import streamlit as st
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
-from src.model_registry import get_available_models
+from src.model_registry import get_available_models, get_default_model_key
 from src.model_runtime import (
     load_runtime_bundle,
     predict_single_with_runtime,
@@ -325,7 +325,20 @@ with st.sidebar:
     st.header("Configuración")
 
     model_labels = [m["label"] for m in available_now]
-    selected_label = st.selectbox("Modelo activo", options=model_labels)
+    default_key = get_default_model_key()
+    default_index = 0
+
+    if default_key is not None:
+        for i, m in enumerate(available_now):
+            if m["key"] == default_key:
+                default_index = i
+                break
+
+    selected_label = st.selectbox(
+        "Modelo activo",
+        options=model_labels,
+        index=default_index
+    )
     selected_model_config = next(m for m in available_now if m["label"] == selected_label)
 
     st.caption(f"**Tipo:** {selected_model_config['type']}")
@@ -481,6 +494,10 @@ with tab1:
 
 with tab2:
     st.subheader("Clasificación por archivo")
+    if selected_model_config["type"] in {"beto_llm_ensemble", "beto_llm_cascade"}:
+        st.warning(
+            "Este modo usa LLM además de BETO. Puede tardar más y consumir créditos de Hugging Face al clasificar archivos grandes."
+        )
     st.markdown("<div class='section-caption'>Sube un CSV o Excel y clasifícalo usando el modelo activo.</div>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader(
