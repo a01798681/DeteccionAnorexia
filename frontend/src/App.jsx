@@ -57,27 +57,48 @@ function App() {
   const [termCounts, setTermCounts] = useState(null);
   const [termsMessage, setTermsMessage] = useState("");
 
+  const [fileInfo, setFileInfo] = useState(null);
+  const [selectedSheet, setSelectedSheet] = useState("");
+  const [inspectingFile, setInspectingFile] = useState(false);
+
   useEffect(() => {
     fetchModels();
     fetchCustomTerms();
   }, []);
+
+  useEffect(() => {
+    if (!selectedModel && models.length > 0) {
+      const recommended = models.find((m) => m.recommended);
+      setSelectedModel(recommended ? recommended.key : models[0].key);
+    }
+  }, [models, selectedModel]);
 
   const fetchModels = async () => {
     try {
       const res = await fetch(`${API_URL}/models`);
       const data = await res.json();
 
-      const modelsData = data.models || [];
-      const defaultModelKey = data.default_model_key || "";
+      let modelsData = [];
+      let defaultModelKey = "";
+
+      if (!Array.isArray(data) && data?.models) {
+        modelsData = data.models || [];
+        defaultModelKey = data.default_model_key || "";
+      } else if (Array.isArray(data)) {
+        modelsData = data;
+      }
 
       setModels(modelsData);
 
       if (defaultModelKey) {
         setSelectedModel(defaultModelKey);
       } else if (modelsData.length > 0) {
-        setSelectedModel(modelsData[0].key);
+        const recommended = modelsData.find((m) => m.recommended);
+        setSelectedModel(recommended ? recommended.key : modelsData[0].key);
+      } else {
+        setSelectedModel("");
       }
-    } catch {
+    } catch (err) {
       setError("No se pudieron cargar los modelos.");
     }
   };
@@ -232,6 +253,51 @@ function App() {
     }
   };
 
+  const inspectFile = async (file, sheet = "") => {
+    if (!file) return;
+
+    setError("");
+    setInspectingFile(true);
+    setFileInfo(null);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      if (sheet) {
+        formData.append("sheet_name", sheet);
+      }
+
+      const res = await fetch(`${API_URL}/inspect-file`, {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        setError(data.error || "No se pudo inspeccionar el archivo.");
+        return;
+      }
+
+      setFileInfo(data);
+
+      if (data.selected_sheet) {
+        setSelectedSheet(data.selected_sheet);
+      }
+
+      if (data.suggested_text_column) {
+        setFileTextColumn(data.suggested_text_column);
+      } else if (data.columns?.length > 0 && !fileTextColumn) {
+        setFileTextColumn(data.columns[0]);
+      }
+    } catch {
+      setError("Error al inspeccionar el archivo.");
+    } finally {
+      setInspectingFile(false);
+    }
+  };
+
   const classifyFile = async () => {
     setError("");
     setFileResultUrl("");
@@ -256,6 +322,10 @@ function App() {
 
       if (fileTextColumn.trim()) {
         formData.append("text_column", fileTextColumn.trim());
+      }
+
+      if (selectedSheet) {
+        formData.append("sheet_name", selectedSheet);
       }
 
       const config = getConfig();
@@ -670,8 +740,16 @@ function App() {
                     type="file"
                     accept=".csv,.xlsx"
                     onChange={(e) => {
-                      setSelectedFile(e.target.files[0]);
+                      const file = e.target.files[0];
+                      setSelectedFile(file);
                       setFileResultUrl("");
+                      setFileResultName("");
+                      setFileResults(null);
+                      setFileInfo(null);
+                      setSelectedSheet("");
+                      if (file) {
+                        inspectFile(file);
+                      }
                     }}
                   />
                 </div>
@@ -687,9 +765,81 @@ function App() {
                 </div>
               </div>
 
+              {fileInfo && fileInfo.kind === "xlsx" && fileInfo.sheet_names?.length > 0 && (
+                <div>
+                  <label>Hoja del Excel</label>
+                  <select
+                    value={selectedSheet}
+                    onChange={(e) => {
+                      const newSheet = e.target.value;
+                      setSelectedSheet(newSheet);
+                      if (selectedFile) {
+                        inspectFile(selectedFile, newSheet);
+                      }
+                    }}
+                  >
+                    {fileInfo.sheet_names.map((sheet) => (
+                      <option key={sheet} value={sheet}>
+                        {sheet}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
               <p className="helper-text">
                 Si lo dejas vacío, el backend intentará detectar la columna automáticamente.
               </p>
+
+              {inspectingFile && (
+                <p className="helper-text">Inspeccionando archivo...</p>
+              )}
+
+              {fileInfo && (
+                <>
+                  <div className="info-box">
+                    <p><b>Tipo:</b> {fileInfo.kind}</p>
+                    <p><b>Filas detectadas:</b> {fileInfo.total_rows}</p>
+                    {fileInfo.selected_sheet && (
+                      <p><b>Hoja actual:</b> {fileInfo.selected_sheet}</p>
+                    )}
+                    {fileInfo.suggested_text_column && (
+                      <p><b>Columna sugerida:</b> {fileInfo.suggested_text_column}</p>
+                    )}
+                  </div>
+
+                  <h3>Columnas detectadas</h3>
+                  <div className="model-chip-group">
+                    {fileInfo.columns?.map((col) => (
+                      <span key={col} className="model-chip">
+                        {col}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3>Vista previa</h3>
+                  <div className="table-wrap">
+                    <table>
+                      <thead>
+                        <tr>
+                          {Object.keys(fileInfo.preview?.[0] || {}).map((col) => (
+                            <th key={col}>{col}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {(fileInfo.preview || []).map((row, index) => (
+                          <tr key={index}>
+                            {Object.values(row).map((value, i) => (
+                              <td key={i}>{String(value)}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              )}
 
               <div className="actions-row">
                 <button className="btn btn-primary" onClick={classifyFile}>
@@ -706,6 +856,9 @@ function App() {
                     <Metric label="Filas válidas" value={fileResults.valid_rows} />
                     <Metric label="Filas descartadas" value={fileResults.dropped_rows} />
                     <Metric label="Columna texto" value={fileResults.text_column} />
+                    {fileResults.sheet_name && (
+                      <Metric label="Hoja usada" value={fileResults.sheet_name} />
+                    )}
                   </div>
 
                   <div className="table-wrap">

@@ -114,6 +114,42 @@ def sanitize_uploaded_dataframe(df: pd.DataFrame, text_column: str):
 
     return cleaned_df, dropped_rows
 
+def inspect_uploaded_file(raw_bytes: bytes, file_name: str, sheet_name: str | None = None):
+    """
+    Inspecciona un archivo CSV o Excel y devuelve:
+    - tipo de archivo
+    - hojas disponibles (si aplica)
+    - columnas
+    - columna sugerida de texto
+    - preview
+    """
+    if file_name.endswith(".csv"):
+        df = pd.read_csv(BytesIO(raw_bytes))
+        return {
+            "kind": "csv",
+            "sheet_names": [],
+            "selected_sheet": None,
+            "df": df,
+        }
+
+    if file_name.endswith(".xlsx"):
+        excel_file = pd.ExcelFile(BytesIO(raw_bytes))
+        sheet_names = excel_file.sheet_names
+
+        if not sheet_names:
+            raise ValueError("El archivo Excel no contiene hojas.")
+
+        selected_sheet = sheet_name if sheet_name in sheet_names else sheet_names[0]
+        df = pd.read_excel(BytesIO(raw_bytes), sheet_name=selected_sheet)
+
+        return {
+            "kind": "xlsx",
+            "sheet_names": sheet_names,
+            "selected_sheet": selected_sheet,
+            "df": df,
+        }
+
+    raise ValueError("Formato no soportado. Sube un archivo .csv o .xlsx")
 
 @app.get("/")
 def home():
@@ -201,12 +237,46 @@ def compare_models(request: CompareModelsRequest):
 
     return results
 
+@app.post("/inspect-file")
+async def inspect_file(
+    file: UploadFile = File(...),
+    sheet_name: str | None = Form(None),
+):
+    file_name = file.filename.lower()
+    raw_bytes = await file.read()
+
+    try:
+        file_info = inspect_uploaded_file(raw_bytes, file_name, sheet_name)
+        df = file_info["df"]
+
+        if len(df.columns) == 0:
+            return {"error": "El archivo no contiene columnas."}
+
+        suggested_text_column = suggest_text_column(df.columns)
+
+        preview_df = df.head(10).copy()
+        import numpy as np
+        preview_df = preview_df.replace({np.nan: None})
+
+        return {
+            "kind": file_info["kind"],
+            "sheet_names": file_info["sheet_names"],
+            "selected_sheet": file_info["selected_sheet"],
+            "columns": list(df.columns),
+            "suggested_text_column": suggested_text_column,
+            "preview": preview_df.to_dict(orient="records"),
+            "total_rows": len(df),
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
 
 @app.post("/predict-file")
 async def predict_file(
     file: UploadFile = File(...),
     model_key: str = Form(...),
     text_column: str | None = Form(None),
+    sheet_name: str | None = Form(None),
     anorexia_threshold: float = Form(DEFAULT_ANOREXIA_THRESHOLD),
     control_threshold: float = Form(DEFAULT_CONTROL_THRESHOLD),
     min_words: int = Form(DEFAULT_MIN_WORDS),
@@ -214,12 +284,12 @@ async def predict_file(
     file_name = file.filename.lower()
     raw_bytes = await file.read()
 
-    if file_name.endswith(".csv"):
-        df = pd.read_csv(BytesIO(raw_bytes))
-    elif file_name.endswith(".xlsx"):
-        df = pd.read_excel(BytesIO(raw_bytes))
-    else:
-        return {"error": "Formato no soportado. Sube un archivo .csv o .xlsx"}
+    try:
+        file_info = inspect_uploaded_file(raw_bytes, file_name, sheet_name)
+        df = file_info["df"]
+        selected_sheet = file_info["selected_sheet"]
+    except Exception as e:
+        return {"error": str(e)}
 
     if len(df.columns) == 0:
         return {"error": "El archivo no contiene columnas."}
@@ -262,6 +332,7 @@ async def predict_file(
 
     return {
         "text_column": text_column,
+        "sheet_name": selected_sheet,
         "total_rows": len(df),
         "valid_rows": len(df_ready),
         "dropped_rows": dropped_rows,
