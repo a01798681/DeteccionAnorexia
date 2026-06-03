@@ -43,6 +43,8 @@ const DISTRIBUTION_GRADIENTS = {
 function App() {
   const [models, setModels] = useState([]);
   const [selectedModel, setSelectedModel] = useState("");
+  const [modelMetrics, setModelMetrics] = useState({});
+  const [activeMetricsKey, setActiveMetricsKey] = useState(null);
   const [activeTab, setActiveTab] = useState("individual");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
@@ -79,6 +81,7 @@ function App() {
 
   useEffect(() => {
     fetchModels();
+    fetchModelMetrics();
     fetchCustomTerms();
   }, []);
 
@@ -116,6 +119,16 @@ function App() {
       }
     } catch (err) {
       setError("No se pudieron cargar los modelos.");
+    }
+  };
+
+  const fetchModelMetrics = async () => {
+    try {
+      const res = await fetch(`${API_URL}/model-metrics`);
+      const data = await res.json();
+      setModelMetrics(data || {});
+    } catch {
+      console.error("No se pudieron cargar las métricas de los modelos.");
     }
   };
 
@@ -418,6 +431,11 @@ function App() {
     return "tone-classic";
   };
 
+  const formatMetricValue = (value) => {
+    if (value === null || value === undefined) return "N/A";
+    return Number(value).toFixed(4);
+  };
+
   return (
     <div className="app-shell">
       <div className="app-layout">
@@ -620,18 +638,53 @@ function App() {
 
           <section className="card">
             <div className="model-chip-group">
-              {models.map((model) => (
-                <button
-                  key={model.key}
-                  type="button"
-                  className={`model-chip ${selectedModel === model.key ? "active" : ""} ${
-                    model.recommended ? "recommended" : ""
-                  }`}
-                  onClick={() => setSelectedModel(model.key)}
-                >
-                  {model.short_label} · {model.family}
-                </button>
-              ))}
+              {models.map((model) => {
+                const metrics = modelMetrics[model.key];
+
+                return (
+                  <div
+                    key={model.key}
+                    className="model-chip-wrapper"
+                    onMouseEnter={() => setActiveMetricsKey(model.key)}
+                    onMouseLeave={() => setActiveMetricsKey((prev) => (prev === model.key ? null : prev))}
+                  >
+                    <button
+                      type="button"
+                      className={`model-chip ${selectedModel === model.key ? "active" : ""} ${
+                        model.recommended ? "recommended" : ""
+                      }`}
+                      onClick={() => {
+                        setSelectedModel(model.key);
+                        setActiveMetricsKey((prev) => (prev === model.key ? null : model.key));
+                      }}
+                    >
+                      {model.short_label} · {model.family}
+                    </button>
+
+                    {activeMetricsKey === model.key && (
+                      <div className="model-metrics-tooltip">
+                        <div className="tooltip-title">{model.label}</div>
+
+                        {model.recommended && (
+                          <div className="tooltip-recommended">Recomendado</div>
+                        )}
+
+                        {metrics ? (
+                          <div className="tooltip-metrics-list">
+                            <div><span>Accuracy:</span> <strong>{formatMetricValue(metrics.accuracy)}</strong></div>
+                            <div><span>Precision:</span> <strong>{formatMetricValue(metrics.precision)}</strong></div>
+                            <div><span>Recall:</span> <strong>{formatMetricValue(metrics.recall)}</strong></div>
+                            <div><span>F1-score:</span> <strong>{formatMetricValue(metrics.f1)}</strong></div>
+                            <div><span>ROC-AUC:</span> <strong>{formatMetricValue(metrics.roc_auc)}</strong></div>
+                          </div>
+                        ) : (
+                          <div className="tooltip-no-metrics">Métricas no disponibles.</div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -1122,6 +1175,41 @@ function App() {
                         </Bar>
                       </BarChart>
                     </ResponsiveContainer>
+                  </div>
+                  <h3>Métricas globales por modelo</h3>
+                  <div className="table-wrap">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Modelo</th>
+                          <th>Accuracy</th>
+                          <th>Precision</th>
+                          <th>Recall</th>
+                          <th>F1-score</th>
+                          <th>ROC-AUC</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {models.map((model) => {
+                          const metrics = modelMetrics[model.key];
+                          console.log("model.key:", model.key, "metrics:", modelMetrics[model.key]);
+
+                          return (
+                            <tr key={model.key}>
+                              <td>
+                                {model.label}
+                                {model.recommended ? " (Recomendado)" : ""}
+                              </td>
+                              <td>{formatMetricValue(metrics?.accuracy)}</td>
+                              <td>{formatMetricValue(metrics?.precision)}</td>
+                              <td>{formatMetricValue(metrics?.recall)}</td>
+                              <td>{formatMetricValue(metrics?.f1)}</td>
+                              <td>{formatMetricValue(metrics?.roc_auc)}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
                   </div>
                 </>
               )}

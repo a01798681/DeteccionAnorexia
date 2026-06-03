@@ -11,6 +11,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
+import json
+from pathlib import Path
+
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
@@ -32,6 +35,15 @@ TEXT_COLUMN_HINTS = [
     "mensaje", "comentario", "body", "caption"
 ]
 
+RESULTS_DIR = Path(__file__).resolve().parent.parent / "results"
+
+MODEL_METRIC_CANDIDATES = {
+    "beto_llm_ensemble": ["beto_llm_ensemble_metrics.json"],
+    "beto_llm_cascade": ["beto_llm_cascade_metrics.json"],
+    "beto_logreg": ["beto_metrics.json", "beto_logreg_metrics.json"],
+    "hybrid_logreg": ["logistic_regression_hybrid_metrics.json", "hybrid_logreg_metrics.json"],
+    "random_forest_svd": ["random_forest_svd_metrics.json"],
+}
 
 app = FastAPI(title="Detector de desórdenes alimenticios API")
 
@@ -151,6 +163,44 @@ def inspect_uploaded_file(raw_bytes: bytes, file_name: str, sheet_name: str | No
 
     raise ValueError("Formato no soportado. Sube un archivo .csv o .xlsx")
 
+def _safe_metric(value):
+    try:
+        if value is None:
+            return None
+        return round(float(value), 4)
+    except (TypeError, ValueError):
+        return None
+
+
+def load_metrics_for_model(model_key: str):
+    candidate_files = MODEL_METRIC_CANDIDATES.get(model_key, [])
+
+    for filename in candidate_files:
+        path = RESULTS_DIR / filename
+        if path.exists():
+            with open(path, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+
+            return {
+                "accuracy": _safe_metric(raw.get("accuracy")),
+                "precision": _safe_metric(raw.get("precision")),
+                "recall": _safe_metric(raw.get("recall")),
+                "f1": _safe_metric(raw.get("f1")),
+                "roc_auc": _safe_metric(raw.get("roc_auc")),
+            }
+
+    return None
+
+
+def load_all_model_metrics():
+    models = [m for m in get_available_models() if m["exists"]]
+    output = {}
+
+    for model in models:
+        output[model["key"]] = load_metrics_for_model(model["key"])
+
+    return output
+
 @app.get("/")
 def home():
     return {"message": "API funcionando correctamente"}
@@ -164,6 +214,10 @@ def get_models():
         "default_model_key": get_default_model_key(),
         "models": models,
     }
+
+@app.get("/model-metrics")
+def get_model_metrics():
+    return load_all_model_metrics()
 
 @app.get("/custom-terms")
 def get_custom_terms():

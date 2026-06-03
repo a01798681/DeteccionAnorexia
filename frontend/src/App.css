@@ -313,6 +313,66 @@ body,
   gap: 10px;
 }
 
+.model-chip-wrapper {
+  position: relative;
+  display: inline-flex;
+  z-index: 20;
+}
+
+.model-metrics-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  min-width: 240px;
+  z-index: 9999;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(14, 18, 28, 0.98);
+  border: 1px solid rgba(124, 92, 255, 0.22);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.tooltip-title {
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.tooltip-recommended {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(124, 92, 255, 0.14);
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  color: #ddd2ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.tooltip-metrics-list {
+  display: grid;
+  gap: 6px;
+}
+
+.tooltip-metrics-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.tooltip-metrics-list strong {
+  color: var(--text);
+}
+
+.tooltip-no-metrics {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
 .quick-title {
   color: var(--text-soft);
   font-weight: 700;
@@ -839,6 +899,17 @@ tbody tr:hover {
   .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .model-chip-wrapper {
+    width: 100%;
+  }
+
+  .model-metrics-tooltip {
+    position: static;
+    margin-top: 8px;
+    width: 100%;
+    min-width: unset;
   }
 
   .tab-group,
