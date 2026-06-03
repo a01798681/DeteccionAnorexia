@@ -11,6 +11,7 @@ import {
   Sparkles,
   Download,
   SlidersHorizontal,
+  Trash2,
 } from "lucide-react";
 import {
   BarChart,
@@ -20,10 +21,24 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
+  Cell,
 } from "recharts";
 import "./App.css";
 
 const API_URL = "http://localhost:8000";
+
+const CHART_GRADIENT_PAIRS = [
+  ["#0F6C7E", "#22B7D7"],
+  ["#0B7666", "#19C4B6"],
+  ["#1792B0", "#67C8E3"],
+  ["#0D9F8E", "#67D1C8"],
+];
+
+const DISTRIBUTION_GRADIENTS = {
+  anorexia: ["#0B7666", "#19C4B6"],
+  control: ["#0F6C7E", "#22B7D7"],
+  incierto: ["#1792B0", "#67D1C8"],
+};
 
 function App() {
   const [models, setModels] = useState([]);
@@ -50,6 +65,7 @@ function App() {
   const [fileResultUrl, setFileResultUrl] = useState("");
   const [fileResultName, setFileResultName] = useState("");
   const [fileResults, setFileResults] = useState(null);
+  const [fileInputKey, setFileInputKey] = useState(0);
 
   const [riskTermsText, setRiskTermsText] = useState("");
   const [positiveSafeText, setPositiveSafeText] = useState("");
@@ -296,6 +312,19 @@ function App() {
     } finally {
       setInspectingFile(false);
     }
+  };
+
+  const handleClearFileSection = () => {
+    setSelectedFile(null);
+    setFileTextColumn("");
+    setFileResultUrl("");
+    setFileResultName("");
+    setFileResults(null);
+    setFileInfo(null);
+    setSelectedSheet("");
+    setInspectingFile(false);
+    setError("");
+    setFileInputKey((prev) => prev + 1);
   };
 
   const classifyFile = async () => {
@@ -737,6 +766,7 @@ function App() {
                 <div>
                   <label>Archivo CSV o Excel</label>
                   <input
+                    key={fileInputKey}
                     type="file"
                     accept=".csv,.xlsx"
                     onChange={(e) => {
@@ -845,6 +875,11 @@ function App() {
                 <button className="btn btn-primary" onClick={classifyFile}>
                   {loading ? "Clasificando archivo..." : "Clasificar archivo"}
                 </button>
+
+                <button className="btn btn-danger" type="button" onClick={handleClearFileSection}>
+                  <Trash2 size={16} />
+                  <span>Borrar archivo</span>
+                </button>
               </div>
 
               {fileResults && (
@@ -886,11 +921,50 @@ function App() {
                   <div className="chart-card">
                     <ResponsiveContainer width="100%" height={320}>
                       <BarChart data={fileResults.summary}>
+                        <defs>
+                          {fileResults.summary.map((row, index) => {
+                            const pair =
+                              DISTRIBUTION_GRADIENTS[row.clase_predicha] || ["#0F6C7E", "#22B7D7"];
+
+                            return (
+                              <linearGradient
+                                key={`fileGrad-${index}`}
+                                id={`fileGrad-${index}`}
+                                x1="0"
+                                y1="0"
+                                x2="0"
+                                y2="1"
+                              >
+                                <stop offset="0%" stopColor={pair[0]} />
+                                <stop offset="100%" stopColor={pair[1]} />
+                              </linearGradient>
+                            );
+                          })}
+                        </defs>
+
                         <CartesianGrid strokeDasharray="3 3" opacity={0.18} />
                         <XAxis dataKey="clase_predicha" stroke="#b9c0d4" />
                         <YAxis stroke="#b9c0d4" />
-                        <Tooltip />
-                        <Bar dataKey="cantidad" radius={[10, 10, 0, 0]} />
+                        <Tooltip
+                          contentStyle={{
+                            background: "#111827",
+                            border: "1px solid #2A3655",
+                            borderRadius: "12px",
+                            color: "#EAF2FF",
+                          }}
+                          labelStyle={{ color: "#FFFFFF", fontWeight: 600 }}
+                          itemStyle={{ color: "#FFFFFF" }}
+                          formatter={(value, name) => [
+                            <span style={{ color: "#FFFFFF" }}>{value}</span>,
+                            <span style={{ color: "#FFFFFF" }}>{name}</span>,
+                          ]}
+                          cursor={{ fill: "rgba(255,255,255,0.04)" }}
+                        />
+                        <Bar dataKey="cantidad" radius={[10, 10, 0, 0]}>
+                          {fileResults.summary.map((row, index) => (
+                            <Cell key={`cell-${index}`} fill={`url(#fileGrad-${index})`} />
+                          ))}
+                        </Bar>
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -906,7 +980,7 @@ function App() {
                         </tr>
                       </thead>
                       <tbody>
-                        {fileResults.results.slice(0, 30).map((row, index) => (
+                        {fileResults.results.slice(0, 5).map((row, index) => (
                           <tr key={index}>
                             {Object.values(row).map((value, i) => (
                               <td key={i}>{String(value)}</td>
@@ -918,7 +992,7 @@ function App() {
                   </div>
 
                   <p className="helper-text">
-                    Mostrando las primeras 30 filas. Puedes descargar el CSV completo.
+                    Mostrando las primeras 5 filas. Puedes descargar el CSV completo.
                   </p>
                 </>
               )}
@@ -1009,11 +1083,43 @@ function App() {
                               : Number(item.probability_anorexia),
                         }))}
                       >
+                        <defs>
+                          {compareResults.map((item, index) => {
+                            const pair = CHART_GRADIENT_PAIRS[index % CHART_GRADIENT_PAIRS.length];
+
+                            return (
+                              <linearGradient
+                                key={`compareGrad-${index}`}
+                                id={`compareGrad-${index}`}
+                                x1="0"
+                                y1="0"
+                                x2="0"
+                                y2="1"
+                              >
+                                <stop offset="0%" stopColor={pair[0]} />
+                                <stop offset="100%" stopColor={pair[1]} />
+                              </linearGradient>
+                            );
+                          })}
+                        </defs>
+
                         <CartesianGrid strokeDasharray="3 3" opacity={0.18} />
                         <XAxis dataKey="modelo" stroke="#b9c0d4" />
                         <YAxis domain={[0, 1]} stroke="#b9c0d4" />
-                        <Tooltip />
-                        <Bar dataKey="probabilidad" radius={[10, 10, 0, 0]} />
+                        <Tooltip
+                          contentStyle={{
+                            background: "#111827",
+                            border: "1px solid #2A3655",
+                            borderRadius: "12px",
+                            color: "#EAF2FF",
+                          }}
+                          cursor={{ fill: "rgba(255,255,255,0.04)" }}
+                        />
+                        <Bar dataKey="probabilidad" radius={[10, 10, 0, 0]}>
+                          {compareResults.map((item, index) => (
+                            <Cell key={`compare-cell-${index}`} fill={`url(#compareGrad-${index})`} />
+                          ))}
+                        </Bar>
                       </BarChart>
                     </ResponsiveContainer>
                   </div>

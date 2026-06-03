@@ -407,13 +407,6 @@ textarea:focus {
   box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.16);
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.16);
-}
-
 textarea {
   resize: vertical;
   min-height: 140px;
@@ -468,6 +461,21 @@ textarea {
 
 .btn-secondary:hover {
   border-color: var(--primary);
+}
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #3b1d26, #5a2431);
+  color: #ffe2e7;
+  border: 1px solid rgba(255, 120, 140, 0.28);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #4a2330, #6a2a39);
+  border-color: rgba(255, 120, 140, 0.42);
+  transform: translateY(-1px);
 }
 
 .actions-row {

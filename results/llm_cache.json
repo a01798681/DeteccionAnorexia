@@ -10155,5 +10155,355 @@
     "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
     "model_id": "meta-llama/Llama-3.3-70B-Instruct",
     "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "LlegÃ³ el momenot de hacer #Zumba. Suscribite al Club  y recibe las mejores rutinas en tu celular. Ademas quedas participando en la rifa de Membresias Gratis al #Gym.\n EnvÃ­a FIT al 400\n Dale clic https://goo.gl/T4wzVV": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Hoy he roto un cartel de una consulta de traumatologÃ­a que explicaba los mg de calcio en los alimentos entre ellos la pizza y las galletas de chocolate, promoviendo el consumo de ultraprocesados.  #hastaluegomaricarmen #meechandelsacyl #enfermera  @nutri_rivers": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "la gente me dice que estoy adelgazando, yo me veo igual \n #anorexia #anorexic #bulimia #bulimicgirl #TCA": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "@rzavala90 pero de verdad es penoso ver como se destruyen a si mismos y atentan contra su vida": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Siempre se trata de la comida. Siempre fue es y serÃ¡ la puta COMIDA la que me caga la vida. Asco de vida. #fuckoff": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "DÃ­a 15 de ayuno, hoy me pesare y verÃ© si estos dÃ­as de hambre y ansiedad han servido, que nervioso me siento. \n#RexyBill": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "La 1ra foto es de marzo, la 2da de junio y las ultimas de noviembre. Poco a poco": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "\"mi vida era un desastre y no valÃ­a para nada, pero Ana sÃ­\" Testimonios   #anorexia\nhttp://ow.ly/4mTJhu": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Yo, cuando me dÃ­ cuenta que baje una talla.   #ProAna": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "10 fotos del antes y despuÃ©s de la #anorexia que sorprenden https://www.ocio.net/tu-salud/10-fotos-del-despues-la-anorexia/ â€¦ Tu vida tiene valor . Viva estÃ¡s mucho mas guapa .": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Los pesaditos que criticÃ¡is las comidas navideÃ±as porque no son suficientemente , espero que llevÃ©is varios dÃ­as planeando, organizando y comprando y que hoy os hayÃ¡is levantado a las 8:00 para ir adelantando la cena.": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "QuÃ© ganas de comer a esta hora, carajo": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "me da asco ver fotos mias con 10 kilos mÃ¡s, pero cuando las veo me sigo dando asco xd  #anorexia #bulimia #bulimicgirl": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Tengo demasiada hambre pero NO VOY A COMER": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "ExtraÃ±o tener ojeras, las manos blancas & siempre frÃ­as...\n#ProAna": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "En vez de invertir tanto en productos de belleza, cÃ³mprate": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Ejercicios de lumbares para quemar grasa https://buff.ly/2WfuCiF  #MarianyMata": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Impacto de las proteÃ­nas en el mantenimiento de tu masa muscular, de tu tono. Cuando reduces la ingesta, el cansancio se apodera de ti y muchas veces aparece al depresiÃ³n reactiva al sufrimiento que produce aislarse. #restricciÃ³n  #adolescencia": {
+    "label": "anorexia",
+    "risk_score": 0.98,
+    "reason": "El texto muestra señales de restricción alimentaria y preocupación corporal de riesgo, incluyendo la mención explícita de 'restricción' y la relación entre la ingesta y el estado emocional.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.98,\"reason\":\"El texto muestra señales de restricción alimentaria y preocupación corporal de riesgo, incluyendo la mención explícita de 'restricción' y la relación entre la ingesta y el estado emocional.\"}"
+  },
+  "Como mierda baje 4 kilos en tres dias chabon?": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "1-No quiero comer mÃ¡s": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Â¿Ensaladas aburridas?\n.\n.\n.\n ing  #healthyfood #healthyeatingâ€¦ https://www.instagram.com/p/BiE0VEhnkLl/": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Terrible ... tomar en una tarde nocilla, Petit Suisse y un zumo industrial mete a cualquiera en el camino de la obesidad. \n\nMÃ©dicos (que no Doctores) que no tienen ni idea de alimentaciÃ³n ni nutriciÃ³n": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia, solo una crítica a la alimentación poco saludable y a los médicos.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia, solo una crítica a la alimentación poco saludable y a los médicos.\"}"
+  },
+  "Comer hasta saciarte y despuÃ©s sentir remordimiento  #anamia": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "No quiero cambiar la dieta del tÃ©.\n1 taza de tÃ© por dÃ­a.\n1 calorÃ­as.\nEsta genial, pero empiezo a sentir dolor en mi estomago.": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "AquÃ­ partiendo el 2019 carnÃ­voro.\n\nCarne de Vacuno, Pollo, Cerdo y Vianesas. Todo a la parrilla.\n\n@MetodoGrez #keto #lchf  #carnivorediet": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Comes, te dicen gorda\nNo quieres comer, te dicen traumada\n\nEl problema es que siempre tengo hambre": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "A pesar de las diferencias, en los entrenamientos nos enfocamos en mejorar dÃ­a a dÃ­a, y no pensar en la bronca que nos tenemos \n@TeerRoxy @TEERoficial \n#Titans #titanesenelring  #fitgirl #FitnessMotivation #FitnessGoals": {
+    "label": "control",
+    "risk_score": 0.1,
+    "reason": "El texto no muestra señales claras asociadas a anorexia, aunque incluye hashtags relacionados con el fitness, el contexto sugiere un enfoque en el entrenamiento y la motivación, sin indicaciones de restricción alimentaria o preocupación extrema por el peso o la imagen corporal.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.1,\"reason\":\"El texto no muestra señales claras asociadas a anorexia, aunque incluye hashtags relacionados con el fitness, el contexto sugiere un enfoque en el entrenamiento y la motivación, sin indicaciones de restricción alimentaria o preocupación extrema por el peso o la imagen corporal.\"}"
+  },
+  "Cuando tenia 14 aÃ±os solo metÃ­a mis dedos el la boca para probar la comida, ahora que tengo 15 lo hago para sacarla de mi\n#RexyBill": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Solo cuando somos determinados y sabemos lo q queremos, ponemos nuestras energias en verlo \"materializado\" \n#buenosdias #saturday #focused #gym #man  #beyourself #weekend #hardtraining": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "\"Si la grasa fuese oro si que serÃ­as un tesoro.\"\n Yo, diciÃ©ndome a mi misma.  #ProAna  #Obesa": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Â¿No se os hace la boca agua? \n.\n.\n.\n.\n.\n.\n#tapas #jamon #jamÃ³n #jamonserrano #schinken #serranoschinken #serranoham #spanishham #jambonserrano #spanishfood  #natural #deliciousâ€¦ https://www.instagram.com/p/BtntbKZlZrp/?utm_source=ig_twitter_share&igshid=1k5h8vdcq97cs â€¦": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Resistir a la tentaciÃ³n.   #Anorexia #Bulimia": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Igual si estoy gorda. Pero bueno, ya volvÃ­ a dejar de comer porque comer me hace sentir mal": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Como cuando se te olvida tu dinero y solo traes una manzana pa todo el dÃ­a. #yaenanorexica  #putavida": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "Aunque el texto menciona la palabra 'anorexica', el contexto sugiere que se utiliza de manera coloquial y no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"Aunque el texto menciona la palabra 'anorexica', el contexto sugiere que se utiliza de manera coloquial y no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Es evidente que la alimentaciÃ³n afecta al #rendimento y al #desarrollo. Por lo tanto es una formaciÃ³n imprescindible que tenemos que llevar a cabo autonomamente. @nutri_rivers nos mestra tips con los que educar en el  // #adxarxes2018\nUn ejemplo - https://www.instagram.com/p/Bng8Sf6A5A7/?utm_source=ig_share_sheet&igshid=1ks0ud3dnvrpw â€¦": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Zanahoria time .\nUn snack sano, saludable y bajo en calorÃ­as. \n#buenastardes #lunes #zanahorias #zanahoriababy #comida #comidasana #saludable #fresh   #vegan #veggi #Ã±am #instaÃ±am #instafood #food #foodporn #foodpic #foodstyle #hâ€¦ https://ift.tt/2uUvBZv": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "#anamia #anaandmia #anatips #Tip Si te sientes muy cansada y con mucha hambre, duerme.\nIf you feel really tired and hungry, sleep.": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "@PrinccessDay Â¿En realidad valdrÃ¡ la pena terminar en el hospital por problemas de desnutriciÃ³n teniendo el \"cuerpo perfecto\"?": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Desayuno saludable y vamos a por el lunes \n#lowcarbdiet #alimentacionsaludable   #adelgazar https://www.instagram.com/p/Btc1AEFlUEU/?utm_source=ig_twitter_share&igshid=1e7zpxlzlo8ph â€¦": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Nueva lÃ­nea con proteÃ­na de trigo y chÃ­charo muy pronto!  #alimentosbasadosenplantas #plantbasedfood #comidamexicana #cuidatucuerpoyalplaneta #vegan #vegano #vegetariano #mexicoâ€¦ https://www.instagram.com/p/ButeC_yHRzc/?utm_source=ig_twitter_share&igshid=1qiycobjzfdkp â€¦": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "AyÃºdenme con tips para no comer, En serio me servirian": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Con tu participaciÃ³n podemos seguir apoyando a las comunidades Mayas. \nâ €â €â €â €â €â €â € â € â €â €â €â €â €â €â € â € \n#mayanman #tulum  #sport #triatlon #triatleta #swim #bike #cycling": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Hoy dÃ­a de prisas, una mini tortilla de huevo con espinaca y grasas saludables (aguacate) en literal 8 min  no te esfuerces por cambiar a los demÃ¡s ..cambia tu #mindfulness  #healthy  #foodismedicine #prisas   me quedo redondita  yeiiii": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia, aunque menciona la comida y el estado físico, el tono es positivo y no hay indicios de restricción alimentaria o preocupación extrema por el peso.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia, aunque menciona la comida y el estado físico, el tono es positivo y no hay indicios de restricción alimentaria o preocupación extrema por el peso.\"}"
+  },
+  "\"@Bonitos_Huesos: Rt si ya estas tan acostumbrada que ya ni te da hambre   #thinspo https://twitter.com/Bonitos_Huesos/status/614501847470993409/photo/1pic.twitter.com/4rxnzSfVQA \"": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "autocontrol eso es todo lo que se necesita y yo no lo tengo, me odio!!!! #thinspo #proana  #thinspiration": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Desayuno sano y rico!!!#comidasana  #metodohappy https://www.instagram.com/p/BtnV49sFLMB/?utm_source=ig_twitter_share&igshid=5vcssl60e5em â€¦": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "Comer y devolver las calorÃ­as.  #TengoUnDeseoYEs   #perfeccion": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "Yo no entiendo cÃ³mo sigo soltero, con lo bien que cocino  #MasterChef #DeMiCasa  #realfooder": {
+    "label": "control",
+    "risk_score": 0.05,
+    "reason": "El texto no muestra señales claras asociadas a anorexia.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"control\",\"risk_score\":0.05,\"reason\":\"El texto no muestra señales claras asociadas a anorexia.\"}"
+  },
+  "1er dÃ­a\n* Dos latas de coca cola light \n* Litro & medio de agua pura\n* Tres tazas de tÃ© sin azÃºcar...\n\n #ayuno #Ana #Princesa": {
+    "label": "anorexia",
+    "risk_score": 0.95,
+    "reason": "El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.95,\"reason\":\"El texto muestra señales de restricción alimentaria o preocupación corporal de riesgo.\"}"
+  },
+  "quiero bajar de peso dejando de comer por completo": {
+    "label": "anorexia",
+    "risk_score": 0.99,
+    "reason": "El texto muestra señales de restricción alimentaria extrema y preocupación corporal de alto riesgo.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.99,\"reason\":\"El texto muestra señales de restricción alimentaria extrema y preocupación corporal de alto riesgo.\"}"
   }
 }
