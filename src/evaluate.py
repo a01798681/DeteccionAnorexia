@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 10/05/2026
+# Archivo: src/evaluate.py
+# Descripción general: Función centralizada para calcular métricas de evaluación
+#   de clasificación (ROC-AUC, accuracy, precision, recall, F1, matriz de confusión).
+#   Soporta evaluación binaria y multiclase.
+
 from typing import Dict
 import numpy as np
 from sklearn.metrics import (
@@ -5,6 +12,9 @@ from sklearn.metrics import (
     confusion_matrix, f1_score, recall_score, precision_score
 )
 
+
+# Calcula todas las métricas de evaluación a partir de etiquetas verdaderas,
+# predichas y scores de probabilidad.
 def compute_metrics(y_true, y_pred, y_score) -> Dict:
     # Detectar si es multiclase
     n_classes = len(np.unique(y_true))

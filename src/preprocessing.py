@@ -1,3 +1,12 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 10/05/2026
+# Archivo: src/preprocessing.py
+# Descripción general: Pipeline de preprocesamiento de texto base. Incluye:
+#   - Reparación de codificación corrupta (mojibake latin1 → UTF-8).
+#   - Eliminación de URLs y menciones (@usuario).
+#   - Normalización de espacios en blanco.
+#   - Limpieza general conservando hashtags y caracteres en español.
+
 import re
 
 

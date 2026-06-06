@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/spacy_preprocessing.py
+# Descripción general: Módulo avanzado de preprocesamiento de texto utilizando spaCy.
+# Realiza lematización y tokenización manteniendo hashtags intactos y removiendo puntuación 
+# para mejorar la calidad de los features de texto.
+
 from __future__ import annotations
 
 from functools import lru_cache
@@ -12,6 +19,7 @@ from .preprocessing import clean_text
 SPACY_MODEL_NAME = "es_core_news_sm"
 
 
+# Carga el modelo de spaCy en memoria. Usa caché para evitar recargar el modelo pesado múltiples veces.
 @lru_cache(maxsize=1)
 def get_spacy_nlp(model_name: str = SPACY_MODEL_NAME):
     try:
@@ -23,6 +31,8 @@ def get_spacy_nlp(model_name: str = SPACY_MODEL_NAME):
         ) from e
 
 
+# Normaliza un solo texto: aplica limpieza básica, pasa por spaCy para lematizar palabras, 
+# descarta puntuación y preserva los hashtags completos.
 def normalize_spacy_text(text: str) -> str:
     text = clean_text(text if isinstance(text, str) else "")
     if not text:
@@ -52,6 +62,8 @@ def normalize_spacy_text(text: str) -> str:
     return " ".join(tokens).strip()
 
 
+# Normaliza una lista de textos procesándolos en lotes usando nlp.pipe de spaCy para mayor eficiencia. 
+# Retorna una Serie de pandas con los resultados.
 def normalize_texts_spacy(texts: Iterable[str], batch_size: int = 64) -> pd.Series:
     texts = [clean_text(t if isinstance(t, str) else "") for t in texts]
     if not texts:

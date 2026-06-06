@@ -1,3 +1,11 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/predict_beto.py
+# Descripción general: Módulo para la predicción de textos utilizando el modelo
+# BETO (BERT) pre-entrenado y ajustado (Logistic Regression sobre embeddings).
+# Incluye reglas basadas en diccionario (términos de riesgo y seguros) como
+# filtro rápido para textos genéricos, y calcula la probabilidad de anorexia.
+
 from __future__ import annotations
 
 from typing import Dict, Any
@@ -30,11 +38,16 @@ GENERIC_SAFE_PHRASES = [
 ]
 
 
+# Verifica si algún término de la lista dada está presente en el texto.
 def _contains_any(text: str, terms) -> bool:
     text = text.lower()
     return any(term in text for term in terms)
 
 
+# Realiza la predicción sobre un solo texto utilizando BETOEmbedder y el clasificador entrenado. 
+# Aplica filtros rápidos basados en léxico antes de evaluar con el modelo. 
+# Retorna un diccionario con probabilidades, etiqueta, nivel de confianza y observaciones adicionales 
+# (texto corto, incierto, etc.).
 def predict_text_beto(
     classifier,
     embedder: BETOEmbedder,
@@ -117,6 +130,8 @@ def predict_text_beto(
     }
 
 
+# Aplica la predicción de BETO a cada fila de un DataFrame utilizando la columna
+# de texto especificada. Retorna un DataFrame enriquecido con las predicciones.
 def predict_dataframe_beto(
     classifier,
     embedder: BETOEmbedder,

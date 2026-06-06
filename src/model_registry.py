@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/model_registry.py
+# Descripción general: Registro centralizado de modelos disponibles en la aplicación.
+# Define configuraciones (nombres, rutas, descripciones) para cada tipo de modelo entrenado 
+# (Clásico, BETO, Ensembles) y provee funciones para consultarlos.
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -7,6 +14,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 RESULTS_DIR = ROOT_DIR / "results"
 
 
+# Lista de diccionarios con la configuración e información meta de cada modelo soportado.
 MODEL_REGISTRY = [
     {
         "key": "beto_llm_ensemble",
@@ -61,6 +69,8 @@ MODEL_REGISTRY = [
 ]
 
 
+# Retorna la lista completa de modelos registrados, agregando un flag booleano
+# "exists" que indica si el archivo físico del modelo existe en el directorio de resultados.
 def get_available_models():
     available = []
     for config in MODEL_REGISTRY:
@@ -70,6 +80,8 @@ def get_available_models():
     return available
 
 
+# Busca y retorna la configuración completa de un modelo dado su 'key'.
+# Lanza un ValueError si el 'key' no se encuentra en el registro.
 def get_model_config(model_key: str):
     for config in MODEL_REGISTRY:
         if config["key"] == model_key:
@@ -77,6 +89,9 @@ def get_model_config(model_key: str):
     raise ValueError(f"Modelo no registrado: {model_key}")
 
 
+# Retorna la clave (key) del modelo por defecto a utilizar en la aplicación web.
+# Prioriza el modelo marcado como "recommended" y que exista físicamente.
+# Si el recomendado no existe, retorna el primero disponible.
 def get_default_model_key():
     available = get_available_models()
     existing = [m for m in available if m["exists"]]

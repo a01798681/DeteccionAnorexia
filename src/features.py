@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/features.py
+# Descripción general: Módulo para la extracción de características del texto.
+#   Define el vectorizador TF-IDF y un extractor de características manuales
+#   (ManualFeatureExtractor) basado en términos de riesgo, negaciones y contexto.
+
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -5,6 +12,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from .term_lexicon import get_term_sets
 
 
+# Construye y retorna un vectorizador TF-IDF con parámetros predefinidos.
 def build_tfidf_vectorizer() -> TfidfVectorizer:
     return TfidfVectorizer(
         ngram_range=(1, 2),
@@ -14,15 +22,20 @@ def build_tfidf_vectorizer() -> TfidfVectorizer:
     )
 
 
+# Cuenta la frecuencia total de aparición de un conjunto de términos en un texto.
 def count_any(text: str, terms) -> int:
     text = text.lower()
     return sum(1 for term in terms if term in text)
 
 
+# Transformador personalizado para scikit-learn que extrae características
+# manuales a partir de un arreglo de textos.
 class ManualFeatureExtractor(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
 
+    # Aplica la extracción de características (conteos, banderas de contexto, 
+    # longitud de texto, hashtags, etc.) y retorna un DataFrame con las mismas.
     def transform(self, X):
         term_sets = get_term_sets()
         risk_terms = term_sets["risk_terms"]

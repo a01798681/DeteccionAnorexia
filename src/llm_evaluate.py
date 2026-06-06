@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/llm_evaluate.py
+# Descripción general: Script para evaluar el desempeño del modelo LLM
+#   en el conjunto de validación. Itera sobre las filas, clasifica usando
+#   el LLM y calcula métricas (Accuracy, ROC-AUC). Exporta los resultados.
+
 import argparse
 import json
 from pathlib import Path
@@ -11,11 +18,17 @@ from src.llm_classifier import classify_text
 from src.train import prepare_dataframe
 
 
+# Guarda un diccionario o estructura de datos en formato JSON.
 def save_json(data, path: Path) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+# Función principal:
+# Parsea argumentos de línea de comandos (entrada, salida, límite).
+# Carga y prepara el dataset de validación.
+# Itera sobre cada registro y obtiene la predicción del LLM.
+# Calcula y exporta métricas y las predicciones individuales.
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(

@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/llm_retrieval.py
+# Descripción general: Módulo para la recuperación de ejemplos similares (RAG).
+#   Carga el conjunto de entrenamiento, crea un índice TF-IDF en memoria y
+#   encuentra los textos más similares a una consulta dada utilizando similitud coseno.
+
 from functools import lru_cache
 from pathlib import Path
 
@@ -12,6 +19,9 @@ from src.train import prepare_dataframe
 TRAIN_PATH = Path("data/processed/train_split.xlsx")
 
 
+# Carga los datos de entrenamiento y construye el vectorizador TF-IDF
+# junto con la matriz de características. Usa caché (lru_cache) para
+# no repetir la carga en memoria en cada llamada.
 @lru_cache(maxsize=1)
 def load_retrieval_index():
     df = load_dataset(str(TRAIN_PATH))
@@ -29,6 +39,8 @@ def load_retrieval_index():
     return df, vectorizer, X
 
 
+# Recupera los 'k_per_class' ejemplos más similares (tanto anorexia como control)
+# al 'query_text' basándose en similitud de coseno con embeddings TF-IDF.
 def retrieve_examples(query_text: str, k_per_class: int = 3, max_chars: int = 180):
     df, vectorizer, X = load_retrieval_index()
 

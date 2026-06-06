@@ -1,3 +1,17 @@
+/* Author: Andrés Cabrera Alvarado - A01798681 */
+/* Fecha de creación: 10/05/2026 */
+/* Archivo: frontend/src/App.css */
+/* Descripción general: Hoja de estilos principal de la interfaz React (frontend) para */
+/*   el sistema de detección de trastornos alimenticios. Define el sistema de diseño */
+/*   completo con tema oscuro, incluyendo: */
+/*   - Variables CSS globales (colores, sombras, radios, transiciones). */
+/*   - Layout principal con sidebar colapsable y grid responsivo. */
+/*   - Componentes visuales: hero, cards, chips de modelo, badges, tooltips. */
+/*   - Formularios: inputs, selects, textareas, checkboxes con estilos dark. */
+/*   - Tarjetas de resultado con colores semánticos por tipo de predicción. */
+/*   - Tablas, gráficas, alertas, caja de descarga y animaciones. */
+/*   - Media queries para adaptación responsiva (1280px, 1024px, 640px). */
+
 :root {
   --bg: #0f1117;
   --bg-soft: #171a22;

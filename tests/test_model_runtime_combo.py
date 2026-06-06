@@ -1,6 +1,15 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: tests/test_model_runtime_combo.py
+# Descripción general: Pruebas unitarias para verificar la correcta integración de
+# los modelos híbridos (Ensemble y Cascada) dentro del entorno de ejecución (runtime).
+# Asegura que se ruteen correctamente las peticiones a los métodos combinados.
+
 import src.model_runtime as mr
 
 
+# Verifica que el runtime ejecute correctamente la predicción de un solo texto
+# utilizando la configuración de Ensemble (BETO + LLM) y normalice el resultado.
 def test_predict_single_with_runtime_ensemble(monkeypatch):
     runtime_bundle = {
         "config": {
@@ -39,6 +48,8 @@ def test_predict_single_with_runtime_ensemble(monkeypatch):
     assert result["predicted_label"] == "anorexia"
 
 
+# Verifica que el runtime ejecute correctamente la predicción de un solo texto
+# utilizando la configuración en Cascada (BETO -> LLM) y normalice el resultado.
 def test_predict_single_with_runtime_cascade(monkeypatch):
     runtime_bundle = {
         "config": {

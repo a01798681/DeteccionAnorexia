@@ -1,8 +1,16 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/make_splits.py
+# Descripción general: Divide el dataset original en conjuntos de entrenamiento
+# y validación (80/20) de forma estratificada para preservar la proporción de clases.
+
 from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
+# Función principal que lee el dataset de origen, genera la división estratificada
+# y exporta los subconjuntos resultantes a la carpeta de datos procesados.
 def main():
     input_path = Path("data/data_train.xlsx")
     output_dir = Path("data/processed")

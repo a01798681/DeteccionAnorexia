@@ -1,3 +1,12 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 10/05/2026
+# Archivo: src/beto_llm_evaluate.py
+# Descripción general: Script de evaluación de los métodos híbridos BETO + LLM
+#   (cascade y ensemble) sobre el conjunto de validación. Carga el clasificador
+#   BETO entrenado, construye un callback con caché para el LLM, ejecuta cada
+#   método sobre cada fila del dataset, calcula métricas y guarda predicciones
+#   y resultados en archivos CSV y JSON.
+
 from __future__ import annotations
 
 import argparse
@@ -23,6 +32,7 @@ DATA_DIR = ROOT_DIR / "data" / "processed"
 RESULTS_DIR = ROOT_DIR / "results"
 
 
+# Busca los archivos de train/validation split con nombres alternativos.
 def resolve_split_paths():
     train_candidates = [
         DATA_DIR / "train_split.xlsx",
@@ -42,11 +52,13 @@ def resolve_split_paths():
     return train_path, val_path
 
 
+# Guarda un diccionario como archivo JSON con formato legible.
 def save_json(data, path: Path):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+# Lee el caché de respuestas del LLM desde un archivo JSON.
 def load_llm_cache(cache_path: Path):
     if cache_path.exists():
         try:
@@ -56,11 +68,13 @@ def load_llm_cache(cache_path: Path):
     return {}
 
 
+# Persiste el caché de respuestas del LLM en disco.
 def save_llm_cache(cache: dict, cache_path: Path):
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+# Crea un callback que usa caché para evitar llamadas repetidas al LLM.
 def build_cached_llm_callback(cache_path: Path):
     cache = load_llm_cache(cache_path)
 
@@ -74,6 +88,8 @@ def build_cached_llm_callback(cache_path: Path):
     return callback
 
 
+# Ejecuta un método (cascade o ensemble) sobre todo el dataset de validación
+# y devuelve el DataFrame de predicciones junto con las métricas calculadas.
 def run_method(df_val, classifier, embedder, method_name, llm_callback, args):
     records = []
 
@@ -126,6 +142,7 @@ def run_method(df_val, classifier, embedder, method_name, llm_callback, args):
     return pred_df, metrics
 
 
+# Imprime las métricas de evaluación en consola con formato legible.
 def print_metrics(title: str, metrics: dict):
     print(f"\n=== RESULTADOS {title.upper()} ===")
     print(f"ROC-AUC: {metrics['roc_auc']:.4f}")
@@ -150,6 +167,8 @@ def print_metrics(title: str, metrics: dict):
                 )
 
 
+# Función principal: parsea argumentos, carga datos y modelo, ejecuta la
+# evaluación de los métodos seleccionados y guarda resultados.
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--method", choices=["cascade", "ensemble", "both"], default="both")

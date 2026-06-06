@@ -1,3 +1,15 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 10/05/2026
+# Archivo: src/beto_llm_methods.py
+# Descripción general: Implementa los dos métodos híbridos que combinan BETO con un
+#   LLM para clasificación de textos:
+#   - Cascade: BETO decide si tiene alta confianza; si cae en zona ambigua, el LLM
+#     toma la decisión final.
+#   - Ensemble: combina los scores de BETO y del LLM con pesos configurables
+#     (alpha * BETO + beta * LLM) para producir un score final.
+#   Incluye funciones auxiliares para normalizar resultados del LLM, asignar
+#   etiquetas según umbrales y convertir a formato numérico.
+
 from __future__ import annotations
 
 from typing import Any, Callable, Dict
@@ -6,6 +18,7 @@ from .llm_classifier import classify_text
 from .predict_beto import predict_text_beto
 
 
+# Convierte un valor a float de forma segura; devuelve default si falla.
 def _safe_float(value, default=None):
     try:
         if value is None:
@@ -15,6 +28,7 @@ def _safe_float(value, default=None):
         return default
 
 
+# Asigna etiqueta ("anorexia", "control" o "incierto") según el score y los umbrales.
 def _label_from_score(score: float, anorexia_threshold: float, control_threshold: float) -> str:
     if score >= anorexia_threshold:
         return "anorexia"
@@ -23,6 +37,7 @@ def _label_from_score(score: float, anorexia_threshold: float, control_threshold
     return "incierto"
 
 
+# Convierte una etiqueta texto a su valor numérico (1=anorexia, 0=control, None=incierto).
 def _numeric_label(label: str):
     if label == "anorexia":
         return 1
@@ -31,10 +46,13 @@ def _numeric_label(label: str):
     return None
 
 
+# Devuelve 1 si el score es ≥ 0.5, o 0 en caso contrario.
 def _hard_numeric_from_score(score: float) -> int:
     return 1 if score >= 0.5 else 0
 
 
+# Normaliza la respuesta cruda del LLM: extrae etiqueta, score y razón,
+# asigna valores por defecto si faltan y valida la etiqueta.
 def _normalize_llm_result(
     llm_result: Dict[str, Any],
     anorexia_threshold: float,
@@ -64,6 +82,8 @@ def _normalize_llm_result(
     }
 
 
+# Método CASCADE: BETO clasifica primero; si su probabilidad cae en la zona
+# ambigua (entre beto_low y beto_high), el LLM toma la decisión final.
 def predict_text_beto_llm_cascade(
     classifier,
     embedder,
@@ -148,6 +168,8 @@ def predict_text_beto_llm_cascade(
     }
 
 
+# Método ENSEMBLE: combina los scores de BETO y del LLM con pesos
+# configurables para producir un score final ponderado.
 def predict_text_beto_llm_ensemble(
     classifier,
     embedder,

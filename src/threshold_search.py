@@ -1,9 +1,17 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/threshold_search.py
+# Descripción general: Script auxiliar para buscar y encontrar el mejor umbral (threshold) de decisión 
+# a partir de las predicciones de validación, maximizando la precisión (accuracy).
+
 from pathlib import Path
 import pandas as pd
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 INPUT_PATH = Path("results/phase3_llm_validation_predictions.csv")
 
+# Lee las predicciones, itera sobre posibles umbrales de decisión (0.05 a 0.95),
+# evalúa el accuracy para cada uno, y muestra el mejor umbral encontrado.
 def main():
     df = pd.read_csv(INPUT_PATH)
 

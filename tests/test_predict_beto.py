@@ -1,14 +1,22 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: tests/test_predict_beto.py
+# Descripción general: Pruebas unitarias para las funciones de predicción utilizando la arquitectura de BETO (predict_beto.py). 
+# Simula el modelo de embeddings y el clasificador para validar salidas y estructuras de datos.
+
 import pandas as pd
 
 from src.predict_beto import predict_text_beto, predict_dataframe_beto
 
 
+# Simula el generador de embeddings devolviendo una matriz de unos con la dimensionalidad correcta.
 class FakeEmbedder:
     def encode(self, texts, batch_size=1):
         import numpy as np
         return np.ones((len(texts), 8), dtype=float)
 
 
+# Simula el clasificador logístico alternando probabilidades para forzar distintas predicciones.
 class FakeClassifier:
     def predict_proba(self, X):
         import numpy as np
@@ -21,6 +29,8 @@ class FakeClassifier:
         return np.array(probs)
 
 
+# Verifica que la función de predicción de texto individual retorne un diccionario
+# que contenga todas las claves esperadas (metadata de la predicción).
 def test_predict_text_beto_returns_structure():
     result = predict_text_beto(
         classifier=FakeClassifier(),
@@ -41,6 +51,7 @@ def test_predict_text_beto_returns_structure():
     assert expected_keys.issubset(result.keys())
 
 
+# Comprueba que la probabilidad de riesgo de anorexia calculada esté estrictamente dentro del rango válido de [0.0, 1.0].
 def test_predict_text_beto_probability_range():
     result = predict_text_beto(
         classifier=FakeClassifier(),
@@ -54,6 +65,7 @@ def test_predict_text_beto_probability_range():
     assert 0.0 <= result["probability_anorexia"] <= 1.0
 
 
+# Asegura que la etiqueta predicha final pertenezca al conjunto de etiquetas válidas ('anorexia', 'control', 'incierto').
 def test_predict_text_beto_valid_label():
     result = predict_text_beto(
         classifier=FakeClassifier(),
@@ -67,6 +79,8 @@ def test_predict_text_beto_valid_label():
     assert result["predicted_label"] in ("anorexia", "control", "incierto")
 
 
+# Verifica que la predicción sobre un DataFrame procese correctamente múltiples filas
+# y anexe las columnas correspondientes con los resultados.
 def test_predict_dataframe_beto_multiple_rows():
     df = pd.DataFrame({
         "tweet_text": [

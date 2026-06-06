@@ -1,7 +1,9 @@
-"""
-Pruebas end-to-end ligeras: validan el flujo completo de main.py
-usando datasets pequeños en memoria / tmp_path, sin tocar el disco real.
-"""
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: tests/test_end_to_end.py
+# Descripción general: Pruebas end-to-end ligeras que validan el flujo completo de entrenamiento (main.py / train.py) 
+# usando datasets pequeños simulados en memoria y escribiendo salidas a un directorio temporal (tmp_path).
+
 import json
 import pytest
 import pandas as pd
@@ -11,8 +13,8 @@ from src.data_loader import load_dataset, validate_dataset
 from src.train import run_baseline_experiment, prepare_dataframe
 
 
-#Dataset mínimo suficiente para GridSearchCV con 5-fold
-#Necesitamos al menos 10 muestras por clase (5 folds × 2 clases)
+# Genera un dataset mínimo en Excel suficiente para ejecutar GridSearchCV
+# con validación cruzada (5 folds) sin que falle por falta de datos.
 def _make_mini_xlsx(tmp_path, name="data.xlsx", n_per_class=10):
     anorexia_texts = [
         "quiero ser flaca y dejar de comer ayuno purga vomitar",
@@ -50,7 +52,8 @@ def _make_mini_xlsx(tmp_path, name="data.xlsx", n_per_class=10):
     return path, df
 
 
-#main.py corre sin excepciones con dataset pequeño
+# Comprueba que el experimento base (entrenamiento y evaluación) se ejecute
+# hasta el final sin lanzar excepciones utilizando el dataset simulado.
 def test_run_experiment_no_exception(tmp_path):
     _, train_df = _make_mini_xlsx(tmp_path, "train.xlsx")
     _, val_df   = _make_mini_xlsx(tmp_path, "val.xlsx")
@@ -58,7 +61,7 @@ def test_run_experiment_no_exception(tmp_path):
     assert isinstance(results, dict)
 
 
-#Genera carpeta results/
+# Verifica que el flujo de entrenamiento genere la carpeta de resultados.
 def test_results_folder_created(tmp_path):
     _, train_df = _make_mini_xlsx(tmp_path, "train.xlsx")
     _, val_df   = _make_mini_xlsx(tmp_path, "val.xlsx")
@@ -66,7 +69,7 @@ def test_results_folder_created(tmp_path):
     run_baseline_experiment(train_df, val_df, output_dir=str(output_dir))
     assert output_dir.exists()
 
-#Guarda archivos de métricas
+# Asegura que se guarden los archivos JSON con las métricas del modelo entrenado.
 def test_metrics_files_saved(tmp_path):
     _, train_df = _make_mini_xlsx(tmp_path, "train.xlsx")
     _, val_df   = _make_mini_xlsx(tmp_path, "val.xlsx")
@@ -75,7 +78,7 @@ def test_metrics_files_saved(tmp_path):
     json_files = list(output_dir.glob("*_metrics.json"))
     assert len(json_files) >= 1
 
-#Guarda modelo entrenado (.joblib)
+# Verifica que los pesos o el objeto del modelo entrenado se guarden en disco (.joblib).
 def test_model_files_saved(tmp_path):
     _, train_df = _make_mini_xlsx(tmp_path, "train.xlsx")
     _, val_df   = _make_mini_xlsx(tmp_path, "val.xlsx")
@@ -84,7 +87,8 @@ def test_model_files_saved(tmp_path):
     joblib_files = list(output_dir.glob("*.joblib"))
     assert len(joblib_files) >= 1
 
-#Produce salida con llaves esperadas
+# Comprueba que el diccionario de resultados retornado por el entrenamiento
+# contenga las métricas clave esperadas (roc_auc, accuracy, confusion_matrix).
 def test_results_have_expected_keys(tmp_path):
     _, train_df = _make_mini_xlsx(tmp_path, "train.xlsx")
     _, val_df   = _make_mini_xlsx(tmp_path, "val.xlsx")

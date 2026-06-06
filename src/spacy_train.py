@@ -1,3 +1,9 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/spacy_train.py
+# Descripción general: Script para entrenar un modelo híbrido (Regresión Logística) utilizando el texto normalizado
+# y lematizado por spaCy, evaluando el impacto de este preprocesamiento avanzado en las métricas finales.
+
 from __future__ import annotations
 
 import json
@@ -19,6 +25,8 @@ DATA_DIR = ROOT_DIR / "data" / "processed"
 RESULTS_DIR = ROOT_DIR / "results"
 
 
+# Busca y resuelve las rutas de los archivos de entrenamiento y validación
+# dentro del directorio de datos procesados. Lanza FileNotFoundError si no los encuentra.
 def resolve_split_paths():
     train_candidates = [
         DATA_DIR / "train_split.xlsx",
@@ -38,11 +46,14 @@ def resolve_split_paths():
     return train_path, val_path
 
 
+# Guarda un diccionario o estructura de datos en formato JSON.
 def save_json(data, path: Path):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+# Imprime en consola un resumen de las métricas principales de evaluación,
+# la matriz de confusión y los mejores parámetros encontrados durante la búsqueda.
 def print_model_results(model_name: str, metrics: dict):
     print(f"\nModelo: {model_name}")
     print(f"ROC-AUC: {metrics['roc_auc']:.4f}")
@@ -75,6 +86,8 @@ def print_model_results(model_name: str, metrics: dict):
                 )
 
 
+# Orquesta el flujo de entrenamiento con spaCy: carga los splits, normaliza el texto,
+# entrena el modelo híbrido mediante GridSearchCV, evalúa y exporta los resultados.
 def main():
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 

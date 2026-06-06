@@ -1,3 +1,9 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/predict.py
+# Descripción general: Módulo para la predicción utilizando modelos clásicos (ej. Regresión Logística con TF-IDF). 
+# Implementa evaluación de cobertura de vocabulario, filtros heurísticos de seguridad, y cálculo de probabilidades.
+
 from typing import Dict, Any
 import joblib
 import pandas as pd
@@ -32,21 +38,27 @@ GENERIC_SAFE_PHRASES = [
 ]
 
 
+# Carga un modelo desde el disco.
 def load_model(model_path: str):
     return joblib.load(model_path)
 
 
+# Prepara el texto limpio en el formato que espera el pipeline de scikit-learn.
+# Si el pipeline usa ColumnTransformer, requiere un DataFrame; si no, una lista.
 def _build_model_input(model, cleaned_text: str):
     if hasattr(model, "named_steps") and "features" in model.named_steps:
         return pd.DataFrame({"clean_text": [cleaned_text]})
     return [cleaned_text]
 
 
+# Verifica si algún término de la lista dada está presente en el texto.
 def _contains_any(text: str, terms) -> bool:
     text = text.lower()
     return any(term in text for term in terms)
 
 
+# Extrae el vocabulario aprendido por el vectorizador TF-IDF del modelo para calcular 
+# la cobertura de palabras de nuevos textos.
 def _get_tfidf_vocabulary(model):
     if not hasattr(model, "named_steps"):
         return set()
@@ -68,6 +80,8 @@ def _get_tfidf_vocabulary(model):
     return set()
 
 
+# Calcula el porcentaje de palabras en el texto que existen en el vocabulario
+# del modelo. Retorna un valor entre 0.0 y 1.0.
 def _estimate_vocab_coverage(cleaned_text: str, vocabulary: set) -> float:
     tokens = cleaned_text.split()
     if not tokens:
@@ -77,6 +91,9 @@ def _estimate_vocab_coverage(cleaned_text: str, vocabulary: set) -> float:
     return covered / len(tokens)
 
 
+# Realiza la predicción sobre un solo texto utilizando un modelo clásico.
+# Aplica limpieza, calcula cobertura de vocabulario y verifica términos de riesgo
+# o frases seguras antes de llamar al modelo. Retorna un diccionario con los resultados.
 def predict_text(
     model,
     text: str,
@@ -184,6 +201,8 @@ def predict_text(
     }
 
 
+# Aplica la predicción con un modelo clásico a cada fila de un DataFrame
+# utilizando la columna de texto especificada. Retorna un DataFrame enriquecido.
 def predict_dataframe(
     model,
     df: pd.DataFrame,

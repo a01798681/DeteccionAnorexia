@@ -1,20 +1,24 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 04/06/26
+# Archivo: main.py
+# Descripción general: ejecuta el flujo principal de entrenamiento y evaluación
+# de los modelos base del proyecto usando los splits procesados.
+
 from pathlib import Path
 
 from src.data_loader import load_dataset
 from src.train import run_baseline_experiment
 
-
+# Define las rutas principales usadas para encontrar datos y guardar resultados.
 ROOT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT_DIR / "data"
 PROCESSED_DIR = DATA_DIR / "processed"
 RESULTS_DIR = ROOT_DIR / "results"
 
 
+# Busca automáticamente los archivos de train/validation split
+# con los nombres esperados dentro de la carpeta 'processed'.
 def resolve_split_paths():
-    """
-    Busca automáticamente los archivos de train/validation split
-    con los nombres que hemos usado en el proyecto.
-    """
     train_candidates = [
         PROCESSED_DIR / "train_split.xlsx",
         PROCESSED_DIR / "data_train_split.xlsx",
@@ -47,6 +51,8 @@ def resolve_split_paths():
     return train_path, val_path
 
 
+# Imprime en consola un resumen de las métricas obtenidas (ROC-AUC, Accuracy,
+# Precision, Recall, F1 y la matriz de confusión) para un modelo evaluado.
 def print_model_results(model_name: str, metrics: dict):
     print(f"\nModelo: {model_name}")
     print(f"ROC-AUC: {metrics['roc_auc']:.4f}")
@@ -80,6 +86,8 @@ def print_model_results(model_name: str, metrics: dict):
                 )
 
 
+# Función principal que orquesta la carga de datos, el entrenamiento de los modelos base,
+# la evaluación cruzada y la generación de reportes y archivos de salida.
 def main():
     print("Cargando datasets...")
 

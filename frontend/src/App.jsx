@@ -1,3 +1,18 @@
+// Author: Andrés Cabrera Alvarado - A01798681
+// Fecha de creación: 10/05/2026
+// Archivo: frontend/src/App.jsx
+// Descripción general: Componente principal de la aplicación React (frontend) para
+//   el sistema de detección de trastornos alimenticios. Implementa:
+//   - Conexión con la API del backend (FastAPI) para predicción de textos y archivos.
+//   - Selección dinámica de modelos de ML con visualización de métricas (tooltip).
+//   - Clasificación individual de texto, clasificación masiva por archivo (CSV/Excel),
+//     y comparación simultánea entre todos los modelos disponibles.
+//   - Configuración manual de umbrales (anorexia, control, mínimo de palabras).
+//   - Gestión de términos personalizados (jerga/riesgo/seguros/negación).
+//   - Inspección inteligente de archivos con selección de hoja y columna.
+//   - Visualización de resultados con gráficas (Recharts), tablas y badges semánticos.
+//   - Sidebar colapsable, tabs de navegación, ejemplos rápidos y descarga de CSV.
+
 import { useEffect, useMemo, useState } from "react";
 import {
   Brain,
@@ -79,12 +94,14 @@ function App() {
   const [selectedSheet, setSelectedSheet] = useState("");
   const [inspectingFile, setInspectingFile] = useState(false);
 
+  // Al montar el componente, carga modelos, métricas y términos personalizados.
   useEffect(() => {
     fetchModels();
     fetchModelMetrics();
     fetchCustomTerms();
   }, []);
 
+  // Si no hay modelo seleccionado y ya se cargaron los modelos, elige el recomendado.
   useEffect(() => {
     if (!selectedModel && models.length > 0) {
       const recommended = models.find((m) => m.recommended);
@@ -92,6 +109,7 @@ function App() {
     }
   }, [models, selectedModel]);
 
+  // Obtiene la lista de modelos disponibles desde el backend.
   const fetchModels = async () => {
     try {
       const res = await fetch(`${API_URL}/models`);
@@ -122,6 +140,7 @@ function App() {
     }
   };
 
+  // Obtiene las métricas de evaluación (accuracy, precision, recall, F1, ROC-AUC) de cada modelo.
   const fetchModelMetrics = async () => {
     try {
       const res = await fetch(`${API_URL}/model-metrics`);
@@ -132,6 +151,7 @@ function App() {
     }
   };
 
+  // Carga los términos personalizados (riesgo, seguros, negación) desde el backend.
   const fetchCustomTerms = async () => {
     try {
       const res = await fetch(`${API_URL}/custom-terms`);
@@ -148,6 +168,7 @@ function App() {
     }
   };
 
+  // Guarda los términos personalizados editados por el usuario.
   const saveCustomTerms = async () => {
     setError("");
     setTermsMessage("");
@@ -179,11 +200,13 @@ function App() {
     }
   };
 
+  // Memo: información del modelo actualmente seleccionado.
   const selectedModelInfo = useMemo(
     () => models.find((m) => m.key === selectedModel),
     [models, selectedModel]
   );
 
+  // Construye la configuración de umbrales (automática/manual) para enviar a la API.
   const getConfig = () => {
     if (!manualMode) {
       return {
@@ -200,6 +223,7 @@ function App() {
     };
   };
 
+  // Envía un texto individual al endpoint /predict-text y almacena el resultado.
   const classifyText = async () => {
     setError("");
     setResult(null);
@@ -244,6 +268,7 @@ function App() {
     }
   };
 
+  // Envía un texto al endpoint /compare-models para evaluarlo con todos los modelos.
   const compareModels = async () => {
     setError("");
     setCompareResults([]);
@@ -282,6 +307,7 @@ function App() {
     }
   };
 
+  // Inspecciona un archivo Excel subido para detectar columnas, hojas y vista previa.
   const inspectFile = async (file, sheet = "") => {
     if (!file) return;
 
@@ -327,6 +353,7 @@ function App() {
     }
   };
 
+  // Limpia toda la sección de archivo.
   const handleClearFileSection = () => {
     setSelectedFile(null);
     setFileTextColumn("");
@@ -340,6 +367,7 @@ function App() {
     setFileInputKey((prev) => prev + 1);
   };
 
+  // Envía el archivo seleccionado al endpoint /predict-file para clasificación masiva.
   const classifyFile = async () => {
     setError("");
     setFileResultUrl("");
@@ -407,6 +435,7 @@ function App() {
     }
   };
 
+  // Rellena el textarea activo con un texto de ejemplo rápido.
   const fillExample = (value, tab = "individual") => {
     if (tab === "individual") {
       setActiveTab("individual");
@@ -417,12 +446,14 @@ function App() {
     setCompareText(value);
   };
 
+  // Devuelve la clase CSS del badge según la etiqueta de predicción.
   const predictionClass = (label) => {
     if (label === "anorexia") return "badge badge-danger";
     if (label === "control") return "badge badge-success";
     return "badge badge-warning";
   };
 
+  // Devuelve la clase CSS de color/tono según el tipo de modelo.
   const getModelToneClass = (modelKey = "") => {
     if (modelKey.includes("ensemble")) return "tone-recommended";
     if (modelKey.includes("cascade")) return "tone-advanced";
@@ -431,11 +462,14 @@ function App() {
     return "tone-classic";
   };
 
+  // Formatea un valor numérico de métrica a 4 decimales, o "N/A" si es nulo.
   const formatMetricValue = (value) => {
     if (value === null || value === undefined) return "N/A";
     return Number(value).toFixed(4);
   };
 
+  // Estructura: sidebar colapsable + contenido principal
+  // (hero, selector de modelos, tabs, formularios, resultados y gráficas).
   return (
     <div className="app-shell">
       <div className="app-layout">
@@ -1221,6 +1255,9 @@ function App() {
   );
 }
 
+// ─── SUBCOMPONENTE: ResultCard ────────────────────────────────────────────────
+// Tarjeta reutilizable que muestra el resultado de una predicción individual
+// o comparativa: etiqueta, probabilidad, confianza, métricas y texto procesado.
 function ResultCard({ result, compact = false, predictionClass, toneClass = "" }) {
   return (
     <section className={`result-card ${toneClass}`}>
@@ -1284,6 +1321,7 @@ function ResultCard({ result, compact = false, predictionClass, toneClass = "" }
   );
 }
 
+// Mini-card que muestra una métrica con etiqueta y valor (usada en grids).
 function Metric({ label, value }) {
   return (
     <div className="metric-card">
@@ -1293,6 +1331,7 @@ function Metric({ label, value }) {
   );
 }
 
+// Formatea una probabilidad a 4 decimales, o devuelve "N/A" si no tiene valor.
 function formatProbability(value) {
   if (value === null || value === undefined) return "N/A";
   return Number(value).toFixed(4);

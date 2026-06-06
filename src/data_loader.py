@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 10/05/2026
+# Archivo: src/data_loader.py
+# Descripción general: Funciones para cargar y validar el dataset principal desde
+#   archivos Excel. Verifica que existan las columnas requeridas (user_id, tweet_id,
+#   tweet_text, class) y que los datos cumplan la estructura mínima esperada.
+
 from pathlib import Path
 import pandas as pd
 

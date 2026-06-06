@@ -1,6 +1,14 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: tests/test_beto_llm_methods.py
+# Descripción general: Pruebas unitarias para los métodos híbridos (Cascada y Ensemble)
+# que combinan predicciones de BETO y modelos LLM. Verifica la correcta ponderación
+# de scores y la delegación de decisiones en casos ambiguos.
+
 import src.beto_llm_methods as combo
 
 
+# Verifica que el modelo en cascada no llame al LLM si BETO tiene alta confianza.
 def test_cascade_uses_beto_when_confident(monkeypatch):
     calls = {"llm": 0}
 
@@ -32,6 +40,7 @@ def test_cascade_uses_beto_when_confident(monkeypatch):
     assert calls["llm"] == 0
 
 
+# Verifica que el modelo en cascada llame al LLM si BETO tiene baja confianza (incierto).
 def test_cascade_uses_llm_when_ambiguous(monkeypatch):
     def fake_beto(*args, **kwargs):
         return {
@@ -65,6 +74,8 @@ def test_cascade_uses_llm_when_ambiguous(monkeypatch):
     assert abs(result["final_score"] - 0.88) < 1e-9
 
 
+# Verifica que el modelo ensemble calcule correctamente el score final ponderando
+# las predicciones de BETO (alpha) y el LLM (beta).
 def test_ensemble_combines_scores(monkeypatch):
     def fake_beto(*args, **kwargs):
         return {

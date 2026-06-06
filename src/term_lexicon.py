@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/term_lexicon.py
+# Descripción general: Define listas de términos base (riesgo, seguros, negaciones)
+# y maneja la carga/guardado de términos personalizados desde un archivo JSON.
+# Provee funciones para normalizar y combinar ambos conjuntos de términos.
+
 from __future__ import annotations
 
 import json
@@ -54,6 +61,7 @@ BASE_NEGATION_SAFE_TERMS = [
 ]
 
 
+# Limpia, pasa a minúsculas y elimina duplicados de una lista de términos.
 def _normalize_terms(terms: List[str]) -> List[str]:
     seen = set()
     normalized = []
@@ -73,6 +81,8 @@ def _normalize_terms(terms: List[str]) -> List[str]:
     return normalized
 
 
+# Verifica que exista el archivo JSON de términos personalizados. Si no existe,
+# lo crea con una estructura vacía por defecto.
 def ensure_custom_terms_file(path: Path = CUSTOM_TERMS_PATH) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -88,6 +98,8 @@ def ensure_custom_terms_file(path: Path = CUSTOM_TERMS_PATH) -> None:
         )
 
 
+# Carga y normaliza los términos adicionales definidos por el usuario desde
+# el archivo JSON de configuración.
 def load_custom_terms(path: Path = CUSTOM_TERMS_PATH) -> Dict[str, List[str]]:
     ensure_custom_terms_file(path)
 
@@ -103,6 +115,7 @@ def load_custom_terms(path: Path = CUSTOM_TERMS_PATH) -> Dict[str, List[str]]:
     }
 
 
+# Guarda listas de términos adicionales definidos por el usuario en el archivo JSON.
 def save_custom_terms(
     risk_terms_extra: List[str],
     positive_safe_terms_extra: List[str] | None = None,
@@ -123,6 +136,8 @@ def save_custom_terms(
     )
 
 
+# Retorna un diccionario con las listas finales de términos combinando
+# las listas base hardcodeadas con los términos personalizados del usuario.
 def get_term_sets(path: Path = CUSTOM_TERMS_PATH) -> Dict[str, List[str]]:
     custom = load_custom_terms(path)
 

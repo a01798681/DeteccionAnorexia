@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: tests/conftest.py
+# Descripción general: Archivo de configuración para pytest. Asegura que el
+# directorio raíz del proyecto se encuentre en el PYTHONPATH para poder importar
+# correctamente los módulos de la carpeta 'src' durante las pruebas.
+
 import sys
 from pathlib import Path
 

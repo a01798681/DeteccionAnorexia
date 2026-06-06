@@ -1,3 +1,10 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/llm_prompts.py
+# Descripción general: Construye y formatea el prompt dinámico que se enviará
+#   al modelo de lenguaje (LLM). Incluye instrucciones del sistema, formato de
+#   salida esperado (JSON) e inyecta ejemplos proporcionados para el few-shot prompting.
+
 def build_dynamic_prompt(text: str, examples: list[dict]) -> str:
     intro = """
 Eres un clasificador de textos para detectar señales asociadas a anorexia en publicaciones de redes sociales.

@@ -1,3 +1,12 @@
+# Author: Andrés Cabrera Alvarado - A01798681
+# Fecha de creación: 05/06/2026
+# Archivo: src/model_runtime.py
+# Descripción general: Módulo de ejecución que abstrae la carga e inferencia
+# de todos los tipos de modelos (Clásicos, BETO, Ensembles y Cascada).
+# Maneja la carga del modelo, inicialización de dependencias (BETOEmbedder,
+# LLM cache) y expone una API unificada para predecir textos individuales
+# o DataFrames completos.
+
 from __future__ import annotations
 
 import json
@@ -23,6 +32,7 @@ RESULTS_DIR = ROOT_DIR / "results"
 LLM_CACHE_PATH = RESULTS_DIR / "llm_cache.json"
 
 
+# Carga la caché del LLM (JSON) desde el disco para no repetir consultas idénticas.
 def load_llm_cache(cache_path: Path):
     if cache_path.exists():
         try:
@@ -32,11 +42,14 @@ def load_llm_cache(cache_path: Path):
     return {}
 
 
+# Guarda la caché del LLM al disco de forma segura.
 def save_llm_cache(cache: dict, cache_path: Path):
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+# Construye un callback que clasifica un texto usando el LLM
+# pero aplicando la lógica de caché para ahorrar llamadas a la API.
 def build_cached_llm_callback(cache_path: Path = LLM_CACHE_PATH):
     cache = load_llm_cache(cache_path)
 
@@ -50,6 +63,8 @@ def build_cached_llm_callback(cache_path: Path = LLM_CACHE_PATH):
     return callback
 
 
+# Normaliza el diccionario de salida de los modelos combinados (Ensemble/Cascada)
+# para que tengan una estructura consistente con la aplicación y la UI.
 def _normalize_combo_result(raw: Dict[str, Any], config: Dict[str, Any]) -> Dict[str, Any]:
     return {
         "input_text": raw.get("input_text"),
@@ -71,6 +86,8 @@ def _normalize_combo_result(raw: Dict[str, Any], config: Dict[str, Any]) -> Dict
     }
 
 
+# Carga y ensambla todas las piezas requeridas para ejecutar un modelo específico.
+# Retorna un diccionario con la configuración, el clasificador, el embedder y el callback del LLM.
 def load_runtime_bundle(model_key: str):
     config = get_model_config(model_key)
 
@@ -110,6 +127,8 @@ def load_runtime_bundle(model_key: str):
     raise ValueError(f"Tipo de modelo no soportado: {config['type']}")
 
 
+# Realiza la predicción de un solo texto utilizando el bundle.
+# Enruta la predicción a la función correspondiente según el tipo de modelo.
 def predict_single_with_runtime(
     runtime_bundle: Dict[str, Any],
     text: str,
@@ -166,6 +185,9 @@ def predict_single_with_runtime(
     return result
 
 
+# Realiza predicciones sobre una columna de texto en un DataFrame.
+# Enruta la predicción a la función de batch correspondiente según el modelo,
+# o itera utilizando 'predict_single_with_runtime' si es un modelo híbrido.
 def predict_dataframe_with_runtime(
     runtime_bundle: Dict[str, Any],
     df,
