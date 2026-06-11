@@ -1,4 +1,6 @@
 # Author: Andrés Cabrera Alvarado - A01798681
+# Author: Andrea Elizabeth Roman Varela - A01749760
+# Author: Pablo Alonso Galván - A01748288
 # Fecha de creación: 05/06/2026
 # Archivo: src/llm_smoke_test.py
 # Descripción general: Script de prueba rápida (smoke test) para verificar

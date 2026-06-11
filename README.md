@@ -2,8 +2,8 @@
 
 **Autores:** 
 - Andrés Cabrera Alvarado - A01798681
-- Andrea
-- Pablo
+- Andrea Elizabeth Roman Varela - A01749760
+- Pablo Alonso Galván - A01748288
 
 **Proyecto:** Detección de señales asociadas a anorexia en textos de redes sociales  
 **Estado actual:** Fase 3, con modelos clásicos, BETO, LLM y aplicación web React + FastAPI.

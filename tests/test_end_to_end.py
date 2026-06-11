@@ -1,4 +1,6 @@
 # Author: Andrés Cabrera Alvarado - A01798681
+# Author: Andrea Elizabeth Roman Varela - A01749760
+# Author: Pablo Alonso Galván - A01748288
 # Fecha de creación: 05/06/2026
 # Archivo: tests/test_end_to_end.py
 # Descripción general: Pruebas end-to-end ligeras que validan el flujo completo de entrenamiento (main.py / train.py) 

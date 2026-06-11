@@ -1,4 +1,6 @@
 # Author: Andrés Cabrera Alvarado - A01798681
+# Author: Andrea Elizabeth Roman Varela - A01749760
+# Author: Pablo Alonso Galván - A01748288
 # Fecha de creación: 04/06/26
 # Archivo: main.py
 # Descripción general: ejecuta el flujo principal de entrenamiento y evaluación

@@ -1,4 +1,6 @@
 # Author: Andrés Cabrera Alvarado - A01798681
+# Author: Andrea Elizabeth Roman Varela - A01749760
+# Author: Pablo Alonso Galván - A01748288
 # Fecha de creación: 10/05/2026
 # Archivo: src/data_loader.py
 # Descripción general: Funciones para cargar y validar el dataset principal desde

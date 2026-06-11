@@ -1,4 +1,6 @@
 # Author: Andrés Cabrera Alvarado - A01798681
+# Author: Andrea Elizabeth Roman Varela - A01749760
+# Author: Pablo Alonso Galván - A01748288
 # Fecha de creación: 05/06/2026
 # Archivo: src/llm_prompts.py
 # Descripción general: Construye y formatea el prompt dinámico que se enviará

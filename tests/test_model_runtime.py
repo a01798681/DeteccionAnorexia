@@ -1,4 +1,6 @@
 # Author: Andrés Cabrera Alvarado - A01798681
+# Author: Andrea Elizabeth Roman Varela - A01749760
+# Author: Pablo Alonso Galván - A01748288
 # Fecha de creación: 05/06/2026
 # Archivo: tests/test_model_runtime.py
 # Descripción general: Pruebas unitarias para el entorno de ejecución (runtime) que maneja los modelos clásicos y de BETO estándar. 
