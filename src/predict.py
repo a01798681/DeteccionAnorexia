@@ -130,7 +130,7 @@ def predict_text(
             "vocab_coverage": vocab_coverage
         }
 
-    if vocab_coverage < 0.20 and not has_risk_terms:
+    if vocabulary and vocab_coverage < 0.20 and not has_risk_terms:
         return {
             "input_text": text,
             "cleaned_text": cleaned,

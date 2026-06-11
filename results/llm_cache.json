@@ -10505,5 +10505,26 @@
     "reason": "El texto muestra señales de restricción alimentaria extrema y preocupación corporal de alto riesgo.",
     "model_id": "meta-llama/Llama-3.3-70B-Instruct",
     "raw_response": "{\"label\":\"anorexia\",\"risk_score\":0.99,\"reason\":\"El texto muestra señales de restricción alimentaria extrema y preocupación corporal de alto riesgo.\"}"
+  },
+  "me siento muy inflamada hoy": {
+    "label": "control",
+    "risk_score": 0.08,
+    "reason": "Clasificación mock: no se detectaron términos de riesgo.",
+    "model_id": "mock",
+    "raw_response": "mock_response"
+  },
+  "me siento inflamada hoy": {
+    "label": "control",
+    "risk_score": 0.08,
+    "reason": "Clasificación mock: no se detectaron términos de riesgo.",
+    "model_id": "mock",
+    "raw_response": "mock_response"
+  },
+  "hoy me siento inflamada": {
+    "label": "control",
+    "risk_score": 0.08,
+    "reason": "Clasificación mock: no se detectaron términos de riesgo.",
+    "model_id": "mock",
+    "raw_response": "mock_response"
   }
 }

@@ -304,7 +304,8 @@ body,
 .card h2,
 .card h3,
 .card h4 {
-  margin-top: 0;
+  margin-top: 14px;
+  margin-bottom: 8px;
 }
 
 .helper-text {
@@ -404,6 +405,9 @@ body,
   cursor: pointer;
   transition: var(--transition);
   font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .model-chip:hover,
@@ -556,6 +560,7 @@ textarea {
   display: flex;
   gap: 12px;
   margin-top: 18px;
+  margin-bottom: 15px;
 }
 
 /* GRID */
@@ -591,12 +596,11 @@ textarea {
   color: var(--text);
 }
 
-/* 9) TARJETAS DE RESULTADOS CON COLOR POR MODELO */
 .compare-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
 }
 
 .result-card {
@@ -604,8 +608,31 @@ textarea {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 18px;
+  overflow: hidden;
+}
+
+.result-card .metrics-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metric-card {
   min-width: 0;
-  transition: var(--transition);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.metric-card strong,
+.metric-card span,
+.result-card p,
+.result-card h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 950px) {
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .result-card:hover {
@@ -660,7 +687,8 @@ textarea {
 }
 
 .tone-classic {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 77, 202, 0.25);
+  background: linear-gradient(180deg, rgba(255, 77, 202, 0.06), rgba(26, 31, 44, 0.96));
 }
 
 .badge {

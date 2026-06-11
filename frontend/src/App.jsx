@@ -635,22 +635,10 @@ function App() {
         </aside>
 
         <main className="main-content">
-          <header className="topbar">
-            <div className="topbar-left">
-              <div className="topbar-icon">
+          <section className="hero-card">
+            <div className="topbar-icon">
                 <Brain size={22} />
               </div>
-              <div>
-                <h1 className="topbar-title">Detector de desórdenes alimenticios</h1>
-                <p className="topbar-subtitle">
-                  Clasificación de textos, archivos y comparación entre modelos.
-                </p>
-              </div>
-            </div>
-          </header>
-
-          <section className="hero-card">
-            <div className="hero-icon">🧠</div>
             <div>
               <h2 className="hero-title">Sistema de análisis de riesgo alimenticio</h2>
               <p className="hero-subtitle">
@@ -1009,14 +997,13 @@ function App() {
                     <ResponsiveContainer width="100%" height={320}>
                       <BarChart data={fileResults.summary}>
                         <defs>
-                          {fileResults.summary.map((row, index) => {
-                            const pair =
-                              DISTRIBUTION_GRADIENTS[row.clase_predicha] || ["#0F6C7E", "#22B7D7"];
+                          {compareResults.map((item, index) => {
+                            const pair = getModelGradient(item.model_key);
 
                             return (
                               <linearGradient
-                                key={`fileGrad-${index}`}
-                                id={`fileGrad-${index}`}
+                                key={`compareGrad-${index}`}
+                                id={`compareGrad-${index}`}
                                 x1="0"
                                 y1="0"
                                 x2="0"
@@ -1198,6 +1185,13 @@ function App() {
                             background: "#111827",
                             border: "1px solid #2A3655",
                             borderRadius: "12px",
+                            color: "#EAF2FF",
+                          }}
+                          labelStyle={{
+                            color: "#EAF2FF",
+                            fontWeight: 600,
+                          }}
+                          itemStyle={{
                             color: "#EAF2FF",
                           }}
                           cursor={{ fill: "rgba(255,255,255,0.04)" }}
